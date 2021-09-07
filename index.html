@@ -25,33 +25,29 @@
 </head>
 
 <body>
+    <div class="navigation">
+      <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
-  <header>
-    <div class="navbar">
-      <!-- <a href="#" class="navbar-brand">
-        <span></span>
-        <span></span>
-      </a> -->
-      <div class="navigation">
-        <!-- <input class="form-check-input" type="checkbox" id="checkboxNoLabel"> -->
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
-        <label for="navi-toggle" class="navigation__button">
+      <label for="navi-toggle" class="navigation__button">
           <span class="navigation__icon">&nbsp;</span>
-        </label>
+      </label>
 
-        <div class="navigation__background">&nbsp;</div>
+      <div class="navigation__background">&nbsp;</div>
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link">Work</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">About Us</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
-              </ul>
-        </nav>
+      <nav class="navigation__nav h-100 position-fixed top-0 end-0">
+          <ul class="navigation__list text-uppercase h-100 w-100 d-flex justify-content-around align-items-center p-0 m-0 list-unstyled">
+              <li class="navigation__item"><a href="#" class="navigation__link">Work</a></li>
+              <li class="navigation__item"><a href="#" class="navigation__link">About Us</a></li>
+              <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
+          </ul>
+      </nav>
+  </div>
+
+  <!-- <header class="header container">
+    <div class="header-logo-box">
+      <img src="img/logo.svg" class="img-fluid" alt="logo">
     </div>
-    </div>
-  </header>
+  </header> -->
 
 
   <!-- Bootstrap Scripts -->

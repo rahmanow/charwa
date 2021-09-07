@@ -90,18 +90,19 @@ textarea {
     display: none;
   }
   .navigation__button {
-    background-color:#E94F3C;
+    background-color:#fff;
     height: 5rem;
     width: 5rem;
     position: fixed;
-    top: 3rem;
-    right: 4rem;
+    top: 1rem;
+    right: 3rem;
     border-radius: 50%;
     z-index: 2000;
     text-align: center;
     padding: 2.2rem 1.8rem 0 0;
     cursor: pointer;
     transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+    
 
   }
    .navigation__background {
@@ -109,17 +110,21 @@ textarea {
     width: 4rem;
     border-radius: 50%;
     position: fixed;
-    top: 3.5rem;
-    right: 4.5rem;
+    top: 1.5rem;
+    right: 3.5rem;
     background-color: #1F454F;
     z-index: 1000;
     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
-
    }
 
    .navigation__checkbox:checked ~ .navigation__background {
     transform: scale(80);
    }
+
+   .navigation__checkbox:checked ~ .navigation__nav {
+    opacity: 1;
+    width: 100%;
+}
    
    .navigation__checkbox:checked ~ .navigation__button {
     background-color: #1F454F;
@@ -148,15 +153,6 @@ textarea {
     .navigation__icon::after { top: .3rem; }
 
 
-.navigation__button:hover .navigation__icon::before {
-    background-color: #fff;
-}
-
-.navigation__button:hover .navigation__icon::after {
-  background-color: #fff;
- 
-}
-
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
     top: 0;
     transform: rotate(135deg);
@@ -172,15 +168,34 @@ textarea {
 
 
 .navigation__nav {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 1500;
-/* 
   opacity: 0;
-  width: 0; */
-  transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: 0;
+  transition: all .8s cubic-bezier(.58,.04,.41,.93);
+}
+
+.navigation__item .navigation__link:link,
+.navigation__item .navigation:visited {
+      font-size: 2.2rem;
+      line-height: 36px;
+      font-weight: 600;
+      color: #FBFAF1;
+      text-decoration: none;
+      transition: all .4s;
+  }
+  
+  /* .navigation:hover,
+  .navigation:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+  } */
+
+
+
+  .hheader-logo-box{
+    position: absolute;
+    top: 1rem;
 }
 
 
