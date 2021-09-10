@@ -205,12 +205,8 @@ textarea {
   font-size: .8rem;
   max-height: 27.5rem;
   overflow: hidden;
-}
-
-.card-img {
-  max-height: 27.5rem;
-  transform: scale(1);
-  transition: transform .5s ease-out;
+  background-color: black;
+  border-radius: 12px;
 }
 
 .card-text-1 {
@@ -219,6 +215,7 @@ textarea {
   top: -10%;
   left: 4%;
   transition: all .3s ease-out;
+  backface-visibility: hidden;
 }
 
 .card-item {
@@ -235,6 +232,7 @@ textarea {
   color: #FBFAF1;
   font-size: .8rem;
   border-radius: 13px;
+  backface-visibility: hidden;
   width: min-content;
   padding: .1rem 2rem;
   position: absolute;
@@ -253,8 +251,15 @@ textarea {
   opacity: 0;
   top: 15%;
 }
-
+.card-img {
+  opacity: .7;
+  width: 100%;
+  height: auto;
+  transform: scale(1.15);
+  transition: transform .5s, opacity .5s;
+}
 .card:hover .card-img {
+ opacity: 1;
  transform: scale(1.03);
 }
 
@@ -264,6 +269,91 @@ textarea {
   color: #1F454F;
 }
 
+
+
+#our-services .card {
+  height: 28rem;
+  color: #FBFAF1;
+  border-radius: 0;
+}
+.card-list {
+  padding-top: 23%;
+}
+.card-1 {
+  background-color:  #FF6F3D;
+}
+
+.card-2 {
+  background-color: #1F454F;
+}
+
+.card-3 {
+  background-color: #F7BC13;
+}
+
+.card-4 {
+  background-color: #3E503C;
+}
+
+
+.fromUp {
+  animation: fromUp 1.3s ease-in-out;
+}
+
+
+@keyframes fromUp {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card-team {
+  font-family: "Mitr", sans-serif;
+}
+
+.team-img {
+  background-color: #A5C5C3;
+  height: 14rem;
+  width: 14rem;
+  padding: 8%;
+}
+.card-team .card-text {
+  font-weight: 300;
+}
+
+.circle {
+  border: 1px solid #FBFAF1;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+.linkedin {
+  background-color: #2867B2;
+}
+.github {
+  background-color: #231E1B;
+}
+.twitter {
+  background-color: #1DA1F2;
+}
+.instagram {
+  background-color: #F00073;
+}
+.vimeo {
+  background-color: #1AB7EA;
+}
+.dribble {
+  background-color: #EA4C89;
+}
+.team-icon {
+  color: #FBFAF1;
+}
 
 /* ==========================================================================
    Helper classes
