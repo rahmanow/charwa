@@ -16,6 +16,11 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
+  <!-- Slick Css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+  
+
   <!-- Fontawesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
@@ -32,38 +37,41 @@
 </head>
 
 <body>
-    <div class="navigation">
-      <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
-      <label for="navi-toggle" class="navigation__button">
-          <span class="navigation__icon">&nbsp;</span>
-      </label>
-
-      <div class="navigation__background">&nbsp;</div>
-
-      <nav class="navigation__nav h-100 position-fixed top-0 end-0">
-          <ul class="navigation__list text-uppercase h-100 w-100 d-flex justify-content-around align-items-center p-0 m-0 list-unstyled">
-              <li class="navigation__item"><a href="#" class="navigation__link">Work</a></li>
-              <li class="navigation__item"><a href="#" class="navigation__link">About Us</a></li>
-              <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
-          </ul>
-      </nav>
-  </div>
-
-  <header class="header container my-4 pb-4">
-      <a class="navbar-brand" href="#">
-        <img src="img/logo.svg" alt="charwa-logo">
+  <header class="header container mt-4 pb-4 d-flex justify-content-between align-items-center">
+    <div> 
+     <a class="navbar-brand" href="#">
+        <img class="logo" src="img/logo.svg" alt="charwa-logo">
        <span class="brand-slogan d-none">
         We travel, inspired, <br> design and develop</span>
       </a>
+    </div>
 
-      <img src="img/showcase-video.png" class="img-fluid mt-4 w-100" alt="video">
+    <div class="navigation">
+      <input type="checkbox" class="navigation-checkbox" id="navi-toggle">
+
+      <label for="navi-toggle" class="navigation-button">
+          <span class="navigation-icon">&nbsp;</span>
+      </label>
+
+      <div class="navigation-background">&nbsp;</div>
+
+      <nav class="navigation-nav position-fixed top-0 end-0">
+          <ul class="navigation-list text-uppercase d-flex flex-column flex-lg-row justify-content-around align-items-center p-0 m-0 h-100 w-100 list-unstyled">
+              <li class="navigation-item"><a href="#" class="navigation-link">Work</a></li>
+              <li class="navigation-item"><a href="#" class="navigation-link">About Us</a></li>
+              <li class="navigation-item"><a href="#" class="navigation-link">Contact</a></li>
+          </ul>
+      </nav>
     </div>
   </header>
 
-  <section id="made-by-charwa">
+  <section class="container">
+    <img src="img/showcase-video.png" class="img-fluid w-100" alt="video">
+  </section>
+
+  <section id="made-by-charwa" class="pt-2 pt-md-4 mt-2 mt-md-4">
     <div class="container">
-    <h2 class="text-uppercase my-4 py-4">Made By Charwa</h2>
+    <h2 class="text-uppercase py-2 py-md-4 my-2 my-md-4 text-center text-sm-start">Made By Charwa</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card border-0 text-white">
@@ -95,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col d-none d-md-inline">
         <div class="card border-0">
           <img src="img/made-by-charwa-foto-4.png" class="card-img" alt="...">
           <div class="card-img-overlay">
@@ -104,7 +112,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col d-none d-md-inline">
         <div class="card border-0">
           <img src="img/made-by-charwa-foto-5.png" class="card-img" alt="...">
           <div class="card-img-overlay">
@@ -113,7 +121,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col d-none d-md-inline">
         <div class="card border-0">
           <img src="img/made-by-charwa-foto-6.png" class="card-img" alt="...">
           <div class="card-img-overlay">
@@ -127,86 +135,103 @@
   </div>
   </section>
 
-
-  <section id="our-services" class="pt-4 mt-4">
+  
+  <section id="clients-paterns" class="pt-2 pt-md-4 mt-2 mt-md-4">
     <div class="container">
-      <h2 class="text-uppercase my-4 py-4">Our Services</h2>
-    </div>
-   <div class="container-fluid">
-    <div class="row">
-      <div class="col col-md-3 col-sm-6 p-0">
-        <div class="card text-center card-1 py-4">
-          <div class="card-body py-4 d-flex flex-column">
-            <div>
-            <img src="img/edit-contrast.png" alt="icon edit contrast">
-            <h2 class="card-text pt-2">Design</h2>
-           </div>
-            <ul class="list-unstyled card-list lh-base">
-              <li><h4>Ui/Ux</h4></li>
-              <li><h4>Web Design</h4></li>
-              <li><h4>Mobil Design</h4></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col col-md-3 col-sm-6 p-0">
-        <div class="card text-center card-2 py-4">
-          <div class="card-body py-4 d-flex flex-column">
-            <div>
-            <img src="img/code.png" alt="icon code">
-            <h2 class="card-text pt-2">Development</h2>
-           </div>
-            <ul class="list-unstyled card-list lh-base">
-              <li><h4>Frontend</h4></li>
-              <li><h4>Backend</h4></li>
-              <li><h4>Wordpress</h4></li>
-              <li><h4>Prestashop</h4></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col col-md-3 col-sm-6 p-0">
-        <div class="card text-center card-3 py-4 border-0">
-          <div class="card-body py-4 d-flex flex-column">
-            <div>
-            <img src="img/controller.png" alt="icon controller">
-            <h2 class="card-text pt-2">Filmmaking</h2>
-           </div>
-            <ul class="list-unstyled card-list lh-base">
-              <li><h4>Photoshoot</h4></li>
-              <li><h4>Advertisment Videos</h4></li>
-              <li><h4>Behind The Scenes</h4></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col col-md-3 col-sm-6 p-0">
-        <div class="card text-center card-4 py-4 border-0">
-          <div class="card-body py-4 d-flex flex-column">
-            <div>
-            <img src="img/dark-mode.png" alt="icon darkmode">
-            <h2 class="card-text pt-2">Branding</h2>
-           </div>
-            <ul class="list-unstyled card-list lh-base">
-              <li><h4>Logo</h4></li>
-              <li><h4>Tagline</h4></li>
-              <li><h4>Brand Identity</h4></li>
-            </ul>
-          </div>
-        </div>
+      <h2 class="text-uppercase py-2 py-md-4 my-2 my-md-4 text-center text-sm-start">Trusted by our clients and partners</h2>
+      <div class="client-slider">
+        <div class="item"><img src="img/slider-1.png" alt="" class="img-fluid mx-auto mt-1"></div>
+        <div class="item"><img src="img/slider-2.png" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/slider-3.png" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/slider-4.png" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/slider-3.png" alt="" class="img-fluid mx-auto"></div>
       </div>
     </div>
-   </div>
   </section>
 
-  <section id="team" class="py-4 my-4">
-   <div class="container">
-    <h2 class="text-uppercase my-4 py-4">The Team</h2>
-    <div class="row">
-      <div class="col col-md-3">
-        <div class="card-team text-center px-4">
+
+
+  <section id="our-services" class="pt-2 pt-md-4 mt-2 mt-md-4">
+    <div class="container">
+      <h2 class="text-uppercase py-2 py-md-4 my-2 my-md-4 text-center text-sm-start">Our Services</h2>
+     </div>
+    <div class="container-fluid p-0">
+      <div class="row row-cols-2 row-cols-md-4 mx-2 mx-sm-0">
+        <div class="col p-0">
+          <div class="card text-center card-1 py-4">
+            <div class="card-body py-4 px-0 d-flex flex-column">
+              <div>
+              <img src="img/edit-contrast.png" alt="icon edit contrast">
+              <h2 class="card-text pt-2">Design</h2>
+             </div>
+              <ul class="list-unstyled card-list lh-base">
+                <li><h4>Ui/Ux</h4></li>
+                <li><h4>Web Design</h4></li>
+                <li><h4>Mobil Design</h4></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="card text-center card-2 py-4">
+            <div class="card-body py-4 px-0 d-flex flex-column">
+              <div>
+              <img src="img/code.png" alt="icon code">
+              <h2 class="card-text pt-2">Development</h2>
+             </div>
+              <ul class="list-unstyled card-list lh-base">
+                <li><h4>Frontend</h4></li>
+                <li><h4>Backend</h4></li>
+                <li><h4>Wordpress</h4></li>
+                <li><h4>Prestashop</h4></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="card text-center card-3 py-4 border-0">
+            <div class="card-body py-4 px-0 d-flex flex-column">
+              <div>
+              <img src="img/controller.png" alt="icon controller">
+              <h2 class="card-text pt-2">Filmmaking</h2>
+             </div>
+              <ul class="list-unstyled card-list lh-base">
+                <li><h4>Photoshoot</h4></li>
+                <li><h4>Advertisment Videos</h4></li>
+                <li><h4>Behind The Scenes</h4></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="card text-center card-4 py-4 border-0">
+            <div class="card-body py-4 px-0 d-flex flex-column">
+              <div>
+              <img src="img/dark-mode.png" alt="icon darkmode">
+              <h2 class="card-text pt-2">Branding</h2>
+             </div>
+              <ul class="list-unstyled card-list lh-base">
+                <li><h4>Logo</h4></li>
+                <li><h4>Tagline</h4></li>
+                <li><h4>Brand Identity</h4></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section id="team" class="py-2 py-md-4 my-2 my-md-4">
+  <div class="container">
+    <h2 class="text-uppercase py-2 py-md-4 my-2 my-md-4 text-center text-sm-start">The Team</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col p-0 mb-2">
+        <div class="card-team text-center">
           <img src="img/azat_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h5 class="card-title fw-normal">Azat Rahmanov</h5>
             <p class="card-text mb-1">Full Stack Developer</p>
             <p class="card-text">Azat@charwa.biz</p>
@@ -219,10 +244,10 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-3">
-        <div class="card-team text-center px-4">
+      <div class="col p-0 mb-2">
+        <div class="card-team text-center">
           <img src="img/sevda_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h5 class="card-title fw-normal">Sevda Kanturk</h5>
             <p class="card-text mb-1">Front-End Developer</p>
             <p class="card-text">sevda@charwa.biz</p>
@@ -235,10 +260,10 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-3">
-        <div class="card-team text-center px-4">
+      <div class="col p-0 mb-2">
+        <div class="card-team text-center">
           <img src="img/kakajan_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h5 class="card-title fw-normal">Kakajan Owezow</h5>
             <p class="card-text mb-1">Videographer-Photographer</p>
             <p class="card-text">kakajan@charwa.biz</p>
@@ -251,10 +276,10 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-3">
-        <div class="card-team text-center px-4">
+      <div class="col p-0 mb-2">
+        <div class="card-team text-center">
           <img src="img/sona_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h5 class="card-title fw-normal">Sona Charyyeva</h5>
             <p class="card-text mb-1">Ui/Ux Designer</p>
             <p class="card-text">sona@charwa.biz</p>
@@ -268,15 +293,36 @@
         </div>
       </div>
     </div>
-   </div>
+  </div>
+</section>
+
+
+
+  <section id="footer" class="py-2 py-md-4 mt-2 mt-md-4">
+    <div class="container text-center py-4">
+      <p class="text-capitalize mb-1 footer-heading">It’s now time to meet you</p>
+      <p class="footer-text">Have a project or want to talk? Say <a href="#">hi@charwa.biz</a></p>
+      <ul class="list-inline my-4 my-md-5">
+        <li class="list-inline-item"><div class="circle d-flex justify-content-center align-items-center"><a href="#"><i class="fab fa-linkedin-in team-icon"></i></a></div></li>
+        <li class="list-inline-item"><div class="circle d-flex justify-content-center align-items-center"><a href="#"><i class="fab fa-youtube team-icon"></i></a></div></li>
+        <li class="list-inline-item"><div class="circle d-flex justify-content-center align-items-center"><a href="#"><i class="fab fa-instagram team-icon"></i></a></div></li>
+        <li class="list-inline-item"><div class="circle d-flex justify-content-center align-items-center"><a href="#"><i class="fab fa-dribbble team-icon"></i></a></div></li>
+      </ul>
+      <h6>&copy; 2021 Charwa</h6>
+    </div>
   </section>
  
 
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
   <!-- Bootstrap Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+  
+  <!-- Slick-Js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
   <script src="js/vendor/modernizr-3.11.7.min.js"></script>
   <script src="js/app.js"></script>
 

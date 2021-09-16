@@ -86,22 +86,38 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+   :root {
+    --main-bg-color: #FBFAF1;
+    --dark-green-color: #1F454F;
+    --logo-red-color: #E94F3C;
+
+   }
+
+
   body {
-    background-color: #FBFAF1;
+    background-color: var(--main-bg-color);
     font-family: "Josefin Sans";
     font-style: italic;
   }
-   /* -------NAVIGATION--------- */
-  .navigation__checkbox {
+
+
+   /* ----------NAVIGATION-----------*/
+
+   .navigation {
+     position: relative;
+   }
+
+  .navigation-checkbox {
     display: none;
   }
-  .navigation__button {
-    background-color:#FBFAF1;
+  .navigation-button {
+    background-color: var(--main-bg-color);
     height: 5rem;
     width: 5rem;
     position: absolute;
-    top: .5rem;
-    right: 3rem;
+    top: -2.5rem;
+    right: -1.1rem;
     border-radius: 50%;
     z-index: 2000;
     text-align: center;
@@ -109,40 +125,73 @@ textarea {
     cursor: pointer;
     transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
     
-
   }
-   .navigation__background {
-    height: 4rem;
-    width: 4rem;
+   .navigation-background {
+    height: 3rem;
+    width: 3rem; 
     border-radius: 50%;
     position: absolute;
-    top: 1rem;
-    right: 3.5rem;
-    background-color: #1F454F;
+    top: -1.2rem;
+    right: -.1rem;
+    background-color: var(--dark-green-color);
     z-index: 1000;
     transition: transform .8s cubic-bezier(0.86, 0, 0.30, 1);
    }
 
-   .navigation__checkbox:checked ~ .navigation__background {
-    transform: scale(150);
+   .navigation-nav {
+    background-color: var(--dark-green-color);
+    height: 100vh;
+    padding: 15% 0;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.86, 0, 0.30, 1);
+
    }
 
-   .navigation__checkbox:checked ~ .navigation__nav {
+   .navigation-item .navigation-link {
+    color: var(--main-bg-color);
+  }
+
+.navigation-item .navigation-link:link,
+.navigation-item .navigation-link:visited {
+      font-size: 2.2rem;
+      line-height: 36px;
+      font-weight: 600;
+      color: var(--main-bg-color);
+      text-decoration: none;
+      transition: all .4s;
+  }
+
+
+  
+  /* .navigation:hover,
+  .navigation:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+  } */
+
+   .navigation-checkbox:checked ~ .navigation-background {
+     transform: scale(80);
+   }
+
+   .navigation-checkbox:checked ~ .navigation-nav {
     opacity: 1;
     width: 100%;
-}
+   }
    
-   .navigation__checkbox:checked ~ .navigation__button {
-    background-color: #1F454F;
+   .navigation-checkbox:checked ~ .navigation-button {
+    background-color: var(--dark-green-color);
    }
 
-   .navigation__icon {
+   .navigation-icon {
     position: relative;
     margin: auto 1rem;
    }
     
-    .navigation__icon::before,
-    .navigation__icon::after {
+    .navigation-icon::before,
+    .navigation-icon::after {
         width: 2rem;
         height: 2px;
         background-color: #000;
@@ -155,17 +204,17 @@ textarea {
        
     }
 
-    .navigation__icon::before { top: -.3rem; }
-    .navigation__icon::after { top: .3rem; }
+    .navigation-icon::before { top: -.3rem; }
+    .navigation-icon::after { top: .3rem; }
 
 
-.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+.navigation-checkbox:checked + .navigation-button .navigation-icon::before {
     top: 0;
     transform: rotate(135deg);
     background-color: #fff;
 }
 
-.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+.navigation-checkbox:checked + .navigation-button .navigation-icon::after {
     top: 0;
     transform: rotate(-135deg);
     background-color: #fff;
@@ -173,35 +222,9 @@ textarea {
 
 
 
-.navigation__nav {
-  z-index: 1500;
-  opacity: 0;
-  width: 0;
-  transition: all .8s cubic-bezier(.58,.04,.41,.93);
+ /* ----------SECTION: MADE BY CHARWA-----------*/
 
-}
-.navigation__item .navigation__link {
-  color: #FBFAF1;
-}
-
-.navigation__item .navigation__link:link,
-.navigation__item .navigation:visited {
-      font-size: 2.2rem;
-      line-height: 36px;
-      font-weight: 600;
-      color: #FBFAF1;
-      text-decoration: none;
-      transition: all .4s;
-  }
-  
-  /* .navigation:hover,
-  .navigation:active {
-      background-position: 100%;
-      color: $color-primary;
-      transform: translateX(1rem);
-  } */
-
-.card {
+#made-by-charwa .card {
   font-size: .8rem;
   max-height: 27.5rem;
   overflow: hidden;
@@ -219,17 +242,16 @@ textarea {
 }
 
 .card-item {
-  border: 1px solid #FBFAF1;
-  color: #FBFAF1;
+  border: 1px solid var(--main-bg-color);
+  color: var(--main-bg-color);
   font-size: .8rem;
   border-radius: 13px;
   width: min-content;
   padding: .1rem 2rem;
 }
-
 .card-text-2 {
-  border: 1px solid #FBFAF1;
-  color: #FBFAF1;
+  border: 1px solid var(--main-bg-color);
+  color: var(--main-bg-color);
   font-size: .8rem;
   border-radius: 13px;
   backface-visibility: hidden;
@@ -240,13 +262,10 @@ textarea {
   left: 4%;
   transition: all .3s ease-out;
 }
- 
-
 .card:hover .card-text-1 {
   top: 4%;
   opacity: 1;
 }
-
 .card:hover .card-text-2 {
   opacity: 0;
   top: 15%;
@@ -256,7 +275,7 @@ textarea {
   width: 100%;
   height: auto;
   transform: scale(1.15);
-  transition: transform .5s, opacity .5s;
+  transition: transform .5s ease-out, opacity .5s ease-out;
 }
 .card:hover .card-img {
  opacity: 1;
@@ -266,14 +285,29 @@ textarea {
 .show-all-project-link:link,
 .show-all-project-link:visited,
 .show-all-project-link:active {
-  color: #1F454F;
+  color: var(--dark-green-color);
 }
 
 
 
+
+
+/* ----------SECTION: CLIENTS AND PARTNERS-----------*/
+
+.client-slider {
+  background-color: var(--dark-green-color);
+  padding: 8rem 5rem;
+}
+
+
+
+
+
+/* ----------SECTION: OUR SERVICES-----------*/
+
 #our-services .card {
   height: 28rem;
-  color: #FBFAF1;
+  color: var(--main-bg-color);
   border-radius: 0;
 }
 .card-list {
@@ -284,7 +318,7 @@ textarea {
 }
 
 .card-2 {
-  background-color: #1F454F;
+  background-color: var(--dark-green-color);
 }
 
 .card-3 {
@@ -297,7 +331,7 @@ textarea {
 
 
 .fromUp {
-  animation: fromUp 1.3s ease-in-out;
+  animation: fromUp 1.5s ease-in-out;
 }
 
 
@@ -312,6 +346,12 @@ textarea {
     opacity: 1;
   }
 }
+
+
+
+
+
+/* ----------SECTION: THE TEAM-----------*/
 
 .card-team {
   font-family: "Mitr", sans-serif;
@@ -328,7 +368,7 @@ textarea {
 }
 
 .circle {
-  border: 1px solid #FBFAF1;
+  border: 1px solid var(--main-bg-color);
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
@@ -352,8 +392,84 @@ textarea {
   background-color: #EA4C89;
 }
 .team-icon {
-  color: #FBFAF1;
+  color: var(--main-bg-color);
 }
+
+
+
+
+
+
+/* ----------SECTION: FOOTER-----------*/
+
+#footer {
+  background-color: var(--dark-green-color);
+  color: var(--main-bg-color);
+}
+
+#footer .footer-heading {
+ font-size: 3.25rem;
+}
+
+#footer .footer-text {
+  font-size: 1.75rem;
+ }
+
+#footer .circle {
+  border: 1px solid var(--dark-green-color);
+  background-color: var(--main-bg-color);
+}
+
+#footer .team-icon {
+  color: var(--dark-green-color);
+  padding-top: 2px;
+}
+
+#footer a{
+  color: #F7BC13;
+}
+
+
+@media (max-width: 1200px) {
+  .team-img {
+    height: 10rem;
+    width: 10rem;
+    padding: 5%;
+  }
+ }
+
+
+@media (max-width: 992px) {
+  .client-slider {
+   padding: 4rem 2.5rem;
+  }
+  #our-services .card {
+    height: 22rem;
+  }
+ }
+ 
+ @media (max-width: 768px) {
+   .logo {
+     width: 10rem;
+     height: auto;
+   }
+
+   .client-slider {
+    padding: 2rem 1rem;
+   }
+   .card-list {
+    padding-top: 13%;
+  }
+  }
+
+  @media (max-width: 576px) {
+    .footer-heading {
+      font-size: 1.75rem !important;
+    }
+    .footer-text {
+      font-size: 1.25rem !important;
+    }
+   }
 
 /* ==========================================================================
    Helper classes
