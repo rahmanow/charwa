@@ -262,20 +262,18 @@
   
   /* ----------SECTION: MADE BY CHARWA-----------*/
   #made-by-charwa .card {
+    position: relative;
     font-size: .8rem;
-    max-height: 27.5rem;
     overflow: hidden;
     background-color: black;
     border-radius: 12px;
   }
   
   .card-text-1 {
-    opacity: 0;
     position: absolute;
     top: -10%;
     left: 4%;
-    transition: all .3s ease-out;
-    backface-visibility: hidden;
+    transition: all .3s cubic-bezier(.5,.51,.78,.97);
   }
   
   .card-item {
@@ -283,7 +281,7 @@
     color: var(--main-bg-color);
     font-size: .8rem;
     border-radius: 13px;
-    width: min-content;
+    width: max-content;
     padding: .1rem 2rem;
   }
   
@@ -293,12 +291,12 @@
     font-size: .8rem;
     border-radius: 13px;
     backface-visibility: hidden;
-    width: min-content;
+    width: max-content;
     padding: .1rem 2rem;
     position: absolute;
     top: 4%;
     left: 4%;
-    transition: all .3s ease-out;
+    transition: all .3s cubic-bezier(.5,.51,.78,.97);
   }
   
   .card:hover .card-text-1 {
@@ -455,7 +453,8 @@
     color: var(--main-bg-color);
   }
   
-  /* ----------SECTION: FOOTER-----------*/
+  /* GENERAL FOOTER
+   ========================================================================== */
   #footer {
     background-color: var(--dark-green-color);
     color: var(--main-bg-color);
@@ -493,6 +492,51 @@
     color: #F7BC13;
   }
   
+
+
+
+/* WORK HTML
+   ========================================================================== */
+
+   .brands {
+    margin-top: 9rem;
+   }
+
+   .card-text-3 {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translateX(-50%) translateY(-50%);
+     border: 1px solid var(--main-bg-color);
+     border-radius: 27px;
+     width: max-content;
+     padding: .2rem 3rem;
+     color: var(--dark-green-color);
+     background-color: var(--main-bg-color);
+     opacity: 0;
+     transition: opacity .4s ease-in-out;
+   }
+
+    
+    .card:hover .card-text-3 {
+      opacity: 1;
+   }
+
+   .view-case-dark {
+     background-color: var(--dark-green-color);
+     color: var(--main-bg-color);
+     border: 1px solid var(--dark-green-color);
+   }
+
+
+
+
+
+
+
+
+
+
   @media (max-width: 1200px) {
     .team-img {
       height: 10rem;
@@ -509,6 +553,9 @@
     #our-services .card {
       height: 22rem;
     }
+    
+    
+
   }
   
   @media (max-width: 768px) {
@@ -524,6 +571,11 @@
       font-size: .75rem;
     }
   
+    .brands {
+      margin-top: 6rem;
+      width: 100% !important;
+     }
+
     .client-slider {
       padding: 2rem 1rem;
     }
