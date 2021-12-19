@@ -164,7 +164,7 @@ async function gitCommit() {
 }
 
 async function gitPush() {
-      git.push('origin', 'dev', function (err) {
+      git.push('github', 'dev', function (err) {
         if (err) throw err;
       });
 }
