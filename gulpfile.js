@@ -163,6 +163,12 @@ async function gitCommit() {
       //.pipe(git.push())
 }
 
+async function gitPush() {
+      git.push('origin', 'dev', function (err) {
+        if (err) throw err;
+      });
+}
+
 async function surgeDeploy(done) {
   return surge({
     project: `${options.paths.dist.base}`, // Path to your static build directory
@@ -171,7 +177,7 @@ async function surgeDeploy(done) {
 }
 
 // Deploy command
-exports.deploy = series(surgeDeploy, gitAdd, gitCommit);
+exports.deploy = series(surgeDeploy, gitAdd, gitCommit, gitPush);
 
 exports.default = series(
     devClean, // Clean Dist Folder
