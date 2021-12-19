@@ -164,9 +164,7 @@ async function gitCommit() {
 }
 
 async function gitPush() {
-      git.push('github', 'dev', function (err) {
-        if (err) throw err;
-      });
+      git.push();
 }
 
 async function surgeDeploy(done) {
