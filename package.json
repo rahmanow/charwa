@@ -6,7 +6,9 @@
     ""
   ],
   "dependencies": {
+    "gulp-exec": "^5.0.0",
     "gulp-file-include": "^2.3.0",
+    "gulp-git": "^2.10.1",
     "gulp-surge": "^0.1.4",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.9",

@@ -31,7 +31,10 @@ const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
 //const replace = require('gulp-replace'); //For Replacing img formats to webp in html
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 const fileInclude = require('gulp-file-include'); // Include header and footer files to work faster :)
+//const exec = require('child_process').exec; // Execute command line shell for git push
+//const exec = require('gulp-exec').exec; // Execute command line shell for git push
 const surge = require('gulp-surge'); // Surge deployment
+const git = require('gulp-git');
 
 
 //Load Previews on Browser on dev
@@ -147,16 +150,28 @@ function buildFinish(done){
   done();
 }
 
-function surgeDeploy(done) {
+async function gitAdd() {
+  return src(`${options.paths.root}`)
+      .pipe(git.add())
+      //.pipe(git.commit('-Auto commit by Gulp', {args:'-m'}))
+      //.pipe(git.push())
+}
+
+async function gitCommit() {
+  return src(`${options.paths.root}`)
+      .pipe(git.commit('-Auto commit by Gulp', {args:'-m'}))
+      //.pipe(git.push())
+}
+
+async function surgeDeploy(done) {
   return surge({
     project: `${options.paths.dist.base}`, // Path to your static build directory
     domain: 'roomy-neck.surge.sh'  // Your domain or Surge subdomain
   })
-  done();
 }
 
 // Deploy command
-exports.deploy = series(surgeDeploy);
+exports.deploy = series(surgeDeploy, gitAdd, gitCommit);
 
 exports.default = series(
     devClean, // Clean Dist Folder
