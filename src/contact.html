@@ -1,0 +1,39 @@
+@@include('./header.html')
+
+  <section id="contact-form">
+    <div class="container-fluid container-md container-form">
+      <h1 class="display-6 text-center mb-2 pb-2 mb-md-4 pb-md-4">Hello there!</h1>
+      <h2 class="text-center py-2 py-md-4 my-2 my-md-4">Have a project or want to talk? Say <a
+          href="#">hi@charwa.biz</a></h2>
+      <form class="row g-3 g-lg-5">
+        <div class="col-md-6">
+          <label for="inputNameText" class="form-label">Your name</label>
+          <input type="text" class="form-control custom-form form-control-lg" id="inputNameText">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input type="email" class="form-control form-control-lg" id="inputEmail">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCompanyName" class="form-label">Company name</label>
+          <input type="text" class="form-control form-control-lg" id="inputCompanyName">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCountry" class="form-label">Country</label>
+          <input type="text" class="form-control form-control-lg" id="inputCountry">
+        </div>
+        <div class="col-12">
+          <label for="formControlTextarea" class="form-label">Your message</label>
+          <textarea class="form-control" id="formControlTextarea" rows="10"></textarea>
+        </div>
+
+        <div class="col-auto mx-auto">
+          <button type="submit" class="btn mt-3 mt-md-1 btn-send">Send</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+@@include('./footer.html')
