@@ -31,10 +31,8 @@ const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
 //const replace = require('gulp-replace'); //For Replacing img formats to webp in html
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 const fileInclude = require('gulp-file-include'); // Include header and footer files to work faster :)
-//const exec = require('child_process').exec; // Execute command line shell for git push
-//const exec = require('gulp-exec').exec; // Execute command line shell for git push
 const surge = require('gulp-surge'); // Surge deployment
-const git = require('gulp-git');
+const git = require('gulp-git'); // Execute command line shell for git push
 
 
 //Load Previews on Browser on dev
@@ -43,7 +41,7 @@ function livePreview(done){
     server: {
       baseDir: options.paths.dist.base
     },
-    port: options.config.port || 5000
+    port: options.config.port || 5000,
   });
   done();
 }
@@ -164,7 +162,9 @@ async function gitCommit() {
 }
 
 async function gitPush() {
-      git.push();
+      git.push('github', 'dev', function (err) {
+        if (err) throw err;
+      });
 }
 
 async function surgeDeploy(done) {

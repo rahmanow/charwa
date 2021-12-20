@@ -1,5 +1,7 @@
 module.exports = {
     config: {
+        port: 3010,
+        ui: 8080
     },
     paths: {
         root: "./",
