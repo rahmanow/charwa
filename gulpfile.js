@@ -184,7 +184,7 @@ async function surgeDeploy() {
 
 // Deploy command
 exports.deploy = series(surgeDeploy);
-exports.git = series(gitAdd, gitCommit, gitPush);
+exports.gitter = series(gitAdd, gitCommit, gitPush);
 
 exports.default = series(
     devClean, // Clean Dist Folder
