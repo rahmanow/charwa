@@ -170,7 +170,7 @@ async function gitCommit() {
 }
 
 async function gitPush() {
-      git.push('github', 'dev', function (err) {
+      git.push('https://github.com/rahmanow/charwa.git', 'dev', function (err) {
         if (err) throw err;
       });
 }
