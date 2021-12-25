@@ -34,7 +34,7 @@ const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 const fileInclude = require('gulp-file-include'); // Include header and footer files to work faster :)
 const surge = require('gulp-surge'); // Surge deployment
 const git = require('gulp-git'); // Execute command line shell for git push
-
+const babel = require('gulp-babel');
 
 //Load Previews on Browser on dev
 function livePreview(done){
@@ -69,27 +69,40 @@ function devHTML(){
 }
 
 function devStyles(){
-  return src(`${options.paths.src.css}/**/*.scss`).pipe(sass().on('error', sass.logError))
-      .pipe(dest(options.paths.src.css))
+  return src(`${options.paths.src.css}/**/*.scss`)
+      .pipe(sass().on('error', sass.logError))
       .pipe(concat({ path: 'style.css'}))
+      .pipe(cleanCSS())
       .pipe(dest(options.paths.dist.css));
 }
 
 function devScripts(){
   return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `${options.paths.src.js}/**/*.js`,
-    `!${options.paths.src.js}/**/external/*`
-  ]).pipe(concat({ path: 'scripts.js'}))
+        `${options.paths.src.js}/libs/**/*.js`,
+        `${options.paths.src.js}/*.js`,
+        `!${options.paths.src.js}/**/external/*`
+      ])
+      .pipe(babel({
+          ignore: [
+              `${options.paths.src.js}/libs/**/*.js`
+          ]
+      }))
+      .pipe(concat({ path: 'main.js'}))
       .pipe(uglify())
       .pipe(dest(options.paths.dist.js));
 }
 
 function devImages(){
-  return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
+  return src(`${options.paths.src.img}/**/*`)
+      .pipe(imagemin([
+          imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+          imagemin.optipng({optimizationLevel: 5})
+      ]))
+      .pipe(dest(options.paths.dist.img));
 }
 
-function watchFiles(){
+
+watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
   watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
@@ -170,7 +183,8 @@ async function surgeDeploy() {
 }
 
 // Deploy command
-exports.deploy = series(surgeDeploy, gitAdd, gitCommit, gitPush);
+exports.deploy = series(surgeDeploy);
+exports.git = series(gitAdd, gitCommit, gitPush);
 
 exports.default = series(
     devClean, // Clean Dist Folder

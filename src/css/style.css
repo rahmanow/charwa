@@ -11657,6 +11657,25 @@ header {
 }
 
 /* video */
+@media (min-width: 992px) {
+  .text-large {
+    font-size: 5rem;
+  }
+}
+@media (min-width: 768px) {
+  .ms-header__title {
+    max-width: 70%;
+  }
+}
+@media (max-width: 767.98px) {
+  .ms-header__title {
+    max-width: 100%;
+  }
+
+  header {
+    min-height: 5rem;
+  }
+}
 /* ----------SECTION: MADE BY CHARWA-----------*/
 #made-by-charwa .card {
   position: relative;
@@ -11991,21 +12010,6 @@ header {
   font-size: 3rem;
 }
 
-@media (min-width: 992px) {
-  .text-large {
-    font-size: 5rem;
-  }
-}
-@media (min-width: 768px) {
-  .ms-header__title {
-    max-width: 70%;
-  }
-}
-@media (max-width: 767.98px) {
-  .ms-header__title {
-    max-width: 100%;
-  }
-}
 .ms-slider {
   display: inline-block;
   height: 1.3em;
@@ -12287,10 +12291,6 @@ header {
 
   .slogan {
     font-size: 0.75rem;
-  }
-
-  #video {
-    margin-top: 6rem;
   }
 
   .brands {

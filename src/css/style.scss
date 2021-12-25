@@ -305,6 +305,27 @@ header {
 
   }
 
+@include media-breakpoint-up(lg) {
+  .text-large {
+    font-size: 5rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ms-header__title {
+    max-width: 70%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .ms-header__title {
+    max-width: 100%;
+  }
+
+  header {min-height: 5rem; }
+}
+
+
   /* ----------SECTION: MADE BY CHARWA-----------*/
   #made-by-charwa .card {
     position: relative;
@@ -646,24 +667,6 @@ header {
     font-size: 3rem;
   }
 
-@include media-breakpoint-up(lg) {
-  .text-large {
-    font-size: 5rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .ms-header__title {
-    max-width: 70%;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .ms-header__title {
-    max-width: 100%;
-  }
-}
-
   .ms-slider {
     display: inline-block;
     height: 1.3em;
@@ -960,7 +963,7 @@ header {
     }
 
     #video {
-      margin-top: 6rem;
+
     }
 
     .brands {
