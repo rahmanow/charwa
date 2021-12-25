@@ -15,8 +15,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url(https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11454,7 +11453,6 @@ textarea {
 body {
   background-color: var(--main-bg-color);
   font-family: "Josefin Sans", sans-serif;
-  font-style: italic;
   color: var(--dark-green-color);
 }
 

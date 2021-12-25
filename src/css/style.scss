@@ -14,8 +14,7 @@
 @import "node_modules/slick-carousel/slick/slick";
 @import "node_modules/slick-carousel/slick/slick-theme";
 
-@import url(https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&display=swap');
 
    html {
     color: #222;
@@ -96,7 +95,6 @@
   body {
     background-color: var(--main-bg-color);
     font-family: "Josefin Sans", sans-serif;
-    font-style: italic;
     color: var(--dark-green-color);
   }
 
