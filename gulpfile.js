@@ -13,7 +13,7 @@
   3. npm run prod //To generate minifed files for live server
 */
 
-const { src, dest, task, watch, series, parallel } = require('gulp');
+const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del'); //For Cleaning build/dist for fresh export
 const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
@@ -69,13 +69,8 @@ function devHTML(){
 }
 
 function devStyles(){
-  //const tailwindcss = require('tailwindcss');
-  return src(`${options.paths.src.css}/**/*.*css`).pipe(sass().on('error', sass.logError))
+  return src(`${options.paths.src.css}/**/*.scss`).pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
-      //.pipe(postcss([
-      //  tailwindcss(options.config.tailwindjs),
-      //  require('autoprefixer'),
-      // ]))
       .pipe(concat({ path: 'style.css'}))
       .pipe(dest(options.paths.dist.css));
 }
@@ -85,7 +80,9 @@ function devScripts(){
     `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/**/*.js`,
     `!${options.paths.src.js}/**/external/*`
-  ]).pipe(concat({ path: 'scripts.js'})).pipe(dest(options.paths.dist.js));
+  ]).pipe(concat({ path: 'scripts.js'}))
+      .pipe(uglify())
+      .pipe(dest(options.paths.dist.js));
 }
 
 function devImages(){

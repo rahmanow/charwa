@@ -1,50 +1,31 @@
 @@include('./header.html')
 
-      <div class="container">
-        <h3 class="ms-header__title w-75 brands text-start fs-3">
-          Over the years we’ve been involved in many projects on our own but now
-          we have joined our forces. Ekip olarak çalıştığımız bazı brands:
+  <div class="container d-flex flex-column">
+        <div class="ms-header__title h3 text-start fs-3">
+          Over the years we’ve been involved in many projects individually. Now
+          we have joined our experiences to improve our services. Here are some projects completed as a team:
           <div class="ms-slider">
             <ul class="ms-slider__words">
-              <li class="ms-slider__word">brands-1</li>
-              <li class="ms-slider__word">brands-2</li>
-              <li class="ms-slider__word">brands-3</li>
+              <li class="ms-slider__word">satynal.com.tm</li>
+              <li class="ms-slider__word">renklisahypa.com</li>
+              <li class="ms-slider__word">brands-4</li>
               <li class="ms-slider__word">brands-4</li>
               <li class="ms-slider__word">brands-5</li>
-              <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
               <li class="ms-slider__word">brands-1</li>
             </ul>
           </div>
-        </h3>
-      </div>
-    </header>
+        </div>
 
-    <section id="made-by-charwa" class="py-2 py-md-4 my-2 my-md-4">
-      <div
-        class="
-          py-3 py-md-4
-          my-3 my-md-4
-          text-center
-          position-relative
-          d-flex
-          justify-content-center
-          align-items-center
-        "
-      >
-        <h2 class="text-uppercase position-absolute pt-md-4">
-          Selected Projects
-        </h2>
-        <img class="d-none d-md-inline" src="img/Vector.svg" alt="" />
+    <section id="made-by-charwa" class="d-flex flex-column justify-content-around">
+      <div class="py-5 my-2 text-center position-relative d-flex justify-content-center align-items-center">
+        <h2 class="text-uppercase position-absolute pt-md-4">Selected Projects</h2>
+        <img class="d-md-inline" src="img/Vector.svg" alt="" />
       </div>
       <div class="container">
         <div class="row row-cols-1 row-cols-md-2 g-4 pb-2 pb-md-4 mb-2 mb-md-4">
           <div class="col">
             <div class="card border-0">
-              <img
-                src="img/made-by-charwa-foto-1.png"
-                class="card-img"
-                alt="..."
-              />
+              <img src="img/made-by-charwa-foto-1.png" class="card-img" alt="..." />
               <div class="card-img-overlay">
                 <ul class="list-inline card-text-1">
                   <li class="list-inline-item card-item">Branding</li>
@@ -59,23 +40,11 @@
           </div>
           <div class="col">
             <div class="card border-0">
-              <img
-                src="img/made-by-charwa-foto-2.png"
-                class="card-img"
-                alt="..."
-              />
+              <img src="img/made-by-charwa-foto-2.png" class="card-img" alt="..." />
               <div class="card-img-overlay">
                 <p class="card-text-1 card-item">Branding</p>
                 <p class="card-text-2">Targer</p>
-                <p
-                  class="
-                    card-text-3
-                    view-case-dark
-                    fs-3
-                    d-flex
-                    align-items-center
-                  "
-                >
+                <p class="card-text-3 view-case-dark fs-3 d-flex align-items-center">
                   <i class="fas fa-plus p-1 p-md-2"></i>View Case
                 </p>
               </div>
@@ -172,5 +141,5 @@
         </div>
       </div>
     </section>
-
+  </div>
 @@include('./footer.html')

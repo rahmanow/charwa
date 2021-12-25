@@ -8,7 +8,15 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/normalize-scss/sass/normalize";
+@import "node_modules/slick-carousel/slick/slick";
+@import "node_modules/slick-carousel/slick/slick-theme";
+
+@import url(https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap);
+
 
    html {
     color: #222;
@@ -97,6 +105,11 @@
      ========================================================================== */
 
   /* navbar */
+
+header {
+  min-height: 9rem;
+}
+
   .navbar {
     background-color: var(--main-bg-color);
     padding: 2.3rem 0;
@@ -290,7 +303,7 @@
 
   /* video */
   #video {
-    margin-top: 9rem;
+
   }
 
   /* ----------SECTION: MADE BY CHARWA-----------*/
@@ -547,6 +560,10 @@
     margin-top: 9rem;
   }
 
+  .work-header {
+
+  }
+
   .card-text-3 {
     position: absolute;
     top: 50%;
@@ -621,12 +638,32 @@
   /* text animation */
   .ms-header__title {
     flex: 1 1 100%;
-    width: 100%;
     text-align: center;
     font-size: 4rem;
     font-weight: bold;
     color: var(--dark-green-color);
   }
+  .text-large {
+    font-size: 3rem;
+  }
+
+@include media-breakpoint-up(lg) {
+  .text-large {
+    font-size: 5rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ms-header__title {
+    max-width: 70%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .ms-header__title {
+    max-width: 100%;
+  }
+}
 
   .ms-slider {
     display: inline-block;
@@ -893,7 +930,7 @@
 
     .container-form {
       padding: 1rem 4rem 2rem;
-      border-radius: 0px;
+      border-radius: 0;
     }
 
     .ms-header__title {
