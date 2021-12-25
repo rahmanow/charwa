@@ -149,14 +149,11 @@ function buildFinish(done){
 async function gitAdd() {
   return src(`${options.paths.root}`)
       .pipe(git.add())
-      //.pipe(git.commit('-Auto commit by Gulp', {args:'-m'}))
-      //.pipe(git.push())
 }
 
 async function gitCommit() {
   return src(`${options.paths.root}`)
       .pipe(git.commit('-Auto commit by Gulp', {args:'-m'}))
-      //.pipe(git.push())
 }
 
 async function gitPush() {

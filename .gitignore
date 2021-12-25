@@ -7,4 +7,4 @@ doc
 node_modules
 .idea
 .DS_Store
-src/css/style.css
+./src/css/style.css

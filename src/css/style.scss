@@ -17,7 +17,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap);
 
-
    html {
     color: #222;
     font-size: 1em;
@@ -208,6 +207,7 @@ header {
     width: 0;
     -webkit-transition: all 0.8s cubic-bezier(0.86, 0, 0.3, 1);
     transition: all 0.8s cubic-bezier(0.86, 0, 0.3, 1);
+    visibility: hidden;
   }
 
   .navigation-item {
@@ -253,6 +253,7 @@ header {
   .navigation-checkbox:checked ~ .navigation-nav {
     opacity: 1;
     width: 100%;
+    visibility: visible;
   }
 
   .navigation-checkbox:checked ~ .navigation-button {
@@ -596,7 +597,7 @@ header {
      ========================================================================== */
 
   #contact-form {
-    margin: 9rem 0 6rem 0;
+    margin: 1rem 0 6rem 0;
   }
 
   .container-form {
@@ -735,6 +736,54 @@ header {
     }
   }
 
+
+/* setup tooltips */
+.tooltip-up {
+  position: relative;
+}
+.tooltip-up:before,
+.tooltip-up:after {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.tooltip-up:after {
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0,0,0,.75);
+  border-left: 6px solid transparent;
+  content: '';
+  height: 0;
+  top: -10px;
+  left:2px;
+  width: 0;
+}
+.tooltip-up:before {
+  background: rgba(0,0,0,.75);
+  border-radius: 2px;
+  color: #fff;
+  content: attr(data-title);
+  font-size: 14px;
+  padding: 6px 10px;
+  top: -43px;
+  white-space: nowrap;
+}
+
+/* the animations */
+/* fade */
+.tooltip-up.fader:after,
+.tooltip-up.fader:before {
+  transform: translate3d(0,-10px,0);
+  transition: all .15s ease-in-out;
+}
+.tooltip-up.fader:hover:after,
+.tooltip-up.fader:hover:before {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+
+
   #aboutus .card {
     background-color: var(--dark-green-color);
     border-radius: 22px;
@@ -845,6 +894,11 @@ header {
     outline: none;
   }
 
+.contact-header > h2 > a {
+  color: var(--logo-red-color);
+}
+
+
   /* `xl` applies to large devices (desktops, less than 1200px) */
   @media (max-width: 1200px) {
     .team-img {
@@ -885,7 +939,7 @@ header {
     }
 
     #contact-form {
-      margin: 6rem 0 3rem 0;
+      margin: 1rem 0 3rem 0;
     }
 
     .container-form {
