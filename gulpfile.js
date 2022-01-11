@@ -18,8 +18,7 @@ const del = require('del'); //For Cleaning build/dist for fresh export
 const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
 
-const sass = require('gulp-sass'); //For Compiling SASS files
-sass.compiler = require('sass');
+const sass = require('gulp-sass')(require('sass'));
 //const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
 const concat = require('gulp-concat'); //For Concatinating js,css files
 const uglify = require('gulp-terser');//To Minify JS files
@@ -160,26 +159,28 @@ function buildFinish(done){
 }
 
 async function gitAdd() {
-  return src(`${options.paths.root}`)
-      .pipe(git.add())
+    return src(`${options.paths.root}`)
+        .pipe(git.add())
 }
 
 async function gitCommit() {
-  return src(`${options.paths.root}`)
-      .pipe(git.commit('-Auto commit by Gulp', {args:'-m'}))
+    return src(`${options.paths.root}`)
+        .pipe(git.commit(`${options.deploy.gitCommitMessage}`, {args:`${options.deploy.gitCommitArgs}`}))
 }
 
 async function gitPush() {
-      git.push('https://github.com/rahmanow/charwa.git', 'dev', function (err) {
-        if (err) throw err;
-      });
+    git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
 }
 
 async function surgeDeploy() {
-  return surge({
-    project: `${options.paths.dist.base}`, // Path to your static build directory
-    domain: 'roomy-neck.surge.sh'  // Your domain or Surge subdomain
-  })
+    return surge({
+        project: `${options.paths.dist.base}`, // Path to your static build directory
+        domain: `${options.deploy.surgeUrl}`  // Your domain or Surge subdomain
+    });
+}
+
+const errorFunction = (err) => {
+    if (err) throw err;
 }
 
 // Deploy command

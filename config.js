@@ -3,6 +3,13 @@ module.exports = {
         port: 3010,
         ui: 8080
     },
+    deploy: {
+        gitURL: 'https://github.com/rahmanow/charwa.git',
+        gitBranch: 'dev',
+        gitCommitMessage: '-Auto commit by Gulp',
+        gitCommitArgs: '-m',
+        surgeUrl: 'roomy-neck.surge.sh'
+    },
     paths: {
         root: "./",
         src: {
