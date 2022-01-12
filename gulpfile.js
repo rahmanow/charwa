@@ -17,26 +17,27 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del'); //For Cleaning build/dist for fresh export
 const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
-
-const sass = require('gulp-sass')(require('sass'));
-//const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
-const concat = require('gulp-concat'); //For Concatinating js,css files
+const sass = require('gulp-sass')(require('sass'));//For Compiling SASS files
+const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
+const concat = require('gulp-concat'); //For Concatinating js,scss, css files
 const uglify = require('gulp-terser');//To Minify JS files
 const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
 
-//Note : Webp still not supported in major browsers including forefox
-//const webp = require('gulp-webp'); //For converting images to WebP format
-//const replace = require('gulp-replace'); //For Replacing img formats to webp in html
+//Note : Webp still not supported in major browsers including firefox
+// const webp = require('gulp-webp'); //For converting images to WebP format
+// const replace = require('gulp-replace'); //For Replacing img formats to webp in html
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 const fileInclude = require('gulp-file-include'); // Include header and footer files to work faster :)
-const surge = require('gulp-surge'); // Surge deployment
+const superchild = require('superchild');
 const git = require('gulp-git'); // Execute command line shell for git push
 const babel = require('gulp-babel');
+const open = require('gulp-open'); // Opens a URL in a web browser
+const tailwindcss = require('tailwindcss');
 
 //Load Previews on Browser on dev
-function livePreview(done){
+livePreview = (done) => {
   browserSync.init({
     server: {
       baseDir: options.paths.dist.base
@@ -47,14 +48,14 @@ function livePreview(done){
 }
 
 // Triggers Browser reload
-function previewReload(done){
+previewReload = (done) => {
   console.log("\n\t" + logSymbols.info,"Reloading Browser Preview.\n");
   browserSync.reload();
   done();
 }
 
 //Development Tasks
-function devHTML(){
+devHTML = () => {
   return src([
     `${options.paths.src.base}/**/*.html`,
     `!${options.paths.src.base}/**/header.html`, // ignore
@@ -67,7 +68,7 @@ function devHTML(){
       .pipe(dest(options.paths.dist.base));
 }
 
-function devStyles(){
+devStyles = () => {
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(concat({ path: 'style.css'}))
@@ -75,7 +76,7 @@ function devStyles(){
       .pipe(dest(options.paths.dist.css));
 }
 
-function devScripts(){
+devScripts = () => {
   return src([
         `${options.paths.src.js}/libs/**/*.js`,
         `${options.paths.src.js}/*.js`,
@@ -91,7 +92,7 @@ function devScripts(){
       .pipe(dest(options.paths.dist.js));
 }
 
-function devImages(){
+devImages = () => {
   return src(`${options.paths.src.img}/**/*`)
       .pipe(imagemin([
           imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
@@ -109,18 +110,18 @@ watchFiles = () => {
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }
 
-function devClean(){
+devClean = () => {
   console.log("\n\t" + logSymbols.info,"Cleaning dist folder for fresh start.\n");
   return del([options.paths.dist.base]);
 }
 
 //Production Tasks (Optimized Build for Live/Production Sites)
-function prodHTML(){
+prodHTML = () => {
   return src(`${options.paths.src.base}/**/*.html`)
       .pipe(dest(options.paths.build.base));
 }
 
-function prodStyles(){
+prodStyles = () => {
   return src(`${options.paths.dist.css}/**/*`)
       .pipe(purgecss({
         content: ['src/**/*.{html,js}'],
@@ -134,7 +135,7 @@ function prodStyles(){
       .pipe(dest(options.paths.build.css));
 }
 
-function prodScripts(){
+prodScripts = () => {
   return src([
     `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/**/*.js`
@@ -144,16 +145,16 @@ function prodScripts(){
       .pipe(dest(options.paths.build.js));
 }
 
-function prodImages(){
+prodImages = () => {
   return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
 }
 
-function prodClean(){
+prodClean = () => {
   console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
   return del([options.paths.build.base]);
 }
 
-function buildFinish(done){
+buildFinish = (done) => {
   console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
   done();
 }
@@ -172,19 +173,25 @@ async function gitPush() {
     git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
 }
 
-async function surgeDeploy() {
-    return surge({
-        project: `${options.paths.dist.base}`, // Path to your static build directory
-        domain: `${options.deploy.surgeUrl}`  // Your domain or Surge subdomain
+surgeDeploy = async () => {
+    const child = superchild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
+    child.on('stdout_line', (line) => {
+        console.log(line)
     });
 }
 
-const errorFunction = (err) => {
+openBrowser = async () => {
+    const opt = {uri: `https://${options.deploy.surgeUrl}`};
+    return src('./dist')
+        .pipe(open(opt));
+}
+
+errorFunction = (err) => {
     if (err) throw err;
 }
 
 // Deploy command
-exports.deploy = series(surgeDeploy);
+exports.deploy = series(surgeDeploy, openBrowser);
 exports.gitter = series(gitAdd, gitCommit, gitPush);
 
 exports.default = series(
