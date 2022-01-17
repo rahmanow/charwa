@@ -1,7 +1,7 @@
 /**
  *   Gulp + TailwindCSS - Starter Pack
  *   Author: Azat Rahmanov
- *   URL : blog.rahmanow.com
+ *   URL : rahmanow.com
  *   Twitter : @Azadik
  *  Instagram: @Azadik
  **/
