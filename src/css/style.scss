@@ -134,7 +134,7 @@ header {
     top: 0;
     width: 223px;
     height: 41px;
-    background: url("../img/logo.svg") no-repeat center/contain;
+    background: url("../img/logo-dark.svg") no-repeat center/contain;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
@@ -300,10 +300,7 @@ header {
     background-color: #fff;
   }
 
-  /* video */
-  #video {
-
-  }
+ 
 
 @include media-breakpoint-up(lg) {
   .text-large {
@@ -323,6 +320,13 @@ header {
   }
 
   header {min-height: 5rem; }
+}
+
+/* ----------SECTION: SHOWCASE-----------*/
+
+#showcase {
+  //background-color: var(--dark-green-color);
+  height: 100vh;
 }
 
 
@@ -349,7 +353,8 @@ header {
     font-size: 0.8rem;
     border-radius: 13px;
     width: max-content;
-    padding: 0.1rem 2rem;
+    padding: 0rem 0.5rem;
+    margin-right: 0px !important;
   }
 
   .card-text-2 {
@@ -360,7 +365,7 @@ header {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     width: max-content;
-    padding: 0.1rem 2rem;
+    padding: 0rem 0.5rem;
     position: absolute;
     top: 4%;
     left: 4%;
@@ -504,6 +509,14 @@ header {
     border: 2px solid #1da1f2;
   }
 
+  .behance {
+    background-color: #0057FF;
+  }
+
+  .behance:hover {
+    border: 2px solid #0057FF;
+  }
+
   .instagram {
     background-color: #f00073;
   }
@@ -606,6 +619,14 @@ header {
     opacity: 1;
   }
 
+
+  .view-case {
+    background-color: var(--main-bg-color);
+    color: var(--logo-red-color);
+    border: 1px solid var(--main-bg-color);
+  }
+
+
   .view-case-dark {
     background-color: var(--dark-green-color);
     color: var(--main-bg-color);
@@ -660,8 +681,9 @@ header {
     flex: 1 1 100%;
     text-align: center;
     font-size: 4rem;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--dark-green-color);
+    line-height: 2.8rem;
   }
   .text-large {
     font-size: 3rem;
@@ -795,49 +817,79 @@ header {
     position: relative;
   }
 
+  .ability {
+    display: none;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
   .aboutus-img {
     max-height: 28rem;
     width: 100%;
     background-color: var(--main-bg-color);
     border-radius: 12px;
-    padding: 10% 0;
+    padding: 15% 0 5% 0;
   }
 
   .fan-icon,
   .tea-icon {
     width: 6rem;
   }
-
-  .arrow,
-  .img-icon {
-    position: absolute;
-    top: 18%;
-    left: 4%;
-  }
-
-  .img-icon-2 {
-    position: absolute;
-    top: 18%;
-    right: 4%;
-  }
-
-  .img-name,
-  .img-ability {
+  .img-name {
     position: absolute;
     top: 5%;
     left: 6%;
     font-size: 1.5rem;
   }
-
-  .img-ability-2 {
+  .arrow {
     position: absolute;
-    top: 5%;
-    right: 6%;
+    top: 18%;
+    left: 4%;
+  }
+
+  .left-arrow {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 17%;
+  }
+
+   .right-arrow {
+    display: none;
+    position: absolute;
+    top: 53%;
+    right: 15%;
+   }
+  .img-icon {
+    position: absolute;
+    top: 16%;
+    left: 18%;
+  }
+
+  .img-icon-2 {
+    position: absolute;
+    top: 17%;
+    right: 8%;
   }
 
   .img-ability {
+    position: absolute;
+    top: 38%;
+    left: 16%;
     font-size: 1rem;
   }
+
+  .img-ability-2 {
+    display: none;
+    position: absolute;
+    top: 43%;
+    right: 9%;
+  }
+
 
   .btn-aboutcard {
     font-size: 1.5rem;
@@ -853,7 +905,9 @@ header {
   .img-icon,
   .img-ability,
   .img-icon-2,
-  .img-ability-2 {
+  .img-ability-2
+  .left-arrow
+  .right-arrow {
     display: none;
   }
 
