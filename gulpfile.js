@@ -82,11 +82,11 @@ devScripts = () => {
         `${options.paths.src.js}/*.js`,
         `!${options.paths.src.js}/**/external/*`
       ])
-      .pipe(babel({
-          ignore: [
-              `${options.paths.src.js}/libs/**/*.js`
-          ]
-      }))
+      // .pipe(babel({
+      //     ignore: [
+      //         `${options.paths.src.js}/libs/**/*.js`
+      //     ]
+      // }))
       .pipe(concat({ path: 'main.js'}))
       .pipe(uglify())
       .pipe(dest(options.paths.dist.js));

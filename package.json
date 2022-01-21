@@ -17,7 +17,8 @@
     "postcss": "^8.2.9",
     "slick-carousel": "^1.8.1",
     "superchild": "^0.1.10",
-    "tailwindcss": "^2.1.1"
+    "tailwindcss": "^2.1.1",
+    "follow-redirects": ">=1.14.7"
   },
   "license": "",
   "author": "",
