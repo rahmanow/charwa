@@ -165,7 +165,10 @@ buildFinish = (done) => {
 }
 
 gitClear = async () => {
-    return del('.git/index.lock');
+    const child = superchild(`rm -rf .git/index.lock`);
+    child.on('stdout_line', (line) => {
+        console.log(line)
+    });
 }
 
 gitAdd = async () => {
