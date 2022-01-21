@@ -171,17 +171,17 @@ gitClear = async () => {
     });
 }
 
-async function gitAdd() {
+gitAdd = async () => {
     return src(`${options.paths.root}`)
         .pipe(git.add())
 }
 
-async function gitCommit() {
+gitCommit = async () => {
     return src(`${options.paths.root}`)
         .pipe(git.commit(`${options.deploy.gitCommitMessage}`, {args:`${options.deploy.gitCommitArgs}`}))
 }
 
-async function gitPush() {
+gitPush = async () => {
     git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
 }
 
