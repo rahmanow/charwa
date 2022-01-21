@@ -1,7 +1,81 @@
-@@include('./header.html')
-<div id="video" class="container">
-  <img src="img/showcase-video.png" class="img-fluid w-100" alt="video">
-</div>
+<!-- @@include('./header.html') -->
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Charwa</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar fixed-top">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div>
+          <a class="navbar-brand hover-animation" href="index.html">
+            <div class="logo"></div>
+            <div class="slogan lh-sm d-flex align-items-center">
+              <p class="m-0">We travel, inspired, <br> design and develop.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="navigation">
+          <input type="checkbox" class="navigation-checkbox" id="navi-toggle">
+
+          <label for="navi-toggle" class="navigation-button">
+            <span class="navigation-icon">&nbsp;</span>
+          </label>
+
+          <div class="navigation-background">&nbsp;</div>
+
+          <nav class="navigation-nav position-fixed top-0 end-0">
+            <ul
+              class="navigation-list text-uppercase d-flex flex-column flex-lg-row justify-content-around align-items-center p-0 m-0 h-100 w-100 list-unstyled">
+              <li class="navigation-item"><a href="work.html"
+                  class="navigation-link position-relative d-flex justify-content-center align-items-center"> <span
+                    class="menu-svg position-absolute pb-4 d-none d-md-inline"> <img src="img/Vector.svg" alt="">
+                  </span> <span>Work</span> </a></li>
+              <li class="navigation-item"><a href="aboutus.html"
+                  class="navigation-link position-relative d-flex justify-content-center align-items-center"> <span
+                    class="menu-svg position-absolute pb-4 d-none d-md-inline"> <img src="img/Vector-2.svg" alt="">
+                  </span> <span>About Us</span> </a></li>
+              <li class="navigation-item"><a href="contact.html"
+                  class="navigation-link position-relative d-flex justify-content-center align-items-center"> <span
+                    class="menu-svg position-absolute pb-4 d-none d-md-inline"> <img src="img/Vector.svg" alt="">
+                  </span> <span>Contact</span> </a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- <section id="showcase">
+    <div class="header container">
+      <div class="d-flex align-items-center justify-content-center flex-column">
+        <div class=" p-2">Flex item</div>
+        <div class="p-2">Flex item</div>
+        <div class="mt-auto p-2">Flex item</div>
+      </div>
+    </div>
+  </section> -->
+  
 
   <section id="made-by-charwa" class="pt-2 pt-md-4 mt-2 mt-md-4">
     <div class="container">
@@ -9,64 +83,55 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card border-0 text-white">
-            <img src="img/made-by-charwa-foto-1.png" class="card-img" alt="...">
+            <img src="img/satynal.png" class="card-img" alt="...">
             <div class="card-img-overlay">
               <ul class="list-inline card-text-1">
-                <li class="list-inline-item card-item">Branding</li>
-                <li class="list-inline-item card-item">eCommerce</li>
+                <li class="list-inline-item card-item">Ui/Ux</li>
+                <li class="list-inline-item card-item">Website</li>
               </ul>
-              <p class="card-text-2">Targer</p>
+              <p class="card-text-2">eCommerce</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card border-0">
-            <img src="img/made-by-charwa-foto-2.png" class="card-img" alt="...">
+            <img src="img/blogyn_azady.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <p class="card-text-1 card-item">Branding</p>
-              <p class="card-text-2">Targer</p>
+              <p class="card-text-1 card-item">Website</p>
+              <p class="card-text-2">Blog</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card border-0">
-            <img src="img/made-by-charwa-foto-3.png" class="card-img" alt="...">
+            <img src="img/bip_fly.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <p class="card-text-1 card-item">Branding</p>
-              <p class="card-text-2">Targer</p>
+              <p class="card-text-1 card-item"> Ui/Ux</p>
+              <p class="card-text-2">eCommerce</p>
             </div>
           </div>
         </div>
         <div class="col d-none d-md-inline">
           <div class="card border-0">
-            <img src="img/made-by-charwa-foto-4.png" class="card-img" alt="...">
+            <img src="img/poda.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <p class="card-text-1 card-item">Branding</p>
-              <p class="card-text-2">Targer</p>
+              <p class="card-text-1 card-item">Ui/Ux</p>
+              <p class="card-text-2">Poda</p>
             </div>
           </div>
         </div>
         <div class="col d-none d-md-inline">
           <div class="card border-0">
-            <img src="img/made-by-charwa-foto-5.png" class="card-img" alt="...">
+            <img src="img/renkli_sahypa.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <p class="card-text-1 card-item">Branding</p>
-              <p class="card-text-2">Targer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col d-none d-md-inline">
-          <div class="card border-0">
-            <img src="img/made-by-charwa-foto-6.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <p class="card-text-1 card-item">Branding</p>
-              <p class="card-text-2">Targer</p>
+              <p class="card-text-1 card-item">Website</p>
+              <p class="card-text-2">Blog</p>
             </div>
           </div>
         </div>
       </div>
       <a class="show-all-project-link" href="work.html">
-        <h3 class="text-center mt-4">All Projects</h3>
+        <h3 class="text-center mt-4">Show All Projects</h3>
       </a>
     </div>
   </section>
@@ -77,11 +142,11 @@
       <h2 class="text-uppercase py-2 py-md-4 my-2 my-md-4 text-center text-sm-start">Trusted by our clients and partners
       </h2>
       <div class="client-slider">
-        <div class="item"><img src="img/slider-1.png" alt="" class="img-fluid mx-auto mt-1"></div>
-        <div class="item"><img src="img/slider-2.png" alt="" class="img-fluid mx-auto"></div>
-        <div class="item"><img src="img/slider-3.png" alt="" class="img-fluid mx-auto"></div>
-        <div class="item"><img src="img/slider-4.png" alt="" class="img-fluid mx-auto"></div>
-        <div class="item"><img src="img/slider-3.png" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/eyesinden_logo.svg" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/satynal_logo.svg" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/bipfly_logo.svg" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/renklisahypa_logo.svg" alt="" class="img-fluid mx-auto"></div>
+        <div class="item"><img src="img/Taze_Tanysh.svg" alt="" class="img-fluid mx-auto"></div>
       </div>
     </div>
   </section>
@@ -245,34 +310,6 @@
         </div>
         <div class="col p-0 mb-2">
           <div class="card-team text-center">
-            <img src="img/kakajan_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
-            <div class="card-body px-0">
-              <h5 class="card-title fw-normal fst-normal">Kakajan Owezow</h5>
-              <p class="card-text mb-1 fst-normal">Videographer-Photographer</p>
-              <p class="card-text">kakajan@charwa.biz</p>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                  <div class="circle d-flex justify-content-center align-items-center linkedin"><a href="#"><i
-                        class="fab fa-linkedin-in team-icon"></i></a></div>
-                </li>
-                <li class="list-inline-item">
-                  <div class="circle d-flex justify-content-center align-items-center vimeo"><a href="#"><i
-                        class="fab fa-vimeo-v team-icon"></i></a></div>
-                </li>
-                <li class="list-inline-item">
-                  <div class="circle d-flex justify-content-center align-items-center twitter"><a href="#"><i
-                        class="fab fa-twitter team-icon"></i></a></div>
-                </li>
-                <li class="list-inline-item">
-                  <div class="circle d-flex justify-content-center align-items-center instagram"><a href="#"><i
-                        class="fab fa-instagram team-icon"></i></a></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col p-0 mb-2">
-          <div class="card-team text-center">
             <img src="img/sona_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
             <div class="card-body px-0">
               <h5 class="card-title fw-normal fst-normal">Sona Charyyeva</h5>
@@ -286,6 +323,34 @@
                 <li class="list-inline-item">
                   <div class="circle d-flex justify-content-center align-items-center dribble"><a href="#"><i
                         class="fab fa-dribbble team-icon"></i></a></div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="circle d-flex justify-content-center align-items-center behance"><a href="#"><i
+                        class="fab fa-behance team-icon"></i></a></div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="circle d-flex justify-content-center align-items-center instagram"><a href="#"><i
+                        class="fab fa-instagram team-icon"></i></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col p-0 mb-2">
+          <div class="card-team text-center">
+            <img src="img/kakajan_avatar.svg" class="card-img-top team-img rounded-circle" alt="...">
+            <div class="card-body px-0">
+              <h5 class="card-title fw-normal fst-normal">Kakajan Owezow</h5>
+              <p class="card-text mb-1 fst-normal">Videographer-Photographer</p>
+              <p class="card-text">kakajan@charwa.biz</p>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <div class="circle d-flex justify-content-center align-items-center linkedin"><a href="#"><i
+                        class="fab fa-linkedin-in team-icon"></i></a></div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="circle d-flex justify-content-center align-items-center vimeo"><a href="#"><i
+                        class="fab fa-vimeo-v team-icon"></i></a></div>
                 </li>
                 <li class="list-inline-item">
                   <div class="circle d-flex justify-content-center align-items-center twitter"><a href="#"><i
