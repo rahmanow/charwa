@@ -187,8 +187,8 @@ async function gitPush() {
 
 surgeDeploy = async () => {
     const child = superchild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
-    child.on('stdout_line', (line) => {
-        console.log(line)
+    child.on('stdout_line', () => {
+        console.log('git index.lock removed');
     });
 }
 
