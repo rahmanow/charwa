@@ -164,7 +164,12 @@ buildFinish = (done) => {
   done();
 }
 
-
+gitClear = async () => {
+    const child = superchild(`rm -rf .git/index.lock`);
+    child.on('stdout_line', (line) => {
+        console.log(line)
+    });
+}
 
 async function gitAdd() {
     return src(`${options.paths.root}`)
@@ -199,7 +204,7 @@ errorFunction = (err) => {
 
 // Deploy command
 exports.deploy = series(surgeDeploy, openBrowser);
-exports.gitter = series(gitAdd, gitCommit, gitPush);
+exports.gitter = series(gitClear, gitAdd, gitCommit, gitPush);
 
 
 exports.default = series(
