@@ -94,10 +94,10 @@ devScripts = () => {
 
 devImages = () => {
   return src(`${options.paths.src.img}/**/*`)
-      .pipe(imagemin([
-          imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-          imagemin.optipng({optimizationLevel: 5})
-      ]))
+      // .pipe(imagemin([
+      //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+      //     imagemin.optipng({optimizationLevel: 5})
+      // ]))
       .pipe(dest(options.paths.dist.img));
 }
 
@@ -106,7 +106,7 @@ watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
   watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
-  watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
+  //watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }
 

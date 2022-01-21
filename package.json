@@ -7,6 +7,8 @@
   ],
   "dependencies": {
     "browserify": "^17.0.0",
+    "follow-redirects": ">=1.14.7",
+    "font-awesome": "^4.7.0",
     "gulp-file-include": "^2.3.0",
     "gulp-git": "^2.10.1",
     "gulp-open": "^3.0.1",
@@ -17,8 +19,7 @@
     "postcss": "^8.2.9",
     "slick-carousel": "^1.8.1",
     "superchild": "^0.1.10",
-    "tailwindcss": "^2.1.1",
-    "follow-redirects": ">=1.14.7"
+    "tailwindcss": "^2.1.1"
   },
   "license": "",
   "author": "",
