@@ -71,6 +71,11 @@ devHTML = () => {
 devStyles = () => {
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
+      .pipe(dest(options.paths.src.css))
+      .pipe(postcss([
+          tailwindcss(options.config.tailwind),
+          require('autoprefixer'),
+      ]))
       .pipe(concat({ path: 'style.css'}))
       .pipe(cleanCSS())
       .pipe(dest(options.paths.dist.css));
@@ -82,11 +87,11 @@ devScripts = () => {
         `${options.paths.src.js}/*.js`,
         `!${options.paths.src.js}/**/external/*`
       ])
-      // .pipe(babel({
-      //     ignore: [
-      //         `${options.paths.src.js}/libs/**/*.js`
-      //     ]
-      // }))
+       .pipe(babel({
+           ignore: [
+               `${options.paths.src.js}/libs/**/*.js`
+           ]
+       }))
       .pipe(concat({ path: 'main.js'}))
       .pipe(uglify())
       .pipe(dest(options.paths.dist.js));
@@ -106,7 +111,7 @@ watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
   watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
-  //watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
+  watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }
 
@@ -159,6 +164,8 @@ buildFinish = (done) => {
   done();
 }
 
+
+
 async function gitAdd() {
     return src(`${options.paths.root}`)
         .pipe(git.add())
@@ -193,6 +200,7 @@ errorFunction = (err) => {
 // Deploy command
 exports.deploy = series(surgeDeploy, openBrowser);
 exports.gitter = series(gitAdd, gitCommit, gitPush);
+
 
 exports.default = series(
     devClean, // Clean Dist Folder

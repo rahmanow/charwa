@@ -1,5 +1,6 @@
 module.exports = {
     config: {
+        tailwind: './src/tailwind.config.js',
         port: 3010,
         ui: 8080
     },
