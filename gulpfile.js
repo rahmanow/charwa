@@ -172,7 +172,7 @@ buildFinish = (done) => {
 // }
 
 gitClear = async () => {
-    return del(`rm -rf .git/index.lock`, {force: true});
+    return del(`./.git/index.lock`, {force: true});
 }
 
 gitAdd = async () => {
