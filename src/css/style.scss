@@ -14,58 +14,7 @@
 @import "node_modules/slick-carousel/slick/slick";
 @import "node_modules/slick-carousel/slick/slick-theme";
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&display=swap');
-
-.card-team{
-  @apply text-center;
-}
-.linkedin, .github, .twitter, .instagram {
-  @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;
-
-  a {
-
-    svg {
-      @apply fill-current;
-    }
-  }
-}
-
-.instructions{
-  .sub-title{
-    @apply text-gray-900 pb-2 border-b-2 border-gray-400 mb-5 text-xl font-medium;
-
-    & + p {
-      @apply mb-3
-    }
-  }
-  .code{
-    @apply block font-mono border rounded bg-gray-100 text-gray-700 px-4 py-5 leading-normal text-sm shadow;
-
-    &.pre{
-      @apply whitespace-pre;
-    }
-
-    em{
-      @apply opacity-75;
-    }
-  }
-
-}
-
-.social{
-  @apply block pt-6 text-gray-700;
-
-  a{
-    @apply text-blue-500 font-medium p-4;
-
-    &:hover{
-      @apply text-blue-700;
-    }
-  }
-}
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&family=Yeseva+One&display=swap');
 
    html {
     color: #222;
@@ -159,7 +108,7 @@ header {
 }
 
   .navbar {
-    background-color: var(--main-bg-color);
+    //background-color: var(--main-bg-color);
     padding: 2.3rem 0;
     -webkit-transition: all 0.7s;
     -moz-transition: all 0.7s;
@@ -185,7 +134,7 @@ header {
     top: 0;
     width: 223px;
     height: 41px;
-    background: url("../img/logo-dark.svg") no-repeat center/contain;
+    background: url("../img/logo-white.svg") no-repeat center/contain;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
@@ -220,7 +169,7 @@ header {
   }
 
   .navigation-button {
-    background-color: var(--main-bg-color);
+    //background-color: var(--main-bg-color);
     height: 5rem;
     width: 5rem;
     position: absolute;
@@ -318,7 +267,7 @@ header {
   .navigation-icon::after {
     width: 2rem;
     height: 2px;
-    background-color: #000;
+    //background-color: #000;
     display: inline-block;
     content: "";
     position: absolute;

@@ -110,6 +110,7 @@ devImages = () => {
 watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
   watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
+  watch(`${options.config.tailwind}`, series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
   watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind variants;
+@tailwind components;
+
+.card-team{
+  @apply text-center;
+}
+
+.main-slider {
+  @apply w-full px-6 pb-12 antialiased bg-ch-dark;
+
+  .hero-text {
+    @apply container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center;
+
+    .slider-text {
+      @apply text-5xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none md:text-7xl lg:text-8xl;
+
+      .text-team {
+        @apply relative bg-[url('.././img/team-sub.svg')] bg-no-repeat bg-bottom bg-contain ml-4 pb-4 pr-10 md:inline-block;
+      }
+    }
+  }
+  .hero-icons {
+    @apply container w-full max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center;
+
+    ul {
+      @apply flex justify-evenly md:flex-wrap;
+
+      li {
+        @apply flex items-center py-2 mx-8 md:mx-2 text-left space-x-4 xl:py-3;
+      }
+    }
+  }
+}
+
+
+
+.linkedin, .github, .twitter, .instagram {
+  @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;
+
+  a {
+
+    svg {
+      @apply fill-current;
+    }
+  }
+}
+
+.instructions{
+  .sub-title{
+    @apply text-gray-900 pb-2 border-b-2 border-gray-400 mb-5 text-xl font-medium;
+
+    & + p {
+      @apply mb-3
+    }
+  }
+  .code{
+    @apply block border rounded bg-gray-100 text-gray-700 px-4 py-5 leading-normal text-sm shadow;
+
+    &.pre{
+      @apply whitespace-pre;
+    }
+
+    em{
+      @apply opacity-75;
+    }
+  }
+
+}
+
+.social{
+  @apply block pt-6 text-gray-700;
+
+  a{
+    @apply text-blue-500 font-medium p-4;
+
+    &:hover{
+      @apply text-blue-700;
+    }
+  }
+}
