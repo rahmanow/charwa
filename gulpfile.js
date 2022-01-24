@@ -170,22 +170,20 @@ buildFinish = (done) => {
 //
 // }
 
-gitAdd = async () => {
+gitter = async () => {
     // del(`./.git/index.lock`, {force: true})
     // log('Clear Done!');
     const child = superChild(`rm -rf .git/index.lock`);
     child.on('stdout_line', (line) => {
-         console.log(line)
+         console.log(line + ' index lock removed')
      });
     return src(`${options.paths.root}`)
         .pipe(git.add())
-        .on('end', function(){ log('git add Done!'); });
-}
-
-gitCommit = async () => {
-    return src(`${options.paths.root}`)
+        .on('end', function(){ log('git add Done!'); })
         .pipe(git.commit(`${options.deploy.gitCommitMessage}`, {args:`${options.deploy.gitCommitArgs}`}))
-        .on('end', function(){ log('git commit Done!'); });
+        .on('end', function(){ log('git commit Done!'); })
+        //.pipe(git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction))
+        //.on('end', function(){ log('git push Done!'); })
 }
 
 gitPush = async () => {
@@ -212,7 +210,8 @@ errorFunction = (err) => {
 
 // Deploy command
 exports.deploy = series(surgeDeploy, openBrowser);
-exports.gitter = series(gitAdd, gitCommit, gitPush);
+exports.git = series(gitter);
+exports.push = series(gitPush);
 
 
 exports.default = series(
