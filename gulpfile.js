@@ -186,7 +186,7 @@ gitter = async () => {
         //.on('end', function(){ log('git push Done!'); })
 }
 
-gitPush = async () => {
+push = async () => {
     git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
     console.log('git push done!')
 }
@@ -209,10 +209,9 @@ errorFunction = (err) => {
 }
 
 // Deploy command
-exports.deploy = series(surgeDeploy, openBrowser);
+exports.surge = series(surgeDeploy, openBrowser);
 exports.git = series(gitter);
-exports.push = series(gitPush);
-
+exports.push = series(push);
 
 exports.default = series(
     devClean, // Clean Dist Folder
