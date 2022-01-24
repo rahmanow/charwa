@@ -28,6 +28,16 @@
   @apply flex items-center py-2 mx-8 md:mx-2 text-left space-x-4 xl:py-3;
 }
 
+.client-slider {
+  @apply bg-ch-dark p-20;
+}
+.client-slider .item {
+  @apply mx-5;
+}
+.client-slider .item img {
+  @apply h-24;
+}
+
 .linkedin, .github, .twitter, .instagram {
   @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;
 }

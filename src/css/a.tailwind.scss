@@ -34,6 +34,20 @@
   }
 }
 
+.client-slider {
+
+  @apply bg-ch-dark p-20;
+
+  .item {
+    @apply mx-5;
+
+    img {
+      @apply h-24;
+    }
+  }
+
+}
+
 
 
 .linkedin, .github, .twitter, .instagram {

@@ -6,9 +6,11 @@
     ""
   ],
   "dependencies": {
+    "@splidejs/splide": "^3.6.11",
     "browserify": "^17.0.0",
     "fancy-log": "^2.0.0",
     "font-awesome": "^4.7.0",
+    "glider-js": "^1.7.7",
     "gulp-file-include": "^2.3.0",
     "gulp-git": "^2.10.1",
     "gulp-open": "^3.0.1",

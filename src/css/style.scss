@@ -13,6 +13,10 @@
 @import "node_modules/normalize-scss/sass/normalize";
 @import "node_modules/slick-carousel/slick/slick";
 @import "node_modules/slick-carousel/slick/slick-theme";
+@import "node_modules/@splidejs/splide/src/css/core/index";
+@import "node_modules/glider-js/glider.css";
+//@import "node_modules/@splidejs/splide/dist/css/splide.min.css";
+//@import "node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&family=Yeseva+One&display=swap');
 
@@ -409,8 +413,8 @@ header {
 
   /* ----------SECTION: CLIENTS AND PARTNERS-----------*/
   .client-slider {
-    background-color: var(--dark-green-color);
-    padding: 8rem 5rem;
+    //background-color: var(--dark-green-color);
+    //padding: 8rem 5rem;
   }
 
   /* ----------SECTION: OUR SERVICES-----------*/
