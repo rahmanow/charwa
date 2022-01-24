@@ -7,7 +7,7 @@ module.exports = {
     deploy: {
         gitURL: 'https://github.com/rahmanow/charwa.git',
         gitBranch: 'dev',
-        gitCommitMessage: '- Last commit of the day. :)',
+        gitCommitMessage: '- Testing git add-push automation',
         gitCommitArgs: '-m',
         surgeUrl: 'roomy-neck.surge.sh'
     },

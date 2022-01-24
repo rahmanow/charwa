@@ -18,23 +18,24 @@ const del = require('del'); //For Cleaning build/dist for fresh export
 const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));//For Compiling SASS files
-const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
+const postCss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
 const concat = require('gulp-concat'); //For Concatinating js,scss, css files
 const uglify = require('gulp-terser');//To Minify JS files
 const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
-const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
+const purgeCss = require('gulp-purgecss');// Remove Unused CSS from Styles
 
 //Note : Webp still not supported in major browsers including firefox
 // const webp = require('gulp-webp'); //For converting images to WebP format
 // const replace = require('gulp-replace'); //For Replacing img formats to webp in html
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P
 const fileInclude = require('gulp-file-include'); // Include header and footer files to work faster :)
-const superchild = require('superchild');
+const superChild = require('superchild');
 const git = require('gulp-git'); // Execute command line shell for git push
 const babel = require('gulp-babel');
 const open = require('gulp-open'); // Opens a URL in a web browser
 const tailwindcss = require('tailwindcss');
+const log = require('fancy-log');
 
 //Load Previews on Browser on dev
 livePreview = (done) => {
@@ -72,7 +73,7 @@ devStyles = () => {
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
-      .pipe(postcss([
+      .pipe(postCss([
           tailwindcss(options.config.tailwind),
           require('autoprefixer'),
       ]))
@@ -129,7 +130,7 @@ prodHTML = () => {
 
 prodStyles = () => {
   return src(`${options.paths.dist.css}/**/*`)
-      .pipe(purgecss({
+      .pipe(purgeCss({
         content: ['src/**/*.{html,js}'],
         defaultExtractor: content => {
           const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
@@ -166,34 +167,36 @@ buildFinish = (done) => {
 }
 
 // gitClear = async () => {
-//     const child = superchild(`rm -rf .git/index.lock`);
-//     child.on('stdout_line', (line) => {
-//         console.log(line)
-//     });
+//
 // }
 
-gitClear = async () => {
-    return del(`./.git/index.lock`, {force: true});
-}
-
 gitAdd = async () => {
+    // del(`./.git/index.lock`, {force: true})
+    // log('Clear Done!');
+    const child = superChild(`rm -rf .git/index.lock`);
+    child.on('stdout_line', (line) => {
+         console.log(line)
+     });
     return src(`${options.paths.root}`)
         .pipe(git.add())
+        .on('end', function(){ log('git add Done!'); });
 }
 
 gitCommit = async () => {
     return src(`${options.paths.root}`)
         .pipe(git.commit(`${options.deploy.gitCommitMessage}`, {args:`${options.deploy.gitCommitArgs}`}))
+        .on('end', function(){ log('git commit Done!'); });
 }
 
 gitPush = async () => {
     git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
+    console.log('git push done!')
 }
 
 surgeDeploy = async () => {
-    const child = superchild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
+    const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
     child.on('stdout_line', () => {
-        console.log('git index.lock removed');
+        console.log('Deployed to surge');
     });
 }
 
@@ -209,7 +212,7 @@ errorFunction = (err) => {
 
 // Deploy command
 exports.deploy = series(surgeDeploy, openBrowser);
-exports.gitter = series(gitClear, gitAdd, gitCommit, gitPush);
+exports.gitter = series(gitAdd, gitCommit, gitPush);
 
 
 exports.default = series(
