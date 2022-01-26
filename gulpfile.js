@@ -85,7 +85,6 @@ devStyles = () => {
 devScripts = () => {
   return src([
         `${options.paths.src.js}/libs/**/*.js`,
-        './node_modules/glider-js/glider.min.js',
         `${options.paths.src.js}/*.js`,
         `!${options.paths.src.js}/**/external/*`
       ])

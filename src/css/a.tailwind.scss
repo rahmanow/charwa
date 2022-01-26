@@ -3,18 +3,146 @@
 @tailwind variants;
 @tailwind components;
 
-.card-team{
-  @apply text-center;
+
+header {
+  @apply bg-ch-dark h-28;
+
+  .navbar {
+    @apply bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700;
+
+    .container {
+      @apply flex justify-between items-center;
+
+      .hover-animation {
+        @apply block relative w-56 h-12 overflow-hidden;
+
+        .slogan {
+          @apply text-ch-orange absolute w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
+
+          p {
+            @apply m-0 text-xl leading-6;
+          }
+        }
+        .slogan-animation {
+          @apply absolute top-0;
+        }
+      }
+      .logo {
+        @apply p-0 absolute top-0 w-56 h-12 transition-all duration-300 ease-in-out bg-[url('../img/logo-white.svg')] bg-no-repeat bg-center bg-contain;
+      }
+      .logo-top-animation {
+        @apply absolute top-12;
+      }
+
+      .navigation {
+        @apply relative;
+
+        .navigation-button {
+          @apply h-20 w-20 absolute -top-10 -right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
+
+          .navigation-icon {
+            @apply relative my-auto mx-4;
+
+            ::before,
+            ::after {
+              @apply inline-block h-px absolute left-0 w-8 transition-transform transition-colors duration-500;
+            }
+            ::before {
+              @apply -top-1;
+            }
+            ::after {
+              @apply top-1;
+            }
+          }
+        }
+        .navigation-icon {
+          @apply relative my-auto mx-4;
+
+          &::before,
+          &::after {
+            @apply w-12 h-0.5 bg-white inline-block content-[''] absolute left-0 transition-transform duration-700;
+          }
+          &::before {
+            @apply -top-2;
+          }
+          &::after {
+            @apply top-2;
+          }
+
+        }
+        .navigation-background {
+          @apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
+        }
+        .navigation-nav {
+          @apply h-full opacity-0 z-30 w-0 invisible transition-all duration-500 fixed top-0 right-0;
+
+          ul {
+            @apply uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none;
+
+            li {
+              @apply transition-all duration-500 ease-in-out;
+
+              a{
+                @apply text-white relative flex justify-center items-center;
+
+                &:link,
+                &:visited {
+                  @apply text-4xl font-bold no-underline;
+                }
+
+                .menu-svg {
+                  @apply hidden pb-6 opacity-0 transition-opacity duration-500 absolute md:inline;
+                }
+              }
+              &:hover {
+                @apply scale-100;
+
+                .menu-svg {
+                  @apply opacity-100;
+                }
+              }
+            }
+          }
+        }
+        .navigation-checkbox {
+          @apply hidden;
+
+          &:checked {
+
+            ~ .navigation-nav {
+              @apply opacity-100 w-full visible;
+            }
+            ~ .navigation-background {
+              @apply scale-[80];
+            }
+            ~ .navigation-button {
+              @apply bg-ch-dark;
+            }
+            + .navigation-button .navigation-icon::before {
+              @apply top-0 rotate-[135deg] bg-white;
+            }
+            + .navigation-button .navigation-icon::after {
+              @apply top-0 rotate-[-135deg] bg-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  .custom-navbar {
+    @apply py-3 px-0;
+  }
 }
+
 
 .main-slider {
   @apply w-full px-6 pb-12 antialiased bg-ch-dark;
 
   .hero-text {
-    @apply container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center;
+    @apply container max-w-lg px-4 py-40 mx-auto text-left md:max-w-none md:text-center;
 
     .slider-text {
-      @apply text-5xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none md:text-7xl lg:text-8xl;
+      @apply text-5xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none md:text-8xl lg:text-9xl;
 
       .text-team {
         @apply relative bg-[url('.././img/team-sub.svg')] bg-no-repeat bg-bottom bg-contain ml-4 pb-4 pr-10 md:inline-block;
@@ -36,7 +164,7 @@
 
 .client-slider {
 
-  @apply bg-ch-dark p-20;
+  @apply bg-ch-dark p-20 rounded-lg;
 
   .item {
     @apply mx-5;
@@ -49,6 +177,9 @@
 }
 
 
+.card-team{
+  @apply text-center;
+}
 
 .linkedin, .github, .twitter, .instagram {
   @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;

@@ -120,3 +120,12 @@ $(document).ready(function () {
     ],
   });
 });
+
+// const logoDiv = document.getElementById('logo');
+// if ( window.location.pathname === '/index.html' ){
+//   logoDiv.innerHTML = "";
+//   logoDiv.innerHTML = "<img src='./img/logo-white.svg' alt=''>";
+// }else{
+//   logoDiv.innerHTML = "";
+//   logoDiv.innerHTML = "<img src='./img/logo-dark.svg' alt=''>";
+// }
