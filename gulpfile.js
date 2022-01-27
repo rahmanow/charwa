@@ -38,14 +38,18 @@ const tailwindcss = require('tailwindcss');
 const log = require('fancy-log');
 
 //Load Previews on Browser on dev
-livePreview = (done) => {
+livePreview = () => {
   browserSync.init({
     server: {
       baseDir: options.paths.dist.base
     },
-    port: options.config.port || 5000,
+      port: options.config.port || 5000,
+      ui: {
+          port: options.config.ui
+      }
   });
-  done();
+    watch(`${options.paths.src.css}/**/*.scss`,devStyles);
+    watch(`${options.config.tailwind}`, devStyles);
 }
 
 // Triggers Browser reload
@@ -79,7 +83,8 @@ devStyles = () => {
       ]))
       .pipe(concat({ path: 'style.css'}))
       .pipe(cleanCSS())
-      .pipe(dest(options.paths.dist.css));
+      .pipe(dest(options.paths.dist.css))
+      .pipe(browserSync.stream())
 }
 
 devScripts = () => {
@@ -110,8 +115,6 @@ devImages = () => {
 
 watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
-  watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
-  watch(`${options.config.tailwind}`, series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
   watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");

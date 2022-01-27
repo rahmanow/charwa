@@ -2,12 +2,12 @@ module.exports = {
     config: {
         tailwind: './src/tailwind.config.js',
         port: 3010,
-        ui: 8080
+        ui: 3025
     },
     deploy: {
         gitURL: 'https://github.com/rahmanow/charwa.git',
         gitBranch: 'dev',
-        gitCommitMessage: '- Last Commit of the day :)',
+        gitCommitMessage: '- home-slider and navigation files converted to tailwind',
         gitCommitArgs: '-m',
         surgeUrl: 'roomy-neck.surge.sh'
     },
