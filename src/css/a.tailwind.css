@@ -12,19 +12,19 @@ header .navbar .container {
   @apply flex justify-between items-center;
 }
 header .navbar .container .hover-animation {
-  @apply block relative w-56 h-12 overflow-hidden;
+  @apply block relative w-40 md:w-56 h-12 overflow-hidden;
 }
 header .navbar .container .hover-animation .slogan {
-  @apply text-ch-orange absolute w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
+  @apply text-ch-orange absolute w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
 }
 header .navbar .container .hover-animation .slogan p {
-  @apply m-0 text-xl leading-6;
+  @apply m-0 text-base md:text-xl md:leading-6;
 }
 header .navbar .container .hover-animation .slogan-animation {
   @apply absolute top-0;
 }
 header .navbar .container .logo {
-  @apply p-0 absolute top-0 w-56 h-12 transition-all duration-300 ease-in-out bg-[url("../img/logo-white.svg")] bg-no-repeat bg-center bg-contain;
+  @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-300 ease-in-out bg-[url("../img/logo/logo-white.svg")] bg-no-repeat bg-center bg-contain;
 }
 header .navbar .container .logo-top-animation {
   @apply absolute top-12;
@@ -33,7 +33,7 @@ header .navbar .container .navigation {
   @apply relative;
 }
 header .navbar .container .navigation .navigation-button {
-  @apply h-20 w-20 absolute -top-10 -right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
+  @apply h-20 w-20 absolute -top-10 right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
 }
 header .navbar .container .navigation .navigation-button .navigation-icon {
   @apply relative my-auto mx-4;
@@ -52,13 +52,13 @@ header .navbar .container .navigation .navigation-icon {
   @apply relative my-auto mx-4;
 }
 header .navbar .container .navigation .navigation-icon::before, header .navbar .container .navigation .navigation-icon::after {
-  @apply w-12 h-0.5 bg-white inline-block content-[""] absolute left-0 transition-transform duration-700;
+  @apply w-10 md:w-12 h-0.5 bg-white inline-block content-[""] absolute left-0 transition-transform duration-700;
 }
 header .navbar .container .navigation .navigation-icon::before {
   @apply -top-2;
 }
 header .navbar .container .navigation .navigation-icon::after {
-  @apply top-2;
+  @apply top-1 md:top-2;
 }
 header .navbar .container .navigation .navigation-background {
   @apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
@@ -108,6 +108,9 @@ header .navbar .container .navigation .navigation-checkbox:checked + .navigation
 header .custom-navbar {
   @apply py-3 px-0;
 }
+header .custom-navbar .container .logo {
+  @apply bg-[url("../img/logo/logo-icon.svg")];
+}
 
 .main-slider {
   @apply w-full px-6 pb-12 antialiased bg-ch-dark;
@@ -116,19 +119,25 @@ header .custom-navbar {
   @apply container max-w-lg px-4 py-40 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-text .slider-text {
-  @apply text-5xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none md:text-8xl lg:text-9xl;
+  @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
 }
 .main-slider .hero-text .slider-text .text-team {
-  @apply relative bg-[url(".././img/team-sub.svg")] bg-no-repeat bg-bottom bg-contain ml-4 pb-4 pr-10 md:inline-block;
+  @apply relative bg-[url(".././img/team-sub.svg")] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
 }
 .main-slider .hero-icons {
-  @apply container w-full max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center;
+  @apply container w-full max-w-lg py-8 md:py-32 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-icons ul {
-  @apply flex justify-evenly md:flex-wrap;
+  @apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
 }
 .main-slider .hero-icons ul li {
-  @apply flex items-center py-2 mx-8 md:mx-2 text-left space-x-4 xl:py-3;
+  @apply flex flex-col p-4 items-center md:mx-8 text-left space-x-4 xl:py-3;
+}
+.main-slider .hero-icons ul li svg {
+  @apply h-12 w-12;
+}
+.main-slider .hero-icons ul li span {
+  @apply pt-2 font-medium text-gray-500;
 }
 
 .client-slider {
