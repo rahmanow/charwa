@@ -126,7 +126,7 @@ header .custom-navbar {
   @apply py-3 px-0;
 }
 header .custom-navbar .container .logo {
-  @apply bg-[url("../img/logo/logo-icon.svg")];
+  @apply bg-[url("../img/logo/logo-icon.svg")] md:bg-[url("../img/logo/logo-white.svg")];
 }
 
 .main-slider {
@@ -151,17 +151,17 @@ header .custom-navbar .container .logo {
   @apply flex flex-col p-4 items-center md:mx-8 text-left space-x-4 xl:py-3;
 }
 .main-slider .hero-icons ul li svg {
-  @apply h-12 w-12;
+  @apply h-12 w-12 ml-1.5;
 }
 .main-slider .hero-icons ul li span {
-  @apply pt-2 font-medium text-gray-300;
+  @apply pt-2 font-medium text-gray-300 text-center;
 }
 
-.projects {
+.modules {
   @apply pt-2 md:pt-4 mt-2 md:mt-4;
 }
-.projects .container h2 {
-  @apply uppercase py-2 md:py-4 my-2 md:my-4 text-center sm:text-left;
+.modules h2 {
+  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center sm:text-left;
 }
 
 .client-slider {

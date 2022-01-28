@@ -15,6 +15,9 @@
   gulp push     // pushes to GitHub
 */
 
+// Configuration
+const opt = require("./config");                    //paths and other options from config.js
+
 // Gulp
 const { src, dest, watch, series, parallel } = require('gulp');
 //const gulpIf = require('gulp-if');
@@ -52,7 +55,6 @@ const open = require('gulp-open');                      // Opens a URL in a web 
 
 
 // Other
-const opt = require("./config");                    //paths and other options from config.js
 
 //Load Previews on Browser on dev
 preview = (done) => {
@@ -114,14 +116,14 @@ devImages = async () => {
         .pipe(dest(opt.dist + '/img'));
 }
 
-watchFiles = () => {
+watchFiles = async () => {
     watch(opt.html, series(devHTML, previewReload));
     watch(opt.js, series(devScripts, previewReload));
     watch(opt.img, series(devImages, previewReload));
     log("\n\t" + symbol.info,"Watching for Changes..\n");
 }
 
-devClean = () => {
+devClean = async () => {
     log("\n\t" + symbol.info,"Cleaning dist folder for fresh start.\n");
     return del([opt.dist]);
 }
@@ -219,7 +221,7 @@ exports.push = series(push);
 // Default gulp command - gulp
 exports.default = series(
     devClean, // Clean Dist Folder
-    parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
+    parallel(devHTML, devStyles, devScripts, devImages), //Run All tasks in parallel
     preview, // Live Preview Build
     watchFiles // Watch for Live Changes
 );
