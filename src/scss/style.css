@@ -11374,12 +11374,6 @@ textarea.form-control-lg {
   opacity: 0.75;
 }
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
 /*
    * Remove text-shadow in selection highlight:
    * https://twitter.com/miketaylr/status/12228805301
@@ -11481,14 +11475,6 @@ body {
 }
 /* ----------SECTION: SHOWCASE-----------*/
 /* ----------SECTION: MADE BY CHARWA-----------*/
-#made-by-charwa .card {
-  position: relative;
-  font-size: 0.8rem;
-  overflow: hidden;
-  background-color: black;
-  /* border-radius: 12px; */
-}
-
 .card-text-1 {
   position: absolute;
   top: -10%;
@@ -11523,38 +11509,14 @@ body {
   transition: all 0.3s cubic-bezier(0.5, 0.51, 0.78, 0.97);
 }
 
-.card:hover .card-text-1 {
+.project-card:hover .card-text-1 {
   top: 4%;
   opacity: 1;
 }
 
-.card:hover .card-text-2 {
+.project-card:hover .card-text-2 {
   opacity: 0;
   top: 15%;
-}
-
-.card-img {
-  opacity: 0.7;
-  width: 100%;
-  height: auto;
-  -webkit-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-.card:hover .card-img {
-  opacity: 1;
-  -webkit-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  transform: scale(1.03);
-}
-
-.show-all-project-link:link,
-.show-all-project-link:visited,
-.show-all-project-link:active {
-  color: var(--dark-green-color);
 }
 
 /* ----------SECTION: CLIENTS AND PARTNERS-----------*/
@@ -11563,26 +11525,6 @@ body {
   height: 28rem;
   color: var(--main-bg-color);
   border-radius: 0;
-}
-
-.card-list {
-  padding-top: 23%;
-}
-
-.card-1 {
-  background-color: #ff6f3d;
-}
-
-.card-2 {
-  background-color: var(--dark-green-color);
-}
-
-.card-3 {
-  background-color: #f7bc13;
-}
-
-.card-4 {
-  background-color: #3e503c;
 }
 
 .fromUp {

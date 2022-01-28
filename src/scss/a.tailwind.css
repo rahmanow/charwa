@@ -3,6 +3,11 @@
 @tailwind variants;
 @tailwind components;
 @tailwind screens;
+@layer components {
+  .img-overlay {
+    @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
+  }
+}
 h1 {
   @apply text-5xl;
 }
@@ -133,7 +138,7 @@ header .custom-navbar .container .logo {
   @apply w-full px-6 pb-12 antialiased bg-ch-dark;
 }
 .main-slider .hero-text {
-  @apply container max-w-lg px-4 py-40 mx-auto text-left md:max-w-none md:text-center;
+  @apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-text .slider-text {
   @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
@@ -142,28 +147,71 @@ header .custom-navbar .container .logo {
   @apply relative bg-[url(".././img/team-sub.svg")] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
 }
 .main-slider .hero-icons {
-  @apply container w-full max-w-lg py-8 md:py-32 mx-auto text-left md:max-w-none md:text-center;
+  @apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-icons ul {
   @apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
 }
 .main-slider .hero-icons ul li {
-  @apply flex flex-col p-4 items-center md:mx-8 text-left space-x-4 xl:py-3;
+  @apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
 }
 .main-slider .hero-icons ul li svg {
-  @apply h-12 w-12 ml-1.5;
+  @apply h-12;
 }
 .main-slider .hero-icons ul li span {
   @apply pt-2 font-medium text-gray-300 text-center;
 }
 
 .modules {
-  @apply pt-2 md:pt-4 mt-2 md:mt-4;
+  @apply py-8 md:py-4 my-2 md:my-4;
 }
 .modules h2 {
-  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center sm:text-left;
+  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
 }
 
+.made-by-charwa .container .projects {
+  @apply grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
+}
+.made-by-charwa .container .projects .project-card {
+  @apply relative overflow-hidden bg-black rounded-lg text-white;
+}
+.made-by-charwa .container .projects .project-card img {
+  @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
+}
+.made-by-charwa .container .projects .project-card:hover img {
+  @apply opacity-100 scale-105;
+}
+.made-by-charwa .container h4 {
+  @apply text-center mt-8;
+}
+.made-by-charwa .container h4 .show-all-project-link {
+  @apply text-center lowercase underline underline-offset-1;
+}
+.made-by-charwa .container h4 a:link, .made-by-charwa .container h4 a:visited, .made-by-charwa .container h4 a:active, .made-by-charwa .container h4 a:hover {
+  @apply text-ch-dark;
+}
+
+.services .cards {
+  @apply grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 w-full m-auto p-0;
+}
+.services .cards .card-box {
+  @apply pt-8 pb-24 px-0 flex flex-col text-center text-white rounded-none;
+}
+.services .cards .card-box .icon {
+  @apply flex flex-col items-center;
+}
+.services .cards .card-box h3 {
+  @apply py-6 lowercase text-5xl md:text-2xl;
+}
+.services .cards .card-box .brand-icons {
+  @apply flex flex-col items-center pt-16;
+}
+.services .cards .card-box .brand-icons h2 {
+  @apply text-4xl md:text-2xl;
+}
+.services .cards .card-box .brand-icons .icons {
+  @apply grid grid-cols-5 gap-4 grid-flow-row w-64 flex items-center;
+}
 .client-slider {
   @apply bg-ch-dark p-20 rounded-lg;
 }

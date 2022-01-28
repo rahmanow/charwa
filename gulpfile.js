@@ -64,7 +64,7 @@ preview = (done) => {
         },
         port: opt.port || 5000
     });
-    watch(opt.tailwind, devStyles);
+    watch([opt.tailwind, opt.tailConfig], devStyles);
     watch(opt.scss, devStyles);
     done();
 }

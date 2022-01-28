@@ -121,6 +121,27 @@ $(document).ready(function () {
   });
 });
 
+// const callback = function (entries) {
+//   entries.forEach((entry) => {
+//     console.log(entry);
+//
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("animate-fadeIn");
+//     } else {
+//       entry.target.classList.remove("animate-fadeIn");
+//     }
+//   });
+// };
+//
+// const observer = new IntersectionObserver(callback);
+//
+// const targets = document.querySelectorAll(".modules");
+// targets.forEach(function (target) {
+//   target.classList.add("opacity-0");
+//   observer.observe(target);
+// });
+
+
 // const logoDiv = document.getElementById('logo');
 // if ( window.location.pathname === '/index.html' ){
 //   logoDiv.innerHTML = "";

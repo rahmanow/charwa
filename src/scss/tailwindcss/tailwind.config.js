@@ -7,7 +7,8 @@ module.exports = {
         "ch-orange": "#E9653B",
         "ch-background": "#FBFAF1",
         "ch-green": "#3E503C",
-        "ch-lightgreen": "#A5C5C3"
+        "ch-lightgreen": "#A5C5C3",
+        "ch-yellow": "#F7BC13"
       }
     },
     fontFamily: {

@@ -7,7 +7,6 @@
   ],
   "dependencies": {
     "@splidejs/splide": "^3.6.11",
-    "browser-sync-ui": "^2.27.7",
     "browserify": "^17.0.0",
     "cached-path-relative": "^1.1.0",
     "fancy-log": "^2.0.0",
