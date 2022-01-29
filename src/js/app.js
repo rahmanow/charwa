@@ -121,6 +121,7 @@ $(document).ready(function () {
   });
 });
 
+// Scroll Fade Animation
 const callback = function (entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

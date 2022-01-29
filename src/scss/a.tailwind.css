@@ -173,7 +173,7 @@ header .custom-navbar .container .logo {
   @apply grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
 }
 .made-by-charwa .container .projects .project-card {
-  @apply relative overflow-hidden bg-black rounded-lg text-white;
+  @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
 }
 .made-by-charwa .container .projects .project-card img {
   @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
@@ -182,10 +182,10 @@ header .custom-navbar .container .logo {
   @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300;
 }
 .made-by-charwa .container .projects .project-card .img-overlay .project-tech {
-  @apply text-ch-background flex text-sm w-max absolute -top-16 left-4 transition-all duration-300;
+  @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
 }
 .made-by-charwa .container .projects .project-card .img-overlay .project-tech li {
-  @apply border border-solid border-gray-50 rounded-xl px-4 pt-1 mx-1;
+  @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-0.5;
 }
 .made-by-charwa .container .projects .project-card:hover img {
   @apply opacity-100 scale-105;
@@ -225,8 +225,12 @@ header .custom-navbar .container .logo {
   @apply text-4xl md:text-2xl text-center;
 }
 .services .cards .card-box .brand-icons .icons {
-  @apply grid grid-cols-5 gap-4 grid-flow-row w-64 h-24 flex items-start;
+  @apply grid grid-cols-5 gap-4 grid-flow-row w-72 h-24 flex items-start;
 }
+.services .cards .card-box .brand-icons .icons svg {
+  @apply w-12;
+}
+
 .client-slider {
   @apply bg-ch-dark p-20 rounded-lg;
 }

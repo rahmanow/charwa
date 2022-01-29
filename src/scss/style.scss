@@ -18,14 +18,61 @@
 //@import "node_modules/@splidejs/splide/dist/css/splide.min.css";
 //@import "node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Josefin+Sans:ital,wght@0,400;0,600;1,400&family=Mitr:wght@300;400&family=Yeseva+One&display=swap');
 
+/* josefin-sans-regular - latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('./fonts/josefin-sans-v20-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/josefin-sans-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* josefin-sans-600 - latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+  url('./fonts/josefin-sans-v20-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/josefin-sans-v20-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-  // html {
-  //  color: #222;
-  //  font-size: 1em;
-  //  line-height: 1.4;
-  //}
+/* mitr-300 - latin */
+@font-face {
+  font-family: 'Mitr';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+  url('./fonts/mitr-v9-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/mitr-v9-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* mitr-regular - latin */
+@font-face {
+  font-family: 'Mitr';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('./fonts/mitr-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/mitr-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* yeseva-one-regular - latin */
+@font-face {
+  font-family: 'Yeseva One';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('./fonts/yeseva-one-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/yeseva-one-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+  }
 
   /*
      * Remove text-shadow in selection highlight:
@@ -303,25 +350,25 @@
 
  
 
-@include media-breakpoint-up(lg) {
-  .text-large {
-    font-size: 5rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .ms-header__title {
-    max-width: 70%;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .ms-header__title {
-    max-width: 100%;
-  }
-
-  header {min-height: 5rem; }
-}
+//@include media-breakpoint-up(lg) {
+//  .text-large {
+//    font-size: 5rem;
+//  }
+//}
+//
+//@include media-breakpoint-up(md) {
+//  .ms-header__title {
+//    max-width: 70%;
+//  }
+//}
+//
+//@include media-breakpoint-down(md) {
+//  .ms-header__title {
+//    max-width: 100%;
+//  }
+//
+//  header {min-height: 5rem; }
+//}
 
 /* ----------SECTION: SHOWCASE-----------*/
 //
