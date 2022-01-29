@@ -6,14 +6,14 @@ module.exports = {
     dist: './dist',
     build: './build',
 
-    scss: './src/scss/*.scss',
+    scss: './src/scss/style.scss',
     js: './src/js/*.js',
     jsLibs: './src/js/libs/**/*',
     img: './src/img/**/*',
     html: './src/**/*.html',
 
-    tailwind: './src/scss/tailwindcss/*.scss',
-    tailConfig: './src/scss/tailwindcss/tailwind.config.js',
+    tailwind: './src/scss/a.tailwind.scss',
+    tailConfig: './src/scss/tailwind.config.js',
 
     bootstrap: '',
 

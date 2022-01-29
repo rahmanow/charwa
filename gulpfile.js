@@ -57,7 +57,7 @@ const open = require('gulp-open');                      // Opens a URL in a web 
 // Other
 
 //Load Previews on Browser on dev
-preview = (done) => {
+preview = async (done) => {
     browserSync.init({
         server: {
             baseDir: opt.dist
@@ -70,7 +70,7 @@ preview = (done) => {
 }
 
 // Triggers Browser reload
-previewReload = (done) => {
+previewReload = async (done) => {
     log("\n\t" + symbol.info,"Reloading Browser Preview.\n");
     browserSync.reload();
     done();
@@ -102,8 +102,7 @@ devStyles = async () => {
 devScripts = async () => {
     src([
         opt.jsLibs,
-        opt.js,
-        '!' + opt.src + '/js/external/*'
+        opt.js
     ])
         .pipe(babel({ignore: [opt.jsLibs] }))
         .pipe(concat({ path: 'main.js'}))
