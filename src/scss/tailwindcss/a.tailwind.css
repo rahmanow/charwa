@@ -2,6 +2,28 @@
 @tailwind utilities;
 @tailwind variants;
 @tailwind components;
+@tailwind screens;
+@layer components {
+  .img-overlay {
+    @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
+  }
+}
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
 header {
   @apply bg-ch-dark h-28;
 }
@@ -109,14 +131,14 @@ header .custom-navbar {
   @apply py-3 px-0;
 }
 header .custom-navbar .container .logo {
-  @apply bg-[url("../img/logo/logo-icon.svg")];
+  @apply bg-[url("../img/logo/logo-icon.svg")] md:bg-[url("../img/logo/logo-white.svg")];
 }
 
 .main-slider {
   @apply w-full px-6 pb-12 antialiased bg-ch-dark;
 }
 .main-slider .hero-text {
-  @apply container max-w-lg px-4 py-40 mx-auto text-left md:max-w-none md:text-center;
+  @apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-text .slider-text {
   @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
@@ -125,25 +147,86 @@ header .custom-navbar .container .logo {
   @apply relative bg-[url(".././img/team-sub.svg")] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
 }
 .main-slider .hero-icons {
-  @apply container w-full max-w-lg py-8 md:py-32 mx-auto text-left md:max-w-none md:text-center;
+  @apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-icons ul {
   @apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
 }
 .main-slider .hero-icons ul li {
-  @apply flex flex-col p-4 items-center md:mx-8 text-left space-x-4 xl:py-3;
+  @apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
 }
 .main-slider .hero-icons ul li svg {
-  @apply h-12 w-12;
+  @apply h-12;
 }
 .main-slider .hero-icons ul li span {
-  @apply pt-2 font-medium text-gray-500;
+  @apply pt-2 font-medium text-gray-300 text-center;
 }
 
-.projects {
-  @apply pt-2 md:pt-4 mt-2 md:mt-4;
+.modules {
+  @apply py-8 md:py-4 my-2 md:my-4;
+}
+.modules h2 {
+  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
 }
 
+.made-by-charwa .container .projects {
+  @apply grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
+}
+.made-by-charwa .container .projects .project-card {
+  @apply relative overflow-hidden bg-black rounded-lg text-white;
+}
+.made-by-charwa .container .projects .project-card img {
+  @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-type {
+  @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-tech {
+  @apply text-ch-background flex text-sm w-max absolute -top-16 left-4 transition-all duration-300;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-tech li {
+  @apply border border-solid border-gray-50 rounded-xl px-4 pt-1 mx-1;
+}
+.made-by-charwa .container .projects .project-card:hover img {
+  @apply opacity-100 scale-105;
+}
+.made-by-charwa .container .projects .project-card:hover .project-type {
+  @apply opacity-0 top-32;
+}
+.made-by-charwa .container .projects .project-card:hover .project-tech {
+  @apply absolute top-4 opacity-100;
+}
+.made-by-charwa .container h4 {
+  @apply text-center mt-8;
+}
+.made-by-charwa .container h4 .projects-link {
+  @apply text-center lowercase underline underline-offset-1;
+}
+.made-by-charwa .container h4 a:link, .made-by-charwa .container h4 a:visited, .made-by-charwa .container h4 a:active, .made-by-charwa .container h4 a:hover {
+  @apply text-ch-dark;
+}
+
+.services .cards {
+  @apply grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 w-full m-auto p-0;
+}
+.services .cards .card-box {
+  @apply pt-8 pb-24 px-0 flex flex-col text-center text-white rounded-none;
+}
+.services .cards .card-box .icon {
+  @apply flex flex-col items-center h-12;
+}
+.services .cards .card-box h3 {
+  @apply py-6 lowercase text-5xl md:text-2xl;
+}
+.services .cards .card-box .brand-icons {
+  @apply flex flex-col items-center pt-16;
+}
+.services .cards .card-box .brand-icons h2 {
+  @apply text-4xl md:text-2xl text-center;
+}
+.services .cards .card-box .brand-icons .icons {
+  @apply grid grid-cols-5 gap-4 grid-flow-row w-64 h-24 flex items-start;
+}
 .client-slider {
   @apply bg-ch-dark p-20 rounded-lg;
 }

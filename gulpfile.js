@@ -27,9 +27,9 @@ const log = require('fancy-log');
 
 //CSS
 const sass = require('gulp-sass')(require('sass'));     //For Compiling SASS files
-const post = require('gulp-postcss');                //For Compiling tailwind utilities with tailwind config
+const postCss = require('gulp-postcss');                //For Compiling tailwind utilities with tailwind config
 const clean = require('gulp-clean-css');             //To Minify CSS files
-const purge = require('gulp-purgecss');              // Remove Unused CSS from Styles
+const purgeCss = require('gulp-purgecss');              // Remove Unused CSS from Styles
 const tailwind = require('tailwindcss');
 
 // Image
@@ -47,7 +47,7 @@ const babel = require('gulp-babel');
 const include = require('gulp-file-include');       // Include header and footer files to work faster :)
 
 // Server
-const sync = require('browser-sync');
+const browserSync = require('browser-sync');
 const exec = require('superchild');               // run terminal commands
 const zip = require('gulp-zip');                        // create a zip file
 const git = require('gulp-git');                        // Execute command line shell for git push
@@ -58,7 +58,7 @@ const open = require('gulp-open');                      // Opens a URL in a web 
 
 //Load Previews on Browser on dev
 preview = (done) => {
-    sync.init({
+    browserSync.init({
         server: {
             baseDir: opt.dist
         },
@@ -72,7 +72,7 @@ preview = (done) => {
 // Triggers Browser reload
 previewReload = (done) => {
     log("\n\t" + symbol.info,"Reloading Browser Preview.\n");
-    sync.reload();
+    browserSync.reload();
     done();
 }
 
@@ -90,13 +90,13 @@ devStyles = async () => {
     src([opt.scss, opt.tailwind])
         .pipe(sass().on('error', sass.logError))
         .pipe(dest(opt.src + '/scss'))
-        .pipe(post([
+        .pipe(postCss([
             tailwind(opt.tailConfig),
             require('autoprefixer'),
         ]))
         .pipe(concat({ path: 'style.css'}))
         .pipe(dest(opt.dist + '/css'))
-        .pipe(sync.stream())
+        .pipe(browserSync.stream())
 }
 
 devScripts = async () => {
@@ -136,7 +136,7 @@ prodHTML = () => {
 
 prodStyles = () => {
     return src(opt.dist + '/css/**/*')
-        .pipe(purge(
+        .pipe(purgeCss(
             {
                 content: ['src/**/*.{html,js}'],
                 defaultExtractor: content => {
