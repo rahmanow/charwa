@@ -12,6 +12,7 @@
     "fancy-log": "^2.0.0",
     "font-awesome": "^4.7.0",
     "glider-js": "^1.7.7",
+    "glob-parent": "^6.0.2",
     "gulp-file-include": "^2.3.0",
     "gulp-git": "^2.10.1",
     "gulp-open": "^3.0.1",
@@ -19,9 +20,12 @@
     "jquery": "^3.6.0",
     "jsdom": "^19.0.0",
     "normalize-scss": "^7.0.1",
+    "nth-check": "^2.0.1",
     "postcss": "^8.2.9",
+    "semver-regex": "^4.0.2",
     "slick-carousel": "^1.8.1",
-    "superchild": "^0.1.10"
+    "superchild": "^0.1.10",
+    "trim-newlines": "^4.0.2"
   },
   "license": "",
   "author": "",
