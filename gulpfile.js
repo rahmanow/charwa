@@ -67,7 +67,7 @@ livePreview = (done) => {
 
 // Triggers Browser reload
 previewReload = (done) => {
-  console.log("\n\t" + symbols.info,"Reloading Browser Preview.\n");
+  log("\n\t" + symbols.info,"Reloading Browser Preview.\n");
   serve.reload();
   done();
 }
@@ -87,10 +87,11 @@ devHTML = () => {
 }
 
 devStyles = () => {
+    const plugins = [tailwindcss(options.config.tailwind), autoprefixer];
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
-      .pipe(post([tailwindcss(options.config.tailwind), autoprefixer,]))
+      .pipe(post(plugins /*, autoprefixer*/))
       .pipe(concat({ path: 'style.css'}))
       .pipe(clean())
       .pipe(dest(options.paths.dist.css))
@@ -138,11 +139,11 @@ const watchFiles = () => {
   watch(`${options.config.tailwind}`, series(devStyles));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
   watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
-  console.log("\n\t" + symbols.info,"Watching for Changes..\n");
+  log("\n\t" + symbols.info,"Watching for Changes..\n");
 }
 
 devClean = () => {
-  console.log("\n\t" + symbols.info,"Cleaning dist folder for fresh start.\n");
+  log("\n\t" + symbols.info,"Cleaning dist folder for fresh start.\n");
   return del([options.paths.dist.base]);
 }
 
@@ -181,19 +182,19 @@ prodImages = () => {
 }
 
 prodClean = () => {
-  console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
+  log("\n\t" + symbols.info,"Cleaning build folder for fresh start.\n");
   return del([options.paths.build.base]);
 }
 
 buildFinish = (done) => {
-  console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
+  log("\n\t" + symbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
   done();
 }
 
 gitter = async () => {
     const child = superChild(`rm -rf .git/index.lock`);
     child.on('stdout_line', (line) => {
-         console.log(line + ' index lock removed')
+         log(line + ' index lock removed')
      });
     return src(`${options.paths.root}`)
         .pipe(git.add())
@@ -204,13 +205,13 @@ gitter = async () => {
 
 push = async () => {
     git.push(`${options.deploy.gitURL}`, `${options.deploy.gitBranch}`, errorFunction);
-    console.log('git push done!')
+    log('git push done!')
 }
 
 surgeDeploy = async () => {
     const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
     child.on('stdout_line', () => {
-        console.log('Deployed to surge');
+        log('Deployed to surge');
     });
 }
 

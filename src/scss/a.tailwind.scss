@@ -47,7 +47,7 @@ header {
         }
       }
       .logo {
-        @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-300 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain;
+        @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain;
       }
       .logo-top-animation {
         @apply absolute top-12;
@@ -154,7 +154,7 @@ header {
     .container {
 
       .logo {
-        @apply bg-[url('../img/logo/logo-icon.svg')] md:bg-[url('../img/logo/logo-white.svg')];
+        @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')];
       }
     }
 
@@ -273,7 +273,7 @@ header {
     @apply grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 w-full m-auto p-0;
 
     .card-box {
-      @apply pt-8 pb-24 px-0 flex flex-col text-center text-white rounded-none;
+      @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
 
       .icon {
         @apply flex flex-col items-center h-12;
@@ -290,7 +290,7 @@ header {
         }
 
         .icons {
-          @apply grid grid-cols-5 gap-4 grid-flow-row w-72 h-24 flex items-start;
+          @apply grid grid-cols-5 gap-4 grid-flow-row w-72 md:w-56 lg:w-72 h-24 flex items-start;
 
           svg {
 
