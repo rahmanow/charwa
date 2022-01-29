@@ -9,6 +9,15 @@ module.exports = {
         "ch-green": "#3E503C",
         "ch-lightgreen": "#A5C5C3",
         "ch-yellow": "#F7BC13"
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0'},
+          '100%': { opacity: '1'},
+        }
+      },
+      animation: {
+          fadeIn: 'fadeIn 1s ease-in forwards'
       }
     },
     fontFamily: {

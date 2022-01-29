@@ -85,14 +85,14 @@ $(document).ready(function () {
     },
   });
 
-  $(window).scroll(function () {
-    let position = $(this).scrollTop();
-    if (position >= 2175) {
-      $(".card-list").addClass("fromUp");
-    } else {
-      $(".card-list").removeClass("fromUp");
-    }
-  });
+  // $(window).scroll(function () {
+  //   let position = $(this).scrollTop();
+  //   if (position >= 2175) {
+  //     $(".card-list").addClass("fromUp");
+  //   } else {
+  //     $(".card-list").removeClass("fromUp");
+  //   }
+  // });
 });
 
 $(document).ready(function () {
@@ -121,25 +121,23 @@ $(document).ready(function () {
   });
 });
 
-// const callback = function (entries) {
-//   entries.forEach((entry) => {
-//     console.log(entry);
-//
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("animate-fadeIn");
-//     } else {
-//       entry.target.classList.remove("animate-fadeIn");
-//     }
-//   });
-// };
-//
-// const observer = new IntersectionObserver(callback);
-//
-// const targets = document.querySelectorAll(".modules");
-// targets.forEach(function (target) {
-//   target.classList.add("opacity-0");
-//   observer.observe(target);
-// });
+const callback = function (entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-fadeIn");
+    } else {
+      entry.target.classList.remove("animate-fadeIn");
+    }
+  });
+};
+
+const observer = new IntersectionObserver(callback);
+
+const targets = document.querySelectorAll(".modules");
+targets.forEach(function (target) {
+  target.classList.add("opacity-5");
+  observer.observe(target);
+});
 
 
 // const logoDiv = document.getElementById('logo');

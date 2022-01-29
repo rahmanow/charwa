@@ -7,7 +7,7 @@ module.exports = {
     build: './build',
 
     scss: './src/scss/style.scss',
-    js: './src/js/*.js',
+    js: './src/js/app.js',
     jsLibs: './src/js/libs/**/*',
     img: './src/img/**/*',
     html: './src/**/*.html',
