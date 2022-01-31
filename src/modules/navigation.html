@@ -1,21 +1,49 @@
-<nav class="navigation-bar bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700">
+<nav class="navigation-bar flex justify-center bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700">
     <div class="container flex justify-between items-center">
         <div class="logo-nav">
-            <a class="hover-animation" href="index.html">
-                <div class="logo"></div>
-                <div class="slogan">
-                    <p class="">We travel, inspired,</p>
-                    <p class="">design and develop.</p>
+            <a class="hover-animation block relative w-40 md:w-56 h-12 overflow-hidden" href="index.html">
+                <div class="logo p-0 absolute top-0.5 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain"></div>
+                <div class="slogan text-ch-orange absolute w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col">
+                    <p class="m-0 text-base md:text-xl md:leading-6">We travel, inspired,</p>
+                    <p class="m-0 text-base md:text-xl md:leading-6">design and develop.</p>
                 </div>
             </a>
         </div>
         <div class="navigation relative">
-            <input class="navigation-checkbox" id="navi-toggle" type="checkbox">
+            <input class="navigation-checkbox hidden" id="navi-toggle" type="checkbox">
             <label class="navigation-button h-20 w-20 absolute -top-10 right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0" for="navi-toggle">
-                <span class="navigation-icon relative my-auto mx-4">&nbsp;</span>
+                <span class="navigation-icon relative my-auto mx-4
+            before:w-10
+            before:md:w-12
+            before:h-0.5
+            before:bg-white
+            before:inline-block
+            before:content-['']
+            before:absolute
+            before:left-0
+            before:transition-transform
+            before:duration-700
+
+            after:w-10
+            after:md:w-12
+            after:h-0.5
+            after:bg-white
+            after:inline-block
+            after:content-['']
+            after:absolute
+            after:left-0
+            after:transition-transform
+            after:duration-700
+
+            before:-top-2
+
+            after:top-1
+            after:md:top-2
+
+            ">&nbsp;</span>
             </label>
             <div class="navigation-background absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700">&nbsp;</div>
-            <nav class="navigation-nav">
+            <nav class="navigation-nav h-full z-30 transition-all duration-500 fixed top-0 right-0">
                 <ul class="navigation-list uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none">
 <!--                    {[-->
 <!--                        ['Work', './work.html', '<svg fill="none" height="104" viewBox="0 0 461 104" width="461" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M57.735 29.9958C38.6593 34.0757 13.4353 38.504 6.55984 50.5657C1.44 59.55 10.1136 70.1984 14.9821 75.3334C8.09116 69.3188 -5.03325 57.9111 2.02392 45.5285C4.98987 40.3234 14.5103 34.394 22.7546 31.2439C50.0204 20.8536 92.6728 17.3251 127.042 10.6739C189.424 -1.39787 275.467 -3.19976 333.684 11.0949C341.646 13.0472 349.152 15.8089 357.659 17.3902C392.848 23.9361 429.623 30.071 449.638 45.937C454.758 49.9919 459.944 56.7508 460.009 63.1488C460.125 75.3083 447.956 82.4055 435.392 87.0769C414.824 94.7279 384.936 98.8956 349.886 101.362C289.489 105.597 206.171 104.304 145.836 100.522C100.592 97.6851 56.4434 93.8558 35.0669 77.4335C26.6679 70.9778 21.6912 59.5826 27.9441 50.1447C33.9069 41.1329 44.3205 37.0379 57.735 29.9958ZM356.352 25.7956C348.231 23.5602 334.805 22.4199 322.671 21.1794C299.711 18.8387 276.574 17.2969 253.36 16.5607C239.47 16.1372 225.661 15.3703 215.789 16.1422C183.426 18.6658 145.116 16.5006 117.328 21.6004C103.021 24.2243 91.7525 27.9759 80.4069 31.6749C60.3722 38.1907 19.9859 54.3399 45.4265 72.8148C62.1162 84.9342 98.7285 89.6632 132.228 92.1266C200.1 97.1188 283.812 99.3492 353.765 93.8032C384.233 91.3898 425.605 86.7862 441.212 74.9123C450.752 67.6447 448.258 56.836 439.917 50.5657C427.214 41.01 401.456 34.6872 382.914 29.9958C381.951 31.4494 384.766 32.8553 386.151 34.1935" fill="#E94F3C" fill-rule="evenodd"/></svg>'],-->
@@ -32,25 +60,25 @@
 <!--                        </li>-->
 <!--                    ))}-->
 
-                    <li class="navigation-item transition-all duration-500 ease-in-out">
-                        <a class="navigation-link text-white relative flex justify-center items-center visited:text-4xl visited:font-bold visited:no-underline" href="work.html">
-                            <span class="menu-svg">
+                    <li class="navigation-item transition-all duration-500 ease-in-out hover:scale-100">
+                        <a class="navigation-link text-white relative flex justify-center items-center text-4xl font-bold no-underline visited:text-4xl visited:font-bold visited:no-underline" href="work.html">
+                            <span class="menu-svg hidden pb-6 absolute md:inline">
                                 <svg fill="none" height="104" viewBox="0 0 461 104" width="461" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M57.735 29.9958C38.6593 34.0757 13.4353 38.504 6.55984 50.5657C1.44 59.55 10.1136 70.1984 14.9821 75.3334C8.09116 69.3188 -5.03325 57.9111 2.02392 45.5285C4.98987 40.3234 14.5103 34.394 22.7546 31.2439C50.0204 20.8536 92.6728 17.3251 127.042 10.6739C189.424 -1.39787 275.467 -3.19976 333.684 11.0949C341.646 13.0472 349.152 15.8089 357.659 17.3902C392.848 23.9361 429.623 30.071 449.638 45.937C454.758 49.9919 459.944 56.7508 460.009 63.1488C460.125 75.3083 447.956 82.4055 435.392 87.0769C414.824 94.7279 384.936 98.8956 349.886 101.362C289.489 105.597 206.171 104.304 145.836 100.522C100.592 97.6851 56.4434 93.8558 35.0669 77.4335C26.6679 70.9778 21.6912 59.5826 27.9441 50.1447C33.9069 41.1329 44.3205 37.0379 57.735 29.9958ZM356.352 25.7956C348.231 23.5602 334.805 22.4199 322.671 21.1794C299.711 18.8387 276.574 17.2969 253.36 16.5607C239.47 16.1372 225.661 15.3703 215.789 16.1422C183.426 18.6658 145.116 16.5006 117.328 21.6004C103.021 24.2243 91.7525 27.9759 80.4069 31.6749C60.3722 38.1907 19.9859 54.3399 45.4265 72.8148C62.1162 84.9342 98.7285 89.6632 132.228 92.1266C200.1 97.1188 283.812 99.3492 353.765 93.8032C384.233 91.3898 425.605 86.7862 441.212 74.9123C450.752 67.6447 448.258 56.836 439.917 50.5657C427.214 41.01 401.456 34.6872 382.914 29.9958C381.951 31.4494 384.766 32.8553 386.151 34.1935" fill="#E94F3C" fill-rule="evenodd"/></svg>
                             </span>
                         <span>Work</span>
                         </a>
                     </li>
                     <li class="navigation-item transition-all duration-500 ease-in-out">
-                        <a class="navigation-link text-white relative flex justify-center items-center" href="aboutus.html">
-                            <span class="menu-svg">
+                        <a class="navigation-link text-white relative flex justify-center items-center text-4xl font-bold no-underline visited:text-4xl visited:font-bold visited:no-underline" href="aboutus.html">
+                            <span class="menu-svg hidden pb-6 absolute md:inline">
                                 <svg fill="none" height="108" viewBox="0 0 395 108" width="395" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M130.756 102.301C150.986 105.201 176.834 106.544 200.338 107.566C201.192 107.603 201.394 107.744 200.836 107.829C197.39 108.347 188.785 107.544 182.446 107.302C140.246 105.715 102.297 102.541 71.1137 95.9854C38.4846 89.1301 1.50987 76.3479 0.0413691 53.3502C-1.3597 31.4256 33.105 19.8632 61.1751 13.0833C94.0552 5.14897 128.752 1.30081 173.995 0.190001C226.632 -1.10727 273.812 4.38132 311.176 12.2899C329.266 16.1242 346.045 21.2478 361.873 27.5635C378.318 34.1094 399.439 43.7952 394.18 59.41C389.684 72.7814 365.926 80.325 344.476 86.252C325.861 91.3954 307.197 95.6562 284.836 98.3519C238.264 103.983 182.266 103.95 130.756 102.301ZM169.027 5.45443C113.996 6.8112 54.3496 15.1978 26.3807 31.2411C16.4047 36.9657 8.06562 44.6938 8.98343 54.3995C10.3658 68.9689 25.8112 77.2306 43.2796 84.3993C34.1165 77.2266 23.8595 70.046 23.897 58.6126C23.9344 48.1968 34.0679 39.2806 45.7634 33.0858C82.9666 13.3888 149.079 5.73809 217.735 5.9781C202.975 4.98432 185.211 5.05573 169.027 5.45443ZM362.371 61.7745C364.9 49.0517 354.564 38.7014 341.493 32.0345C331.135 26.7502 317.488 22.9457 302.724 19.9346C273.336 13.9283 234.383 10.5126 193.879 11.5123C154.848 12.4744 122.672 15.7314 92.4856 22.8188C66.5884 28.9104 36.2668 38.8025 33.8356 56.7699C32.2622 68.4036 42.92 77.4468 54.713 83.35C86.7802 99.4012 154.975 99.3099 212.764 98.088C272.957 96.8126 323.276 90.0862 359.887 75.9809C371.298 71.5853 384.855 64.5436 385.23 55.4548C385.784 42.0576 364.51 35.7022 350.938 29.6681C368.121 37.6897 377.352 58.9836 362.371 71.5218C359.303 74.0886 354.598 76.4808 348.949 77.5757C356.733 72.9441 361.064 68.2806 362.371 61.7745Z" fill="#F7BC13" fill-rule="evenodd"/></svg>
                             </span>
                         <span>About Us</span>
                         </a>
                     </li>
                     <li class="navigation-item transition-all duration-500 ease-in-out">
-                        <a class="navigation-link text-white relative flex justify-center items-center" href="contact.html">
-                            <span class="menu-svg">
+                        <a class="navigation-link text-white relative flex justify-center items-center text-4xl font-bold no-underline visited:text-4xl visited:font-bold visited:no-underline" href="contact.html">
+                            <span class="menu-svg hidden pb-6 absolute md:inline">
                                 <svg fill="none" height="104" viewBox="0 0 461 104" width="461" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M57.735 29.9958C38.6593 34.0757 13.4353 38.504 6.55984 50.5657C1.44 59.55 10.1136 70.1984 14.9821 75.3334C8.09116 69.3188 -5.03325 57.9111 2.02392 45.5285C4.98987 40.3234 14.5103 34.394 22.7546 31.2439C50.0204 20.8536 92.6728 17.3251 127.042 10.6739C189.424 -1.39787 275.467 -3.19976 333.684 11.0949C341.646 13.0472 349.152 15.8089 357.659 17.3902C392.848 23.9361 429.623 30.071 449.638 45.937C454.758 49.9919 459.944 56.7508 460.009 63.1488C460.125 75.3083 447.956 82.4055 435.392 87.0769C414.824 94.7279 384.936 98.8956 349.886 101.362C289.489 105.597 206.171 104.304 145.836 100.522C100.592 97.6851 56.4434 93.8558 35.0669 77.4335C26.6679 70.9778 21.6912 59.5826 27.9441 50.1447C33.9069 41.1329 44.3205 37.0379 57.735 29.9958ZM356.352 25.7956C348.231 23.5602 334.805 22.4199 322.671 21.1794C299.711 18.8387 276.574 17.2969 253.36 16.5607C239.47 16.1372 225.661 15.3703 215.789 16.1422C183.426 18.6658 145.116 16.5006 117.328 21.6004C103.021 24.2243 91.7525 27.9759 80.4069 31.6749C60.3722 38.1907 19.9859 54.3399 45.4265 72.8148C62.1162 84.9342 98.7285 89.6632 132.228 92.1266C200.1 97.1188 283.812 99.3492 353.765 93.8032C384.233 91.3898 425.605 86.7862 441.212 74.9123C450.752 67.6447 448.258 56.836 439.917 50.5657C427.214 41.01 401.456 34.6872 382.914 29.9958C381.951 31.4494 384.766 32.8553 386.151 34.1935" fill="#E94F3C" fill-rule="evenodd"/></svg>
                             </span>
                         <span>Contact</span>

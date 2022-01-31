@@ -9,7 +9,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-@import "node_modules/bootstrap/scss/bootstrap";
+//@import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/normalize-scss/sass/normalize";
 @import "node_modules/slick-carousel/slick/slick";
 @import "node_modules/slick-carousel/slick/slick-theme";
@@ -1095,10 +1095,10 @@
   /*
      * Hide visually and from screen readers
      */
-  .hidden,
-  [hidden] {
-    display: none !important;
-  }
+  //.hidden,
+  //[hidden] {
+  //  display: none !important;
+  //}
 
   /*
      * Hide only visually, but have it available for screen readers:

@@ -5,23 +5,57 @@
 @tailwind screens;
 
 @layer components {
+  .img-overlay { @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)]; }
+}
+
+h1 { @apply text-5xl; }
+h2 { @apply text-4xl; }
+h3 { @apply text-3xl; }
+h4 { @apply text-2xl; }
+
+.slogan-animation { @apply absolute top-0; }
+.logo-animation { @apply absolute top-12;}
+.logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')]; }
+.nav-scroll { @apply py-3 px-0; }
+
+.project-card { @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
+  img { @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;  }
   .img-overlay {
-    @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
+    .project-type { @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300 ;  }
+    .project-tech { @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
+      li { @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-0.5;  }
+    }
+  }
+  &:hover {
+    img { @apply opacity-100 scale-105; }
+    .project-type { @apply opacity-0 top-32; }
+    .project-tech { @apply absolute top-4 opacity-100; }
   }
 }
 
-h1 {
-  @apply text-5xl;
+.client-slider {
+  .item { @apply mx-5;
+    img { @apply h-24; }
+  }
 }
-h2 {
-  @apply text-4xl;
+
+.services { .cards {
+    .card-box { @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
+      h3 { @apply py-6 lowercase text-5xl md:text-2xl; }
+      .icon { @apply flex flex-col items-center h-12; }
+      .brand-icons { @apply flex flex-col items-center pt-16;
+        h2 { @apply text-4xl md:text-2xl text-center; }
+        .icons { @apply grid grid-cols-5 gap-4 grid-flow-row w-72 md:w-56 lg:w-72 h-24 flex items-start;
+          svg { @apply w-12; }
+        }
+      }
+    }
+}}
+
+.modules { @apply py-8 md:py-4 my-2 md:my-4 flex justify-center;
+  h2 { @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left; }
 }
-h3 {
-  @apply text-3xl;
-}
-h4 {
-  @apply text-2xl;
-}
+
 
 header {
  // @apply bg-ch-dark h-28;
@@ -33,24 +67,24 @@ header {
       //@apply flex justify-between items-center;
 
       .hover-animation {
-        @apply block relative w-40 md:w-56 h-12 overflow-hidden;
+        //@apply block relative w-40 md:w-56 h-12 overflow-hidden;
 
         .slogan {
-          @apply text-ch-orange absolute w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
+          //@apply text-ch-orange absolute w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
 
           p {
-            @apply m-0 text-base md:text-xl md:leading-6;
+            //@apply m-0 text-base md:text-xl md:leading-6;
           }
         }
         .slogan-animation {
-          @apply absolute top-0;
+          //@apply absolute top-0;
         }
       }
       .logo {
-        @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain;
+        //@apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain;
       }
       .logo-top-animation {
-        @apply absolute top-12;
+        //@apply absolute top-12;
       }
 
       .navigation {
@@ -79,13 +113,13 @@ header {
 
           &::before,
           &::after {
-            @apply w-10 md:w-12 h-0.5 bg-white inline-block content-[''] absolute left-0 transition-transform duration-700;
+            //@apply w-10 md:w-12 h-0.5 bg-white inline-block content-[''] absolute left-0 transition-transform duration-700;
           }
           &::before {
-            @apply -top-2;
+            //@apply -top-2;
           }
           &::after {
-            @apply top-1 md:top-2;
+            //@apply top-1 md:top-2;
           }
 
         }
@@ -93,7 +127,7 @@ header {
           //@apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
         }
         .navigation-nav {
-          @apply h-full opacity-0 z-30 w-0 invisible transition-all duration-500 fixed top-0 right-0;
+          @apply opacity-0 invisible w-0;
 
           ul {
             //@apply uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none;
@@ -106,15 +140,15 @@ header {
 
                 &:link,
                 &:visited {
-                  @apply text-4xl font-bold no-underline;
+                  //@apply text-4xl font-bold no-underline;
                 }
 
                 .menu-svg {
-                  @apply hidden pb-6 opacity-0 transition-opacity duration-500 absolute md:inline;
+                  @apply opacity-0 transition-opacity duration-500;
                 }
               }
               &:hover {
-                @apply scale-100;
+                //@apply scale-100;
 
                 .menu-svg {
                   @apply opacity-100;
@@ -124,7 +158,7 @@ header {
           }
         }
         .navigation-checkbox {
-          @apply hidden;
+          //@apply hidden;
 
           &:checked {
 
@@ -148,176 +182,49 @@ header {
       }
     }
   }
-  .custom-navbar {
-    @apply py-3 px-0;
-
-    .container {
-
-      .logo {
-        @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')];
-      }
-    }
-
-
-  }
+  //.custom-navbar {
+  //  //@apply py-3 px-0;
+  //    .logo {
+  //      @apply bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')];
+  //  }
+  //}
 }
 
 
 .main-slider {
-  @apply w-full px-6 pb-12 antialiased bg-ch-dark;
+  //@apply w-full px-6 pb-12 antialiased bg-ch-dark;
 
   .hero-text {
-    @apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
+    //@apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 
     .slider-text {
-      @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
+      //@apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
 
       .text-team {
-        @apply relative bg-[url('.././img/team-sub.svg')] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
+        //@apply relative bg-[url('.././img/team-sub.svg')] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
       }
     }
   }
   .hero-icons {
-    @apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
+    //@apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 
     ul {
-      @apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
+      //@apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
 
       li {
-        @apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
+        //@apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
 
         svg {
-          @apply h-12;
+          //@apply h-12;
         }
         span {
-          @apply pt-2 font-medium text-gray-300 text-center;
+          //@apply pt-2 font-medium text-gray-300 text-center;
         }
       }
     }
   }
 }
 
-.modules {
-  @apply py-8 md:py-4 my-2 md:my-4;
-
-  h2 {
-    @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
-  }
-}
-
-
-.made-by-charwa {
-
-    .container {
-
-      .projects {
-        @apply grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
-
-        .project-card {
-          @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
-
-          img {
-            @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
-          }
-
-          .img-overlay {
-
-
-            .project-type {
-              @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300 ;
-            }
-            .project-tech {
-              @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
-
-              li {
-                @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-0.5;
-              }
-            }
-          }
-
-          &:hover {
-            img {
-              @apply opacity-100 scale-105;
-            }
-            .project-type {
-              @apply opacity-0 top-32;
-            }
-            .project-tech {
-              @apply absolute top-4 opacity-100;
-            }
-          }
-
-        }
-      }
-        h4 {
-          @apply text-center mt-8;
-
-          .projects-link {
-            @apply text-center lowercase underline underline-offset-1;
-          }
-
-          a {
-            &:link, &:visited, &:active, &:hover {
-              @apply text-ch-dark;
-            }
-
-          }
-        }
-    }
-}
-
-
-.services {
-
-  .cards {
-    @apply grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 w-full m-auto p-0;
-
-    .card-box {
-      @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
-
-      .icon {
-        @apply flex flex-col items-center h-12;
-
-      }
-      h3 {
-        @apply py-6 lowercase text-5xl md:text-2xl;
-      }
-      .brand-icons {
-        @apply flex flex-col items-center pt-16;
-
-        h2 {
-          @apply text-4xl md:text-2xl text-center;
-        }
-
-        .icons {
-          @apply grid grid-cols-5 gap-4 grid-flow-row w-72 md:w-56 lg:w-72 h-24 flex items-start;
-
-          svg {
-
-            @apply w-12;
-
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
-.client-slider {
-
-  @apply bg-ch-dark p-20 rounded-lg;
-
-  .item {
-    @apply mx-5;
-
-    img {
-      @apply h-24;
-    }
-  }
-
-}
 
 
 .card-team{

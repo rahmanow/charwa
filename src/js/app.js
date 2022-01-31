@@ -2,20 +2,27 @@ $(document).ready(function () {
   $(window).scroll(function () {
     let position = $(this).scrollTop();
     if (position >= 100) {
-      $(".navbar").addClass("custom-navbar");
+      $(".navigation-bar").addClass("nav-scroll");
+      $(".logo").addClass("logo-bg");
     } else {
-      $(".navbar").removeClass("custom-navbar");
+      $(".navigation-bar").removeClass("nav-scroll");
+      $(".logo").removeClass("logo-bg");
     }
   });
 
+  //console.log(projects);
+
+  //console.log(projectCards);
+
+  // let cards;
   $(".hover-animation").on({
     mouseenter: function () {
       $(".slogan").addClass("slogan-animation");
-      $(".logo").addClass("logo-top-animation");
+      $(".logo").addClass("logo-animation");
     },
     mouseleave: function () {
       $(".slogan").removeClass("slogan-animation");
-      $(".logo").removeClass("logo-top-animation");
+      $(".logo").removeClass("logo-animation");
     },
   });
 
