@@ -280,3 +280,56 @@ header {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+footer {
+  .container {
+    @apply text-center py-14;
+
+    p {
+      @apply mb-2 text-3xl md:text-5xl;
+    }
+
+    .footer-pragraph {
+      @apply my-3 text-xl md:text-2xl;
+      a{
+        @apply text-[#f7bc13] border-b border-b-[#f7bc13];
+        svg {
+          @apply flex align-text-top;
+        }
+      }
+    }
+     
+    ul {
+      @apply list-none flex justify-center items-center my-12;
+
+    li {
+      .social-icon {
+        @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
+      
+        a {
+          svg {
+            @apply fill-ch-dark w-6 h-6;
+          }
+        }
+        &:hover {
+          @apply bg-[#f7bc13];
+        }
+
+      }
+    } 
+  }
+  
+  }
+}
+
+
+

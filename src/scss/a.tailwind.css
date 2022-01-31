@@ -210,3 +210,31 @@ header .custom-navbar .container .logo {
 .social a:hover {
   @apply text-blue-700;
 }
+
+footer .container {
+  @apply text-center py-14;
+}
+footer .container p {
+  @apply mb-2 text-3xl md:text-5xl;
+}
+footer .container .footer-pragraph {
+  @apply my-3 text-xl md:text-2xl;
+}
+footer .container .footer-pragraph a {
+  @apply text-[#f7bc13] border-b border-b-[#f7bc13];
+}
+footer .container .footer-pragraph a svg {
+  @apply flex align-text-top;
+}
+footer .container ul {
+  @apply list-none flex justify-center items-center my-12;
+}
+footer .container ul li .social-icon {
+  @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
+}
+footer .container ul li .social-icon a svg {
+  @apply fill-ch-dark w-6 h-6;
+}
+footer .container ul li .social-icon:hover {
+  @apply bg-[#f7bc13];
+}

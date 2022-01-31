@@ -11690,45 +11690,6 @@ body {
 
 /* GENERAL FOOTER
    ========================================================================== */
-#footer {
-  background-color: var(--dark-green-color);
-  color: var(--main-bg-color);
-}
-
-#footer .footer-heading {
-  font-size: 3.25rem;
-}
-
-#footer .footer-text {
-  font-size: 1.75rem;
-}
-
-#footer .circle {
-  border: 1px solid var(--dark-green-color);
-  background-color: var(--main-bg-color);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-#footer .circle:hover {
-  background-color: #f7bc13;
-  border: 1px solid var(--main-bg-color);
-}
-
-#footer .circle:hover .team-icon {
-  color: var(--main-bg-color);
-}
-
-#footer .team-icon {
-  color: var(--dark-green-color);
-  padding-top: 2px;
-}
-
-#footer a,
-#contact-form a {
-  color: #f7bc13;
-}
-
 /* WORK HTML
    ========================================================================== */
 .brands {
