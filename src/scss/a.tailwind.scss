@@ -24,13 +24,13 @@ h4 {
 }
 
 header {
-  @apply bg-ch-dark h-28;
+ // @apply bg-ch-dark h-28;
 
-  .navbar {
-    @apply bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700;
+  .navigation-bar {
+    //@apply bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700;
 
     .container {
-      @apply flex justify-between items-center;
+      //@apply flex justify-between items-center;
 
       .hover-animation {
         @apply block relative w-40 md:w-56 h-12 overflow-hidden;
@@ -54,28 +54,28 @@ header {
       }
 
       .navigation {
-        @apply relative;
+        //@apply relative;
 
         .navigation-button {
-          @apply h-20 w-20 absolute -top-10 right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
+          //@apply h-20 w-20 absolute -top-10 right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
 
-          .navigation-icon {
-            @apply relative my-auto mx-4;
-
-            ::before,
-            ::after {
-              @apply inline-block h-px absolute left-0 w-8 transition-transform transition-colors duration-500;
-            }
-            ::before {
-              @apply -top-1;
-            }
-            ::after {
-              @apply top-1;
-            }
-          }
+          //.navigation-icon {
+          //  @apply relative my-auto mx-4;
+          //
+          //  ::before,
+          //  ::after {
+          //    @apply inline-block h-px absolute left-0 w-8 transition-transform transition-colors duration-500;
+          //  }
+          //  ::before {
+          //    @apply -top-1;
+          //  }
+          //  ::after {
+          //    @apply top-1;
+          //  }
+          //}
         }
         .navigation-icon {
-          @apply relative my-auto mx-4;
+          //@apply relative my-auto mx-4;
 
           &::before,
           &::after {
@@ -90,19 +90,19 @@ header {
 
         }
         .navigation-background {
-          @apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
+          //@apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
         }
         .navigation-nav {
           @apply h-full opacity-0 z-30 w-0 invisible transition-all duration-500 fixed top-0 right-0;
 
           ul {
-            @apply uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none;
+            //@apply uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none;
 
             li {
-              @apply transition-all duration-500 ease-in-out;
+              //@apply transition-all duration-500 ease-in-out;
 
               a{
-                @apply text-white relative flex justify-center items-center;
+                //@apply text-white relative flex justify-center items-center;
 
                 &:link,
                 &:visited {
