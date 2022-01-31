@@ -3,6 +3,11 @@
 @tailwind variants;
 @tailwind components;
 @tailwind screens;
+@layer components {
+  .img-overlay {
+    @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
+  }
+}
 h1 {
   @apply text-5xl;
 }
@@ -41,7 +46,7 @@ header .navbar .container .hover-animation .slogan-animation {
   @apply absolute top-0;
 }
 header .navbar .container .logo {
-  @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-300 ease-in-out bg-[url("../img/logo/logo-white.svg")] bg-no-repeat bg-center bg-contain;
+  @apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url("../img/logo/logo-white.svg")] bg-no-repeat bg-center bg-contain;
 }
 header .navbar .container .logo-top-animation {
   @apply absolute top-12;
@@ -126,14 +131,14 @@ header .custom-navbar {
   @apply py-3 px-0;
 }
 header .custom-navbar .container .logo {
-  @apply bg-[url("../img/logo/logo-icon.svg")] md:bg-[url("../img/logo/logo-white.svg")];
+  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-white.svg")] md:bg-[url("../img/logo/logo-white.svg")];
 }
 
 .main-slider {
   @apply w-full px-6 pb-12 antialiased bg-ch-dark;
 }
 .main-slider .hero-text {
-  @apply container max-w-lg px-4 py-40 mx-auto text-left md:max-w-none md:text-center;
+  @apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-text .slider-text {
   @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
@@ -142,26 +147,88 @@ header .custom-navbar .container .logo {
   @apply relative bg-[url(".././img/team-sub.svg")] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
 }
 .main-slider .hero-icons {
-  @apply container w-full max-w-lg py-8 md:py-32 mx-auto text-left md:max-w-none md:text-center;
+  @apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
 }
 .main-slider .hero-icons ul {
   @apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
 }
 .main-slider .hero-icons ul li {
-  @apply flex flex-col p-4 items-center md:mx-8 text-left space-x-4 xl:py-3;
+  @apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
 }
 .main-slider .hero-icons ul li svg {
-  @apply h-12 w-12 ml-1.5;
+  @apply h-12;
 }
 .main-slider .hero-icons ul li span {
   @apply pt-2 font-medium text-gray-300 text-center;
 }
 
 .modules {
-  @apply pt-2 md:pt-4 mt-2 md:mt-4;
+  @apply py-8 md:py-4 my-2 md:my-4;
 }
 .modules h2 {
-  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center sm:text-left;
+  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
+}
+
+.made-by-charwa .container .projects {
+  @apply grid grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
+}
+.made-by-charwa .container .projects .project-card {
+  @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
+}
+.made-by-charwa .container .projects .project-card img {
+  @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-type {
+  @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-tech {
+  @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
+}
+.made-by-charwa .container .projects .project-card .img-overlay .project-tech li {
+  @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-0.5;
+}
+.made-by-charwa .container .projects .project-card:hover img {
+  @apply opacity-100 scale-105;
+}
+.made-by-charwa .container .projects .project-card:hover .project-type {
+  @apply opacity-0 top-32;
+}
+.made-by-charwa .container .projects .project-card:hover .project-tech {
+  @apply absolute top-4 opacity-100;
+}
+.made-by-charwa .container h4 {
+  @apply text-center mt-8;
+}
+.made-by-charwa .container h4 .projects-link {
+  @apply text-center lowercase underline underline-offset-1;
+}
+.made-by-charwa .container h4 a:link, .made-by-charwa .container h4 a:visited, .made-by-charwa .container h4 a:active, .made-by-charwa .container h4 a:hover {
+  @apply text-ch-dark;
+}
+
+.services .cards {
+  @apply grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 w-full m-auto p-0;
+}
+.services .cards .card-box {
+  @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
+}
+.services .cards .card-box .icon {
+  @apply flex flex-col items-center h-12;
+}
+.services .cards .card-box h3 {
+  @apply py-6 lowercase text-5xl md:text-2xl;
+}
+.services .cards .card-box .brand-icons {
+  @apply flex flex-col items-center pt-16;
+}
+.services .cards .card-box .brand-icons h2 {
+  @apply text-4xl md:text-2xl text-center;
+}
+.services .cards .card-box .brand-icons .icons {
+  @apply grid grid-cols-5 gap-4 grid-flow-row w-72 md:w-56 lg:w-72 h-24 flex items-start;
+}
+.services .cards .card-box .brand-icons .icons svg {
+  @apply w-12;
 }
 
 .client-slider {
@@ -211,30 +278,65 @@ header .custom-navbar .container .logo {
   @apply text-blue-700;
 }
 
-footer .container {
-  @apply text-center py-14;
+.team-icon {
+  @apply flex justify-center items-center mx-1 border rounded-full  w-9 h-9;
 }
-footer .container p {
-  @apply mb-2 text-3xl md:text-5xl;
+
+.linkedin {
+  @apply bg-[#2867b2];
 }
-footer .container .footer-pragraph {
-  @apply my-3 text-xl md:text-2xl;
+.linkedin:hover {
+  @apply border-2 border-[#2867b2];
 }
-footer .container .footer-pragraph a {
-  @apply text-[#f7bc13] border-b border-b-[#f7bc13];
+
+.github {
+  @apply bg-[#231e1b];
 }
-footer .container .footer-pragraph a svg {
-  @apply flex align-text-top;
+.github:hover {
+  @apply border-2 border-[#231e1b];
 }
-footer .container ul {
-  @apply list-none flex justify-center items-center my-12;
+
+.twitter {
+  @apply bg-[#1da1f2];
 }
-footer .container ul li .social-icon {
+.twitter:hover {
+  @apply border-2 border-[#1da1f2];
+}
+
+.instagram {
+  @apply bg-[#f00073];
+}
+.instagram:hover {
+  @apply border-2 border-[#f00073];
+}
+
+.dribble {
+  @apply bg-[#ea4c89];
+}
+.dribble:hover {
+  @apply border-2 border-[#ea4c89];
+}
+
+.behance {
+  @apply bg-[#0057FF];
+}
+.behance:hover {
+  @apply border-2 border-[#0057FF];
+}
+
+.vimeo {
+  @apply bg-[#1ab7ea];
+}
+.vimeo:hover {
+  @apply border-2 border-[#1ab7ea];
+}
+
+.social-icon {
   @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
 }
-footer .container ul li .social-icon a svg {
+.social-icon a svg {
   @apply fill-ch-dark w-6 h-6;
 }
-footer .container ul li .social-icon:hover {
+.social-icon:hover {
   @apply bg-[#f7bc13];
 }
