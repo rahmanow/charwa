@@ -25,7 +25,7 @@ let teamCards = [
 ];
 
 let teamCardsMap = teamCards.map(([id, name, avatar, personality, leftFact, leftFactIcon, rightFact, rightFactIcon]) =>(
-    `<div class='${id} m-5 p-6 rounded-xl bg-ch-dark max-h-[39rem]'>
+    `<div class='${id} m-5 p-6 rounded-xl bg-ch-dark max-h-[39rem] lg:w-5/12'>
             <div class="relative">
               <div class='${id}-visible-part h-[32rem]'>
                 <img src='img/avatars/${avatar}' class='${id}-avatar py-8 max-h-[32rem] w-full bg-ch-background rounded-xl' alt="#" />

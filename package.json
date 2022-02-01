@@ -9,6 +9,7 @@
     "@splidejs/splide": "^3.6.11",
     "browserify": "^17.0.0",
     "fancy-log": "^2.0.0",
+    "flickity": "^2.3.0",
     "font-awesome": "^4.7.0",
     "gulp-file-include": "^2.3.0",
     "gulp-git": "^2.10.1",
