@@ -275,3 +275,82 @@ header {
     }
   }
 }
+
+
+
+// the team
+
+.team-icon {
+  @apply flex justify-center items-center mx-1 border rounded-full  w-9 h-9;
+}
+
+.linkedin {
+  @apply bg-[#2867b2];
+  &:hover {
+    @apply border-2 border-[#2867b2];
+  }
+}
+
+.github {
+  @apply bg-[#231e1b];
+  &:hover {
+    @apply border-2 border-[#231e1b];
+  }
+}
+
+.twitter {
+  @apply bg-[#1da1f2];
+  &:hover {
+    @apply border-2 border-[#1da1f2];
+  }
+}
+
+.instagram {
+  @apply bg-[#f00073];
+  &:hover {
+    @apply border-2 border-[#f00073];
+  }
+}
+
+
+.dribble {
+  @apply bg-[#ea4c89];
+  &:hover {
+    @apply border-2 border-[#ea4c89];
+  }
+}
+
+.behance {
+  @apply bg-[#0057FF];
+  &:hover {
+    @apply border-2 border-[#0057FF];
+  }
+}
+
+.vimeo {
+  @apply bg-[#1ab7ea];
+  &:hover {
+    @apply border-2 border-[#1ab7ea];
+  }
+}
+
+
+// footer
+
+.social-icon {
+  @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
+
+  a {
+    svg {
+      @apply fill-ch-dark w-6 h-6;
+    }
+  }
+  &:hover {
+    @apply bg-[#f7bc13];
+  }
+
+}
+
+
+
+

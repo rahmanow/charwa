@@ -162,3 +162,66 @@ header .navigation-bar .container .navigation .navigation-checkbox:checked + .na
 .social a:hover {
   @apply text-blue-700;
 }
+
+.team-icon {
+  @apply flex justify-center items-center mx-1 border rounded-full  w-9 h-9;
+}
+
+.linkedin {
+  @apply bg-[#2867b2];
+}
+.linkedin:hover {
+  @apply border-2 border-[#2867b2];
+}
+
+.github {
+  @apply bg-[#231e1b];
+}
+.github:hover {
+  @apply border-2 border-[#231e1b];
+}
+
+.twitter {
+  @apply bg-[#1da1f2];
+}
+.twitter:hover {
+  @apply border-2 border-[#1da1f2];
+}
+
+.instagram {
+  @apply bg-[#f00073];
+}
+.instagram:hover {
+  @apply border-2 border-[#f00073];
+}
+
+.dribble {
+  @apply bg-[#ea4c89];
+}
+.dribble:hover {
+  @apply border-2 border-[#ea4c89];
+}
+
+.behance {
+  @apply bg-[#0057FF];
+}
+.behance:hover {
+  @apply border-2 border-[#0057FF];
+}
+
+.vimeo {
+  @apply bg-[#1ab7ea];
+}
+.vimeo:hover {
+  @apply border-2 border-[#1ab7ea];
+}
+
+.social-icon {
+  @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
+}
+.social-icon a svg {
+  @apply fill-ch-dark w-6 h-6;
+}
+.social-icon:hover {
+  @apply bg-[#f7bc13];
+}
