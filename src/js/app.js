@@ -1,30 +1,37 @@
-$(document).ready(function () {
-  $(window).scroll(function () {
-    let position = $(this).scrollTop();
-    if (position >= 100) {
-      $(".navigation-bar").addClass("nav-scroll");
-      $(".logo").addClass("logo-bg");
-    } else {
-      $(".navigation-bar").removeClass("nav-scroll");
-      $(".logo").removeClass("logo-bg");
-    }
-  });
+ready(() => {
 
-  //console.log(projects);
+  document.getElementById('projects').innerHTML = projectCards;
 
-  //console.log(projectCards);
+  const logoHover = document.querySelector(".hover-animation");
+  logoHover.onmouseover = () => {
+    addClass('.slogan', 'slogan-animation');
+    addClass('.logo', 'logo-animation');
+  }
+  logoHover.onmouseout = () => {
+    removeClass('.slogan', 'slogan-animation');
+    removeClass('.logo', 'logo-animation');
+  };
 
-  // let cards;
-  $(".hover-animation").on({
-    mouseenter: function () {
-      $(".slogan").addClass("slogan-animation");
-      $(".logo").addClass("logo-animation");
-    },
-    mouseleave: function () {
-      $(".slogan").removeClass("slogan-animation");
-      $(".logo").removeClass("logo-animation");
-    },
-  });
+window.onscroll = () => {
+  let position = window.scrollY | document.body.scrollTop;
+  if (position >= 100) {
+    addClass('.navigation-bar', 'nav-scroll');
+    addClass('.logo', 'logo-scroll');
+  } else {
+    removeClass('.navigation-bar', 'nav-scroll');
+    removeClass('.logo', 'logo-scroll');
+  }
+};
+
+  document.querySelector(".unlock-button").addEventListener('click',
+      () => {
+    removeClass('.sk-random-fact', 'hidden');
+    hideElement('.sk-card-inner');
+    hideElement('.locked');
+    removeClass('.unlocked', 'hidden');
+    addStyle('.sk-avatar', 'padding-top', '16rem');
+    }, false);
+});
 
   $(".btn-aboutcard-1").on({
     click: function () {
@@ -42,23 +49,23 @@ $(document).ready(function () {
     },
   });
 
-  $(".btn-aboutcard-2").on({
-    click: function () {
-      $(".img-name-2").css("display", "none");
-      $(".arrow-2").css("display", "none");
-      $(".btn-text-sevda-1").css("display", "none");
-      $(".btn-text-sevda-2").css("display", "inline");
-      $(".lock-svg-2").css("display", "none");
-      $(".unlock-svg-2").css("display", "inline");
-      $(".barista-icon").css("display", "inline");
-      $(".ability").css("display", "inline");
-      $(".sevda-ability").css("display", "inline");
-      $(".barista-icon-2").css("display", "inline");
-      $(".sevda-ability-2").css("display", "inline");
-      $(".arrow2").css("display", "inline");
-      $(".aboutus-img-2").css("padding-top", "28%");
-    },
-  });
+  // $(".btn-aboutcard-2").on({
+  //   click: function () {
+  //     $(".img-name-2").css("display", "none");
+  //     $(".arrow-2").css("display", "none");
+  //     $(".btn-text-sevda-1").css("display", "none");
+  //     $(".btn-text-sevda-2").css("display", "inline");
+  //     $(".lock-svg-2").css("display", "none");
+  //     $(".unlock-svg-2").css("display", "inline");
+  //     $(".barista-icon").css("display", "inline");
+  //     $(".ability").css("display", "inline");
+  //     $(".sevda-ability").css("display", "inline");
+  //     $(".barista-icon-2").css("display", "inline");
+  //     $(".sevda-ability-2").css("display", "inline");
+  //     $(".arrow2").css("display", "inline");
+  //     $(".aboutus-img-2").css("padding-top", "28%");
+  //   },
+  // });
 
   $(".btn-aboutcard-3").on({
     click: function () {
@@ -100,7 +107,12 @@ $(document).ready(function () {
   //     $(".card-list").removeClass("fromUp");
   //   }
   // });
-});
+//});
+
+// const mouseOver = (selector, newClass) => {
+//   document.querySelector(selector).classList.add(newClass);
+//   document.querySelector(selector).classList.add(newClass);
+// }
 
 $(document).ready(function () {
   $(".client-slider").slick({

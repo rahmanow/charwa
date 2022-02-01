@@ -18,3 +18,9 @@ let projectCards = [
 )).join('');
 
 
+let teamCards = [
+    ['Azat', 'img/azat_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'img/barista_icon.png', 'Professional barista', 'img/mind_reader.png', 'she can read people\'s minds'],
+    ['Sevda', 'img/sevda_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'img/barista_icon.png', 'Professional barista', 'img/mind_reader.png', 'she can read people\'s minds'],
+    ['Sona', 'img/sona_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'img/barista_icon.png', 'Professional barista', 'img/mind_reader.png', 'she can read people\'s minds'],
+    ['Kakajan', 'img/kakajan_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'img/barista_icon.png', 'Professional barista', 'img/mind_reader.png', 'she can read people\'s minds'],
+]

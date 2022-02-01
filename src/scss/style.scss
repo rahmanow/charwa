@@ -704,9 +704,9 @@
     height: 1.3em;
     overflow: hidden;
     vertical-align: middle;
-    mask-image: linear-gradient(transparent, white, white, white, transparent);
-    mask-type: luminance;
-    mask-mode: alpha;
+    //mask-image: linear-gradient(transparent, white, white, white, transparent);
+    //mask-type: luminance;
+    //mask-mode: alpha;
   }
 
   .ms-slider__words {
@@ -769,58 +769,10 @@
     }
   }
 
-
-/* setup tooltips */
-.tooltip-up {
-  position: relative;
-}
-.tooltip-up:before,
-.tooltip-up:after {
-  display: block;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-}
-.tooltip-up:after {
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgba(0,0,0,.75);
-  border-left: 6px solid transparent;
-  content: '';
-  height: 0;
-  top: -10px;
-  left:2px;
-  width: 0;
-}
-.tooltip-up:before {
-  background: rgba(0,0,0,.75);
-  border-radius: 2px;
-  color: #fff;
-  content: attr(data-title);
-  font-size: 14px;
-  padding: 6px 10px;
-  top: -43px;
-  white-space: nowrap;
-}
-
-/* the animations */
-/* fade */
-.tooltip-up.fader:after,
-.tooltip-up.fader:before {
-  transform: translate3d(0,-10px,0);
-  transition: all .15s ease-in-out;
-}
-.tooltip-up.fader:hover:after,
-.tooltip-up.fader:hover:before {
-  opacity: 1;
-  transform: translate3d(0,0,0);
-}
-
-
-
   #aboutus .card {
-    background-color: var(--dark-green-color);
-    border-radius: 22px;
-    padding: 2rem;
+    //background-color: var(--dark-green-color);
+    //border-radius: 22px;
+    //padding: 2rem;
   }
 
   .aboutus-img-wrapper {
@@ -828,7 +780,7 @@
   }
 
   .ability {
-    display: none;
+    //display: none;
     position: absolute;
     top: 8%;
     left: 50%;
@@ -838,11 +790,11 @@
   }
 
   .aboutus-img {
-    max-height: 28rem;
+    //max-height: 28rem;
     width: 100%;
     background-color: var(--main-bg-color);
     border-radius: 12px;
-    padding: 15% 0 5% 0;
+    //padding: 15% 0 5% 0;
   }
 
   .fan-icon,
@@ -862,14 +814,14 @@
   }
 
   .left-arrow {
-    display: none;
+    //display: none;
     position: absolute;
     top: 45%;
     left: 17%;
   }
 
    .right-arrow {
-    display: none;
+    //display: none;
     position: absolute;
     top: 53%;
     right: 15%;
@@ -894,7 +846,7 @@
   }
 
   .img-ability-2 {
-    display: none;
+    //display: none;
     position: absolute;
     top: 43%;
     right: 9%;
@@ -918,7 +870,7 @@
   .img-ability-2
   .left-arrow
   .right-arrow {
-    display: none;
+    //display: none;
   }
 
   .unlock-svg {
@@ -973,14 +925,14 @@
     }
 
     .aboutus-img {
-      max-height: 16rem;
-      padding: 12% 0;
+      //max-height: 32rem;
+      //padding: 12% 0;
     }
 
     .arrow,
     .img-icon,
     .img-icon-2 {
-      width: 80px;
+      //width: 80px;
     }
 
     .img-ability {
@@ -1062,7 +1014,7 @@
     }
 
     #aboutus .card {
-      padding: 0.75rem;
+      //padding: 0.75rem;
     }
 
     .btn-aboutus {
@@ -1141,9 +1093,9 @@
   /*
      * Hide visually and from screen readers, but maintain layout
      */
-  .invisible {
-    visibility: hidden;
-  }
+  //.invisible {
+  //  visibility: hidden;
+  //}
 
   /*
      * Clearfix: contain floats

@@ -15,7 +15,7 @@ h4 { @apply text-2xl; }
 
 .slogan-animation { @apply absolute top-0; }
 .logo-animation { @apply absolute top-12;}
-.logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')]; }
+.logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] bg-left md:bg-[url('../img/logo/logo-white.svg')]; }
 .nav-scroll { @apply py-3 px-0; }
 
 .project-card { @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;

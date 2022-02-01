@@ -83,7 +83,8 @@ devHTML = () => {
         prefix: '@@',
         basepath: '@file'
       }))
-      .pipe(dest(options.paths.dist.base));
+      .pipe(dest(options.paths.dist.base))
+      .pipe(serve.stream());
 }
 
 devStyles = () => {
