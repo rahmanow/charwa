@@ -23,14 +23,6 @@ window.onscroll = () => {
   }
 };
 
-  document.querySelector(".unlock-button").addEventListener('click',
-      () => {
-    removeClass('.sk-random-fact', 'hidden');
-    hideElement('.sk-card-inner');
-    hideElement('.locked');
-    removeClass('.unlocked', 'hidden');
-    addStyle('.sk-avatar', 'padding-top', '16rem');
-    }, false);
 });
 
   $(".btn-aboutcard-1").on({
