@@ -769,48 +769,39 @@
     }
   }
 
-  #aboutus .card {
-    //background-color: var(--dark-green-color);
-    //border-radius: 22px;
-    //padding: 2rem;
-  }
-
-  .aboutus-img-wrapper {
-    position: relative;
-  }
 
   .ability {
     //display: none;
-    position: absolute;
-    top: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: 600;
-    font-size: 1.25rem;
+    //position: absolute;
+    //top: 8%;
+    //left: 50%;
+    //transform: translateX(-50%);
+    //font-weight: 600;
+    //font-size: 1.25rem;
   }
 
-  .aboutus-img {
-    //max-height: 28rem;
-    width: 100%;
-    background-color: var(--main-bg-color);
-    border-radius: 12px;
-    //padding: 15% 0 5% 0;
-  }
+  //.aboutus-img {
+  //  //max-height: 28rem;
+  //  width: 100%;
+  //  background-color: var(--main-bg-color);
+  //  border-radius: 12px;
+  //  //padding: 15% 0 5% 0;
+  //}
 
-  .fan-icon,
-  .tea-icon {
-    width: 6rem;
-  }
+  //.fan-icon,
+  //.tea-icon {
+  //  width: 6rem;
+  //}
   .img-name {
-    position: absolute;
-    top: 5%;
-    left: 6%;
-    font-size: 1.5rem;
+    //position: absolute;
+    //top: 5%;
+    //left: 6%;
+    //font-size: 1.5rem;
   }
   .arrow {
-    position: absolute;
-    top: 18%;
-    left: 4%;
+    //position: absolute;
+    //top: 4rem;
+    //left: 1rem;
   }
 
   .left-arrow {
@@ -1035,10 +1026,6 @@
 
     .container-form {
       padding: 2rem 1rem 4rem 1rem;
-    }
-
-    .arrow {
-      width: 60px;
     }
   }
 

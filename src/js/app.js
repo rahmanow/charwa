@@ -1,16 +1,6 @@
 ready(() => {
 
-  document.getElementById('projects').innerHTML = projectCards;
-
-  const logoHover = document.querySelector(".hover-animation");
-  logoHover.onmouseover = () => {
-    addClass('.slogan', 'slogan-animation');
-    addClass('.logo', 'logo-animation');
-  }
-  logoHover.onmouseout = () => {
-    removeClass('.slogan', 'slogan-animation');
-    removeClass('.logo', 'logo-animation');
-  };
+  modulesByPage();
 
   window.onscroll = () => {
     let position = window.scrollY | document.body.scrollTop;
@@ -22,40 +12,7 @@ ready(() => {
       removeClass('.logo', 'logo-scroll');
     }
   };
-
 });
-
-// Scroll Fade Animation
-const callback = function (entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("animate-fadeIn");
-    } else {
-      entry.target.classList.remove("animate-fadeIn");
-    }
-  });
-};
-
-const observer = new IntersectionObserver(callback);
-const targets = document.querySelectorAll(".modules");
-targets.forEach(function (target) {
-  target.classList.add("opacity-5");
-  observer.observe(target);
-});
-
-//
-// var elem = document.querySelector('.main-carousel');
-// var flkty = new Flickity( elem, {
-//   // options
-//   cellAlign: 'left',
-//   contain: true
-// });
-//
-// // element argument can be a selector string
-// //   for an individual element
-// var flkty = new Flickity( '.main-carousel', {
-//   // options
-// });
 
 
 $(document).ready(function () {
@@ -83,13 +40,3 @@ $(document).ready(function () {
     ],
   });
 });
-
-
-// const logoDiv = document.getElementById('logo');
-// if ( window.location.pathname === '/index.html' ){
-//   logoDiv.innerHTML = "";
-//   logoDiv.innerHTML = "<img src='./img/logo-white.svg' alt=''>";
-// }else{
-//   logoDiv.innerHTML = "";
-//   logoDiv.innerHTML = "<img src='./img/logo-dark.svg' alt=''>";
-// }
