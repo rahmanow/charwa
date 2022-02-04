@@ -92,7 +92,7 @@ devStyles = () => {
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
-      .pipe(post(plugins /*, autoprefixer*/))
+      .pipe(post(plugins))
       .pipe(concat({ path: 'style.css'}))
       .pipe(clean())
       .pipe(dest(options.paths.dist.css))
@@ -102,7 +102,10 @@ devStyles = () => {
 devScripts = () => {
   return src([
         `${options.paths.src.js}/libs/**/*.js`,
-        `${options.paths.src.js}/*.js`,
+        `${options.paths.src.js}/data.js`,
+        `${options.paths.src.js}/modules.js`,
+        `${options.paths.src.js}/functions.js`,
+        `${options.paths.src.js}/app.js`,
         `!${options.paths.src.js}/**/external/*`
       ])
        .pipe(babel({

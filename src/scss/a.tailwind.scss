@@ -18,6 +18,10 @@ h4 { @apply text-2xl; }
 .logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] bg-left md:bg-[url('../img/logo/logo-white.svg')]; }
 .nav-scroll { @apply py-3 px-0; }
 
+.container {
+  //@apply px-8;
+}
+
 .project-card { @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
   img { @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;  }
   .img-overlay {
@@ -56,175 +60,42 @@ h4 { @apply text-2xl; }
   h2 { @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left; }
 }
 
-
-header {
- // @apply bg-ch-dark h-28;
-
-  .navigation-bar {
-    //@apply bg-ch-dark fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700;
-
-    .container {
-      //@apply flex justify-between items-center;
-
-      .hover-animation {
-        //@apply block relative w-40 md:w-56 h-12 overflow-hidden;
-
-        .slogan {
-          //@apply text-ch-orange absolute w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight flex items-center flex-col;
-
-          p {
-            //@apply m-0 text-base md:text-xl md:leading-6;
-          }
-        }
-        .slogan-animation {
-          //@apply absolute top-0;
-        }
-      }
-      .logo {
-        //@apply p-0 absolute top-0 w-40 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-[url('../img/logo/logo-white.svg')] bg-no-repeat bg-center bg-contain;
-      }
-      .logo-top-animation {
-        //@apply absolute top-12;
-      }
-
-      .navigation {
-        //@apply relative;
-
-        .navigation-button {
-          //@apply h-20 w-20 absolute -top-10 right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0;
-
-          //.navigation-icon {
-          //  @apply relative my-auto mx-4;
-          //
-          //  ::before,
-          //  ::after {
-          //    @apply inline-block h-px absolute left-0 w-8 transition-transform transition-colors duration-500;
-          //  }
-          //  ::before {
-          //    @apply -top-1;
-          //  }
-          //  ::after {
-          //    @apply top-1;
-          //  }
-          //}
-        }
-        .navigation-icon {
-          //@apply relative my-auto mx-4;
-
-          &::before,
-          &::after {
-            //@apply w-10 md:w-12 h-0.5 bg-white inline-block content-[''] absolute left-0 transition-transform duration-700;
-          }
-          &::before {
-            //@apply -top-2;
-          }
-          &::after {
-            //@apply top-1 md:top-2;
-          }
-
-        }
-        .navigation-background {
-          //@apply absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full bg-ch-dark transition-transform duration-700;
-        }
-        .navigation-nav {
-          @apply opacity-0 invisible w-0;
-
-          ul {
-            //@apply uppercase flex flex-col lg:flex-row justify-around items-center p-0 m-0 h-full w-full list-none;
-
-            li {
-              //@apply transition-all duration-500 ease-in-out;
-
-              a{
-                //@apply text-white relative flex justify-center items-center;
-
-                &:link,
-                &:visited {
-                  //@apply text-4xl font-bold no-underline;
-                }
-
-                .menu-svg {
-                  @apply opacity-0 transition-opacity duration-500;
-                }
-              }
-              &:hover {
-                //@apply scale-100;
-
-                .menu-svg {
-                  @apply opacity-100;
-                }
-              }
-            }
-          }
-        }
-        .navigation-checkbox {
-          //@apply hidden;
-
-          &:checked {
-
-            ~ .navigation-nav {
-              @apply opacity-100 w-full visible;
-            }
-            ~ .navigation-background {
-              @apply scale-[80];
-            }
-            ~ .navigation-button {
-              @apply bg-ch-dark;
-            }
-            + .navigation-button .navigation-icon::before {
-              @apply top-0 rotate-[135deg] bg-white;
-            }
-            + .navigation-button .navigation-icon::after {
-              @apply top-0 rotate-[-135deg] bg-white;
-            }
-          }
-        }
-      }
+.navigation-nav {
+  @apply opacity-0 invisible w-0;
+  .navigation-item {
+    .navigation-link{
+      .menu-svg { @apply opacity-0 transition-opacity duration-500; }
     }
-  }
-  //.custom-navbar {
-  //  //@apply py-3 px-0;
-  //    .logo {
-  //      @apply bg-[url('../img/logo/logo-icon-white.svg')] md:bg-[url('../img/logo/logo-white.svg')];
-  //  }
-  //}
-}
-
-
-.main-slider {
-  //@apply w-full px-6 pb-12 antialiased bg-ch-dark;
-
-  .hero-text {
-    //@apply container max-w-lg px-4 py-12 md:py-28 mx-auto text-left md:max-w-none md:text-center;
-
-    .slider-text {
-      //@apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl flex flex-nowrap justify-center font-yeseva leading-10 tracking-tight text-left text-ch-background md:text-center sm:leading-none;
-
-      .text-team {
-        //@apply relative bg-[url('.././img/team-sub.svg')] bg-no-repeat bg-bottom bg-contain ml-2 md:ml-4 pb-1.5 pr-4 md:pb-4 md:pr-10 md:inline-block;
-      }
-    }
-  }
-  .hero-icons {
-    //@apply container w-full max-w-lg py-8 md:py-28 mx-auto text-left md:max-w-none md:text-center;
-
-    ul {
-      //@apply flex justify-around items-start pl-0 md:justify-evenly flex-nowrap;
-
-      li {
-        //@apply flex flex-col p-4 items-center md:mx-8 text-left xl:py-3;
-
-        svg {
-          //@apply h-12;
-        }
-        span {
-          //@apply pt-2 font-medium text-gray-300 text-center;
-        }
-      }
+    &:hover {
+      .menu-svg { @apply opacity-100; }
     }
   }
 }
+  .navigation-checkbox {
+    &:checked {
+      ~ .navigation-nav {
+        @apply opacity-100 w-full visible;
+      }
+      ~ .navigation-background {
+        @apply scale-[80];
+      }
+      ~ .navigation-button {
+        @apply bg-ch-dark;
+      }
+      + .navigation-button .navigation-icon::before {
+        @apply top-0 rotate-[135deg] bg-white;
+      }
+      + .navigation-button .navigation-icon::after {
+        @apply top-0 rotate-[-135deg] bg-white;
+      }
+    }
+  }
 
+  #aboutus {
+    .avatar {
+      @apply pt-48 md:pt-40;
+    }
+  }
 
 
 .card-team{

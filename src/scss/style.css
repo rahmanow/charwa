@@ -588,43 +588,6 @@ body {
     transform: translateY(-83%);
   }
 }
-.aboutus-img-wrapper {
-  position: relative;
-}
-
-.ability {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-.aboutus-img {
-  width: 100%;
-  background-color: var(--main-bg-color);
-  border-radius: 12px;
-}
-
-.fan-icon,
-.tea-icon {
-  width: 6rem;
-}
-
-.img-name {
-  position: absolute;
-  top: 5%;
-  left: 6%;
-  font-size: 1.5rem;
-}
-
-.arrow {
-  position: absolute;
-  top: 18%;
-  left: 4%;
-}
-
 .left-arrow {
   position: absolute;
   top: 45%;
@@ -691,16 +654,6 @@ body {
 
 .join-paragraph {
   color: var(--logo-red-color);
-}
-
-.btn-aboutus {
-  font-size: 2rem;
-  padding: 0.7rem 6rem;
-  border-radius: 12px;
-  background-color: var(--dark-green-color);
-  color: var(--main-bg-color);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
 }
 
 .btn-aboutus:focus,
@@ -794,11 +747,6 @@ body {
     margin: 0;
     width: 100% !important;
   }
-
-  .btn-aboutus {
-    font-size: 1.5rem;
-    padding: 0.3rem 0.7rem;
-  }
 }
 /* `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 576px) {
@@ -812,10 +760,6 @@ body {
 
   .container-form {
     padding: 2rem 1rem 4rem 1rem;
-  }
-
-  .arrow {
-    width: 60px;
   }
 }
 /* ==========================================================================

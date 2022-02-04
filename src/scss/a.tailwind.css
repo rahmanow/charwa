@@ -101,29 +101,34 @@ h4 {
   @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
 }
 
-header .navigation-bar .container .navigation .navigation-nav {
+.navigation-nav {
   @apply opacity-0 invisible w-0;
 }
-header .navigation-bar .container .navigation .navigation-nav ul li a .menu-svg {
+.navigation-nav .navigation-item .navigation-link .menu-svg {
   @apply opacity-0 transition-opacity duration-500;
 }
-header .navigation-bar .container .navigation .navigation-nav ul li:hover .menu-svg {
+.navigation-nav .navigation-item:hover .menu-svg {
   @apply opacity-100;
 }
-header .navigation-bar .container .navigation .navigation-checkbox:checked ~ .navigation-nav {
+
+.navigation-checkbox:checked ~ .navigation-nav {
   @apply opacity-100 w-full visible;
 }
-header .navigation-bar .container .navigation .navigation-checkbox:checked ~ .navigation-background {
+.navigation-checkbox:checked ~ .navigation-background {
   @apply scale-[80];
 }
-header .navigation-bar .container .navigation .navigation-checkbox:checked ~ .navigation-button {
+.navigation-checkbox:checked ~ .navigation-button {
   @apply bg-ch-dark;
 }
-header .navigation-bar .container .navigation .navigation-checkbox:checked + .navigation-button .navigation-icon::before {
+.navigation-checkbox:checked + .navigation-button .navigation-icon::before {
   @apply top-0 rotate-[135deg] bg-white;
 }
-header .navigation-bar .container .navigation .navigation-checkbox:checked + .navigation-button .navigation-icon::after {
+.navigation-checkbox:checked + .navigation-button .navigation-icon::after {
   @apply top-0 rotate-[-135deg] bg-white;
+}
+
+#aboutus .avatar {
+  @apply pt-48 md:pt-40;
 }
 
 .card-team {
