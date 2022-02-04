@@ -49,23 +49,23 @@ const social = {
     }
 }
 
-// const socialLink = (array) => {
-//     array.forEach(item => {
-//         let arr = item.split('-');
-//         console.log(arr);
-//         let newElement = document.createElement('div');
-//         console.log(newElement);
-//         newElement.className = 'team-icon';
-//         let link = document.createElement('a');
-//         console.log(link);
-//         link.href = social.link[arr[0]] + arr[1];
-//         console.log(link.href);
-//         link.appendChild(social.icons[arr[0]]);
-//         console.log(social.icons[arr[0]]);
-//         newElement.appendChild(link);
-//         addClass('team-icon', arr[0]);
-//     })
-// }
+const socialLink = (array) => {
+    array.forEach(item => {
+        let arr = item.split('-');
+        console.log(arr);
+        let newElement = document.createElement('div');
+        console.log(newElement);
+        newElement.className = 'team-icon';
+        let link = document.createElement('a');
+        console.log(link);
+        link.href = social.link[arr[0]] + arr[1];
+        console.log(link.href);
+        link.appendChild(social.icons[arr[0]]);
+        console.log(social.icons[arr[0]]);
+        newElement.appendChild(link);
+        addClass('team-icon', arr[0]);
+    })
+}
 
 
 let team = [

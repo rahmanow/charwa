@@ -75,7 +75,7 @@ let temMaps = team.map(([name, avatar, position, social]) => (
         </div>
         <div>
           <div class="list-none flex justify-center items-center pl-0">` +
-             //socialLink(social)
+             socialLink(social)
           + `</div>
         </div>
       </div>`
