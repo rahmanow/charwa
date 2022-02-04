@@ -1,7 +1,4 @@
 ready(() => {
-
-  modulesByPage();
-
   window.onscroll = () => {
     let position = window.scrollY | document.body.scrollTop;
     if (position >= 100) {

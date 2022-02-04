@@ -58,12 +58,14 @@ const modulesList = {
 
 const modulesByPage = () => {
     addInnerHTML('#nav-list', menuMap);
-    let page = path.substring(1).split('.')[0];
+    let page = (path ==='') ? 'index' : path.substring(1).split('.')[0];
+    console.log(page);
     Object.entries(modulesList[page]).forEach(item => {
         const [key, value] = item;
         addInnerHTML(key, value);
     })
 }
+modulesByPage();
 
 const logoMouseOver = () => {
     addClass('.slogan', 'slogan-animation');

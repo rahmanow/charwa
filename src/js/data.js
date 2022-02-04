@@ -49,23 +49,26 @@ const social = {
     }
 }
 
-const socialLink = (array) => {
-    array.forEach(item => {
-        let arr = item.split('-');
-        console.log(arr);
-        let newElement = document.createElement('div');
-        console.log(newElement);
-        newElement.className = 'team-icon';
-        let link = document.createElement('a');
-        console.log(link);
-        link.href = social.link[arr[0]] + arr[1];
-        console.log(link.href);
-        link.appendChild(social.icons[arr[0]]);
-        console.log(social.icons[arr[0]]);
-        newElement.appendChild(link);
-        addClass('team-icon', arr[0]);
-    })
-}
+// const socialLink = (array) => {
+//     array.forEach(item => {
+//         let arr = item.split('-');
+//         const [soc, user] = arr
+//         console.log(soc);
+//         let newElement = document.createElement('div');
+//         console.log(newElement);
+//         newElement.className = 'team-icon';
+//         let link = document.createElement('a');
+//         console.log(link);
+//         link.href = social.link[soc] + user;
+//         link.appendChild(social.icons[soc]);
+//         console.log(link.href);
+//         //link.appendChild(social.icons[arr[0]]);
+//         //console.log(social.icons[arr[0]]);
+//         newElement.appendChild(link);
+//         addClass('.team-icon', soc);
+//     })
+// }
+//
 
 
 let team = [
@@ -74,3 +77,15 @@ let team = [
     ['Sona Chariyeva', 'sona_avatar.svg', 'UX/UI Designer', ['linkedin-sonachariyeva', 'dribble-sonachariyeva', 'behance-sonachariyeva', 'instagram-sonachariyeva']],
     ['Kakajan Ovezov', 'kakajan_avatar.svg', 'Videographer-Photographer', ['linkedin-kakajanovezov', 'vimeo-kakajanovezov', 'twitter-kakajanovezov', 'instagram-kakajanovezov']]
 ]
+
+// const socialLink = (array) => {
+//     array.forEach(item => {
+//         let arr = item.split('-');
+//         const [soc, user] = arr
+//         `<div class="team-icon ${soc}">
+//             <a href="${social.link[soc] + user}">
+//                 ${social.icons[soc]}
+//            </a>
+//         </div>`
+//     })
+// }
