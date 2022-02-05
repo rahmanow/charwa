@@ -49,21 +49,29 @@ const unlockCard = (id) => {
 const modulesList = {
     index : {                           // page name without extention
         '#projects': projectCardsMap,     // id of the parent element : function
-        '#client-slider': clientsMap
+        '#client-slider': clientsMap,
+        '#home-team': teamMap
     },
     aboutus : {
         '#team-cards': teamCardsMap
+    },
+    work: {
+        '#work-projects': projectCardsMap
     }
 }
 
+console.log(path);
 const modulesByPage = () => {
     addInnerHTML('#nav-list', menuMap);
-    let page = path.substring(1).split('.')[0];
+    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
+    console.log(page);
+    //console.log(path);
     Object.entries(modulesList[page]).forEach(item => {
         const [key, value] = item;
         addInnerHTML(key, value);
     })
 }
+modulesByPage();
 
 const logoMouseOver = () => {
     addClass('.slogan', 'slogan-animation');
