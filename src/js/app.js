@@ -11,6 +11,7 @@ ready(() => {
   };
 });
 
+//addInnerHTML('#home-team1', teamMap);
 
 $(document).ready(function () {
   $(".client-slider").slick({
