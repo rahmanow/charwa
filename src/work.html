@@ -1,31 +1,46 @@
 @@include('./header.html')
 
-  <div class="container d-flex flex-column">
-        <div class="ms-header__title h3 text-start fs-3">
-          Over the years we’ve been involved in many projects individually. Now
-          we have joined our experiences to improve our services. Here are some projects completed as a team:
-          <div class="ms-slider">
-            <ul class="ms-slider__words">
-              <li class="ms-slider__word"><img src="img/satynal_logo.svg" alt=""></li>
-              <li class="ms-slider__word"><img src="img/bipfly_logo.svg" alt=""></li>
-              <li class="ms-slider__word"><img src="img/renklisahypa_logo.svg" alt=""></li>
-              <li class="ms-slider__word"><img src="img/Taze_Tanysh.svg" alt=""></li>
-              <li class="ms-slider__word"><img src="img/eyesinden_logo.svg" alt=""></li>
-              <li class="ms-slider__word"><img src="img/satynal_logo.svg" alt=""></li>
-            </ul>
-          </div>
-        </div>
-
-    <section id="made-by-charwa" class="d-flex flex-column justify-content-around">
-      <div class="py-5 my-2 text-center position-relative d-flex justify-content-center align-items-center">
-        <h2 class="text-uppercase position-absolute pt-md-4">Selected Projects</h2>
-        <img class="d-md-inline" src="img/Vector.svg" alt="" />
+<div class="container mx-auto mt-4">
+  <div class="text-xl sm:text-2xl md:text-[28px] md:w-9/12 text-ch-dark font-normal">
+    Over the years we’ve been involved in many projects individually. Now
+    we have joined our experiences to improve our services. Here are some projects completed as a team:
+    <span>
+      <div class="ms-slider mx-3">
+        <ul class="ms-slider__words">
+          <li class="ms-slider__word">
+            <img src="img/client-logo/satynal-logo-dark.svg" alt="">
+          </li>
+          <li class="ms-slider__word">
+            <img src="img/client-logo/eyesinden-logo-dark.svg" alt="">
+          </li>
+          <li class="ms-slider__word">
+            <img src="img/client-logo/renklisahypa-logo-dark.svg" alt="">
+          </li>
+          <li class="ms-slider__word">
+            <img src="img/client-logo/eyesinden-logo-dark.svg" alt="">
+          </li>
+          <li class="ms-slider__word">
+            <img src="img/client-logo/renklisahypa-logo-dark.svg" alt="">
+          </li>
+          <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
+          <li class="ms-slider__word">
+            <img src="img/client-logo/satynal-logo-dark.svg" alt="">
+          </li>
+        </ul>
       </div>
-      <div class="container mx-auto">
-        <div id="work-projects" class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4">
-
-        </div>
-      </div>
-    </section>
+    </span>
   </div>
+</div>
+<section id="made-by-charwa" class="flex flex-col justify-around">
+  <div class="my-2 py-2 w-full">
+    <div class="py-4 my-3 text-center relative flex justify-center items-center">
+      <h2 class="lowercase absolute text-2xl md:text-3xl md:pt-4 text-ch-dark font-semibold">selected projects</h2>
+      <img class="hidden md:inline" src="img/icons/menu-sub-orange.svg" alt="" />
+    </div>
+  <div class="container mx-auto py-4 px-4 md:px-0">
+    <div id="work-projects" class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4">
+    </div>
+  </div>
+</section>
+</div>
 @@include('./footer.html')
