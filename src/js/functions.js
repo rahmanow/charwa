@@ -2,7 +2,7 @@ function ready (fn) { (document.readyState !== 'loading') ? fn() : document.addE
 
 const path = location.pathname;
 
-const l = (item) => {console.log(item)}
+const log = (item) => {console.log(item)}
 
 // add new class element
 const addClass = (selector, newClass) => {
@@ -35,43 +35,12 @@ const addInnerHTML = (selector, value) => {
     selector ? document.querySelector(selector).innerHTML = value : '';
 }
 
-
-
-
 ///// Custom Functions
-
 const unlockCard = (id) => {
     hideElement(['.'+ id + '-card-inner', '.'+ id + '-locked']);
     removeClass(['.'+ id + '-random-fact', '.'+ id + '-unlocked'], 'hidden');
     addClass('.'+ id + '-avatar', 'avatar');
 }
-
-const modulesList = {
-    index : {                           // page name without extention
-        '#projects': projectCardsMap,     // id of the parent element : function
-        '#client-slider': clientsMap,
-        '#home-team': teamMap
-    },
-    aboutus : {
-        '#team-cards': teamCardsMap
-    },
-    work: {
-        '#work-projects': projectCardsMap
-    }
-}
-
-console.log(path);
-const modulesByPage = () => {
-    addInnerHTML('#nav-list', menuMap);
-    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
-    console.log(page);
-    //console.log(path);
-    Object.entries(modulesList[page]).forEach(item => {
-        const [key, value] = item;
-        addInnerHTML(key, value);
-    })
-}
-modulesByPage();
 
 const logoMouseOver = () => {
     addClass('.slogan', 'slogan-animation');
@@ -93,6 +62,15 @@ const callback = function (entries) {
         }
     });
 };
+
+const modulesByPage = () => {
+    addInnerHTML('#nav-list', menuMap);
+    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
+    Object.entries(modulesList[page]).forEach(item => {
+        const [key, value] = item;
+        addInnerHTML(key, value);
+    })
+}
 
 const observer = new IntersectionObserver(callback);
 const targets = document.querySelectorAll(".modules");

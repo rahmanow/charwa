@@ -11,7 +11,22 @@ ready(() => {
   };
 });
 
-//addInnerHTML('#home-team1', teamMap);
+const modulesList = {
+  index : {                               // page name without extention
+    '#projects': projectCardsMap,       // id of the parent element : function
+    '#client-slider': clientsMap,
+    '#home-team': teamMap,
+    '#slider-text': sliderTextMap
+  },
+  aboutus : {
+    '#team-cards': teamCardsMap
+  },
+  work: {
+    '#work-projects': projectCardsMap
+  }
+}
+
+modulesByPage();
 
 $(document).ready(function () {
   $(".client-slider").slick({

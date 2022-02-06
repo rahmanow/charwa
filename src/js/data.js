@@ -13,6 +13,13 @@ let menu = [
     ['contact', 'menu-sub-orange.svg', 'contact.html']
 ];
 
+let sliderText = [
+    ['slider-interactive.svg', 'Powerful interactive', 'prototypes'],
+    ['slider-dev-friendly.svg', 'Developer-', 'friendly code'],
+    ['slider-seamless.svg', 'seamless', 'handoff']
+];
+
+
 let clients = [
     ['Eyesinden', 'eyesinden_logo.svg'],
     ['Satynal', 'satynal_logo.svg'],
