@@ -24,6 +24,14 @@ h4 {
   @apply text-2xl;
 }
 
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}
+
 .slogan-animation {
   @apply absolute top-0;
 }

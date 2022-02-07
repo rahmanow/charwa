@@ -79,7 +79,7 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
     }).join('');
 
 let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
-    `<div class="md:flex md:items-center h-64 space-x-2 md:space-x-4 w-28 md:w-fit">
+    `<div class="md:flex md:items-center space-x-2 md:space-x-4 w-28 md:w-fit">
               <img class="mx-auto h-10" src="./img/icons/${icon}" alt="">
                 <div class="text-ch-background pt-2 text-center md:text-left">
                     <p class="text-sm md:text-base">${line1}</p> 
@@ -87,4 +87,10 @@ let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
                 </div>
                           
           </div>`
+)).join('');
+
+let slidingTextMap = slidingText.map(([logo, alt]) => (
+    `<li class="ms-slider__word">
+        <img src="img/client-logo/${logo}" alt="${alt}">
+    </li>`
 )).join('');

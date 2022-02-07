@@ -22,6 +22,7 @@ const modulesList = {
     '#team-cards': teamCardsMap
   },
   work: {
+    '#sliding-logo': slidingTextMap,
     '#work-projects': projectCardsMap
   }
 }

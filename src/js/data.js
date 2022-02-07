@@ -35,6 +35,17 @@ let teamCards = [
     ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
 
+let slidingText = [
+['satynal-logo-dark.svg', 'Satynal dark logo'],
+['eyesinden-logo-dark.svg', 'Eyesinden dark logo'],
+['renklisahypa-logo-dark.svg', 'Renklisahypa dark logo'],
+['eyesinden-logo-dark.svg', 'Eyesinden dark logo'],
+['renklisahypa-logo-dark.svg', 'Eyesinden dark logo'],
+['satynal-logo-dark.svg', 'Satynal dark logo']
+]
+
+
+
 const homeTeam = {
     members: {
         azat: {
@@ -73,12 +84,12 @@ const homeTeam = {
         kakajan: {
             name: 'Kakajan Ovezov',
             avatar: 'kakajan_avatar.svg',
-            position: 'Videographer-Photographer',
+            position: 'Filmmaker-Photographer',
             accounts: {
-                linkedin: 'kakajanovezov',
-                vimeo: 'kakajanovezov',
-                twitter: 'kakajanovezov',
-                instagram: 'kakajanovezov'
+                linkedin: 'kakajanowezow',
+                vimeo: 'kakajanowezow',
+                twitter: 'kakajanowezow',
+                instagram: 'kakajanowezow'
             }
         }
     },
