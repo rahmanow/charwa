@@ -103,6 +103,7 @@ devScripts = () => {
   return src([
         `${options.paths.src.js}/libs/**/*.js`,
         `${options.paths.src.js}/data.js`,
+        `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/modules.js`,
         `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/app.js`,

@@ -27,28 +27,18 @@ const clientsMap = clients.map(([name, logo]) => (
      </div>`
 )).join('');
 
-let teamCardsMap = teamCards.map(([id, name, avatar, personality, leftFact, leftFactIcon, rightFact, rightFactIcon]) =>(
-    `<div class='${id} m-5 p-6 rounded-xl bg-ch-dark lg:w-5/12'>
-            <div class="relative">
-              <div class='${id}-visible-part h-[32rem] lg:h-[42rem] bg-ch-background flex rounded-xl'>
-                <img src='img/avatars/${avatar}' class='${id}-avatar py-4 h-[27rem] self-end w-full' alt="#" />
+let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
+    `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
+            <div class="relative md:pb-6">
+              <div class='${id}-visible-part h-128 sm:h-168 bg-ch-background flex rounded-xl'>
+                <img src='img/avatars/${avatar}' class='${id}-avatar py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
                 <div class='${id}-card-inner'>
                   <img src="img/avatars/facts/arrow.svg" class="absolute top-16 left-4 w-16" alt="" />
                   <p class="absolute top-6 left-4 text-2xl">${name}</p>
                 </div>
               </div>
-              <div class='${id}-random-fact hidden'>
-                <div class="absolute top-10 left-1/2 font-semibold text-xl w-48 text-center lowercase transform -translate-x-1/2">${personality}</div>
-                <div class="absolute top-24 left-8 flex flex-col w-24 lg:w-40 items-center content-start">
-                  <img src='img/avatars/facts/${leftFactIcon}' class="w-24" alt="" />
-                  <div class="w-28 text-center lowercase">${leftFact}</div>
-                  <img class="w-8 self-start" src="img/avatars/facts/left.svg" alt="">
-                </div>
-                <div class="absolute top-28 right-8 flex flex-col w-24 lg:w-40 items-center align-flex-end">
-                  <img src='img/avatars/facts/${rightFactIcon}' class="w-24" alt="" />
-                  <div class="w-28 text-center lowercase">${rightFact}</div>
-                  <img class="pt-7 w-8 self-end" src="img/avatars/facts/right.svg" alt="">
-                </div>
+              <div class='${id}-random-fact absolute top-4 w-full transform transition-opacity duration-200 opacity-0'>
+                  <img class="pt-7 absolute left-1/2 px-8 transform -translate-x-1/2" src="img/avatars/facts/${facts}" alt="">
               </div>
             </div>
             <div onclick="unlockCard('${id}')" class="unlock-button mt-4 h-14 border-2 rounded-lg py-2 flex justify-center items-center cursor-pointer">
@@ -125,7 +115,7 @@ const teamContact = (x) => {
         </div>`;
         });
         let [avatar, name, position] = [item.avatar, item.name, item.position];
-        `<div class="flex flex-col justify-center items-center space-y-4">
+        return `<div class="flex flex-col justify-center items-center space-y-4 pb-8">
             <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
                 <img src="img/avatars/${avatar}" alt="...">
             </div>
@@ -137,6 +127,16 @@ const teamContact = (x) => {
                 ${icons}
             </div>
          </div>`
-    })
-}
-//addInnerHTML('#home-team1', teamContact);
+    }).join('');
+
+let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
+    `<div class="md:flex md:items-center h-64 space-x-2 md:space-x-4 w-28 md:w-fit">
+              <img class="mx-auto h-10" src="./img/icons/${icon}" alt="">
+                <div class="text-ch-background pt-2 text-center md:text-left">
+                    <p class="text-sm md:text-base">${line1}</p> 
+                    <p class="text-sm md:text-base">${line2}</p>
+                </div>
+                          
+          </div>`
+)).join('');
+

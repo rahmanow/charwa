@@ -13,6 +13,13 @@ let menu = [
     ['contact', 'menu-sub-orange.svg', 'contact.html']
 ];
 
+let sliderText = [
+    ['slider-interactive.svg', 'Powerful interactive', 'prototypes'],
+    ['slider-dev-friendly.svg', 'Developer-', 'friendly code'],
+    ['slider-seamless.svg', 'seamless', 'handoff']
+];
+
+
 let clients = [
     ['Eyesinden', 'eyesinden_logo.svg'],
     ['Satynal', 'satynal_logo.svg'],
@@ -22,10 +29,10 @@ let clients = [
 ];
 
 let teamCards = [
-    ['ar', 'Azat', 'azat_avatar.svg', '"FREE SPIRIT & CURIOUS"', 'he is walter white of tea', 'azat-tea-expert.png', 'big fan of najwa nimri', 'azat-najwa-nimri.png'],
-    ['sk', 'Sevda', 'sevda_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'Professional barista', 'sevda-barista.png', 'she can read people\'s minds', 'sevda-mind-reader.png'],
-    ['sc', 'Sona', 'sona_avatar.svg', '"BRAVE & DREAMER"', 'she can walk like a ninja', 'sona-ninja.png',  'has a mermaid friend', 'sona-mermaid-friend.png'],
-    ['ko', 'Kakajan', 'kakajan_avatar.svg', '"POPULAR & SELF CONFIDENT"', 'inventor of filter coffee', 'kakajan-filter-coffee.png', 'he has a very expensive camera', 'kakajan-expensive-camera.png'],
+    ['ar', 'Azat', 'azat_avatar.svg', 'azat.png'],
+    ['sk', 'Sevda', 'sevda_avatar.svg', 'sevda.png'],
+    ['sc', 'Sona', 'sona_avatar.svg', 'sona.png'],
+    ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
 
 const socialMedia = {
@@ -110,9 +117,9 @@ const homeTeam = {
             }
         },
         sevda: {
-            name: 'Azat Rahmanov',
-            avatar: 'azat_avatar.svg',
-            position: 'Full-Stack Web Developer',
+            name: 'Sevda Kantürk',
+            avatar: 'sevda_avatar.svg',
+            position: 'Front-End Web Developer',
             accounts: {
                 linkedin: 'rahmanow',
                 github: 'rahmanow',

@@ -18,6 +18,16 @@ module.exports = {
       },
       animation: {
           fadeIn: 'fadeIn 1s ease-in forwards'
+      },
+      spacing: {
+        'w-card': 'calc(50%-theme(space.8))'
+      },
+      height: {
+        '100': '25rem',
+        '104': '26rem',
+        '108': '27rem',
+        '128': '32rem',
+        '168': '42rem',
       }
     },
     fontFamily: {
