@@ -38,7 +38,8 @@ const addInnerHTML = (selector, value) => {
 ///// Custom Functions
 const unlockCard = (id) => {
     hideElement(['.'+ id + '-card-inner', '.'+ id + '-locked']);
-    removeClass(['.'+ id + '-random-fact', '.'+ id + '-unlocked'], 'hidden');
+    removeClass(['.'+ id + '-random-fact'], 'opacity-0');
+    removeClass(['.'+ id + '-unlocked'], 'hidden');
     addClass('.'+ id + '-avatar', 'avatar');
 }
 
@@ -52,6 +53,15 @@ const logoMouseOut = () => {
     removeClass('.logo', 'logo-animation');
 };
 
+const modulesByPage = () => {
+    addInnerHTML('#nav-list', menuMap);
+    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
+    Object.entries(modulesList[page]).forEach(item => {
+        const [key, value] = item;
+        addInnerHTML(key, value);
+    })
+}
+
 // Scroll Fade Animation
 const callback = function (entries) {
     entries.forEach((entry) => {
@@ -62,15 +72,6 @@ const callback = function (entries) {
         }
     });
 };
-
-const modulesByPage = () => {
-    addInnerHTML('#nav-list', menuMap);
-    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
-    Object.entries(modulesList[page]).forEach(item => {
-        const [key, value] = item;
-        addInnerHTML(key, value);
-    })
-}
 
 const observer = new IntersectionObserver(callback);
 const targets = document.querySelectorAll(".modules");

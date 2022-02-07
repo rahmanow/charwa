@@ -29,10 +29,10 @@ let clients = [
 ];
 
 let teamCards = [
-    ['ar', 'Azat', 'azat_avatar.svg', '"FREE SPIRIT & CURIOUS"', 'he is walter white of tea', 'azat-tea-expert.png', 'big fan of najwa nimri', 'azat-najwa-nimri.png'],
-    ['sk', 'Sevda', 'sevda_avatar.svg', '"PROBLEM SOLVER & DISCIPLINED"', 'Professional barista', 'sevda-barista.png', 'she can read people\'s minds', 'sevda-mind-reader.png'],
-    ['sc', 'Sona', 'sona_avatar.svg', '"BRAVE & DREAMER"', 'she can walk like a ninja', 'sona-ninja.png',  'has a mermaid friend', 'sona-mermaid-friend.png'],
-    ['ko', 'Kakajan', 'kakajan_avatar.svg', '"POPULAR & SELF CONFIDENT"', 'inventor of filter coffee', 'kakajan-filter-coffee.png', 'he has a very expensive camera', 'kakajan-expensive-camera.png'],
+    ['ar', 'Azat', 'azat_avatar.svg', 'azat.png'],
+    ['sk', 'Sevda', 'sevda_avatar.svg', 'sevda.png'],
+    ['sc', 'Sona', 'sona_avatar.svg', 'sona.png'],
+    ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
 
 const homeTeam = {
@@ -51,7 +51,7 @@ const homeTeam = {
         sevda: {
             name: 'Sevda Kantürk',
             avatar: 'sevda_avatar.svg',
-            position: 'Full-Stack Web Developer',
+            position: 'Front-End Web Developer',
             accounts: {
                 linkedin: 'sevdakanturk',
                 github: 'sevdakanturk',
