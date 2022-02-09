@@ -100,6 +100,17 @@ $animDuration: 5s;
           );
 }
 
+.scroll {
+  margin-top: 25px;
+  //font-family: "Cabin", sans-serif;
+  letter-spacing: 12px;
+  text-indent: 12px;
+  color: $colorOutline;
+  animation:
+          colorText $animDuration ease-out infinite,
+          nudgeText $animDuration ease-out infinite;
+}
+
 .mouse {
   @include bgGradient;
   position: relative;
