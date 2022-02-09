@@ -49,6 +49,12 @@ let slidingTextAboutUs = {
     ],
     config: {
         preText: 'We are',
+        customClass: {
+            div: '',
+            ul: '',
+            liText: '',
+            liImg: ''
+        },
         elementType: 'text',
         sliderHeight: '6rem', // tailwindcss height value
         wordLineHeight: '6rem'
@@ -64,6 +70,12 @@ let slidingLogos = {
     ],
     config: {
         preText: '',
+        customClass: {
+            div: 'w-full',
+            ul: '',
+            liText: '',
+            liImg: ''
+        },
         elementType: 'image',
         sliderHeight: '2.75rem',
         wordLineHeight: '1.6rem'

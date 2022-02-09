@@ -4,9 +4,12 @@ ready(() => {
     if (position >= 100) {
       addClass('.navigation-bar', 'nav-scroll');
       addClass('.logo', 'logo-scroll');
+      addClass('.mouse', 'md:hidden');
+
     } else {
       removeClass('.navigation-bar', 'nav-scroll');
       removeClass('.logo', 'logo-scroll');
+      removeClass('.mouse', 'md:hidden');
     }
   };
 });

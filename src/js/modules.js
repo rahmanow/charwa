@@ -92,22 +92,23 @@ let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
 let slidingMap = (obj) => {
     let val = Object.values(obj);
     let config = Object.values(obj.config);
-    const [preText, type, sHeight, lHeight] = config;
+    const [preText, customClass, type, sHeight, lHeight] = config;
 
     const textList = val[0].map(element => {
         if(type === 'text') {
-            return `<li class="block text-left" style="height:${sHeight}; line-height: ${lHeight}">${element}</li>`;
+            return `<li class="block text-left ${customClass.liText}" style="height:${sHeight}; line-height: ${lHeight}">${element}</li>`;
         } else if (type === 'image') {
-            return `<li class="block text-left" style="height:${sHeight}; line-height: ${lHeight}">
+            return `<li class="block text-left ${customClass.liImg}" style="height:${sHeight}; line-height: ${lHeight}">
                         <img src="img/client-logo/${element}" alt="">
                     </li>`;
         }
     });
     textList.push(textList[0]);
     let generatedList = textList.join('');
+
     let pre = preText ? '<div>' + preText + '</div>' : '';
-    return `${pre} <div class="mx-3 flex flex-col justify-between overflow-hidden align-middle" style="height:${sHeight}">
-                <ul class="inline-block m-0 p-0 list-none animate-slide">
+    return `${pre} <div class="mx-3 flex flex-col justify-between overflow-hidden align-middle ${customClass.div}" style="height:${sHeight}">
+                <ul class="inline-block m-0 p-0 list-none animate-slide ${customClass.ul}">
                     ${generatedList}
                 </ul>
             </div>`
