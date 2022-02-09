@@ -62,7 +62,36 @@
 </footer>
 
 <script src="js/main.js" type="application/javascript"></script>
-
+<script src="https://my.forms.app/static/feedback.js"
+        type="text/javascript">
+    FormsAppFeedbackButton({
+        formId: "6202c600015f7839d84002b3",
+        buttonText: "",
+        buttonTextColor: "#FFFFFF",
+        buttonBackground: "#11c4e0",
+        verticalAlligment: "middle",
+        horizontalAlligment: "right",
+        width: 500,
+        height: 630
+    });
+    addStyle('.feedback-button',
+        [
+            'height:4.5rem',
+            'background-color: transparent',
+            'position:fixed',
+            'background-image:url(/img/icons/button-live-chat.png)',
+            'background-repeat: no-repeat',
+            'transform: none',
+            'bottom: 4%',
+            'top: unset',
+            'right: 4%'
+        ]);
+    addStyle('.tingle-modal-box',
+        [
+            'background-color: #FBFAF1'
+        ]);
+    //addClass('.feedback-button', 'animate-ping');
+</script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
     window.ga = function () {

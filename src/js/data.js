@@ -8,9 +8,9 @@ let projectCards = [
 ];
 
 let menu = [
+    ['home', 'menu-sub-yellow.svg', 'index.html'],
     ['work', 'menu-sub-orange.svg', 'work.html'],
-    ['about us', 'menu-sub-yellow.svg', 'aboutus.html'],
-    ['contact', 'menu-sub-orange.svg', 'contact.html']
+    ['about us', 'menu-sub-yellow.svg', 'aboutus.html']
 ];
 
 let sliderText = [
@@ -35,14 +35,40 @@ let teamCards = [
     ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
 
-let slidingText = [
-['satynal-logo-dark.svg', 'Satynal dark logo'],
-['eyesinden-logo-dark.svg', 'Eyesinden dark logo'],
-['renklisahypa-logo-dark.svg', 'Renklisahypa dark logo'],
-['eyesinden-logo-dark.svg', 'Eyesinden dark logo'],
-['renklisahypa-logo-dark.svg', 'Eyesinden dark logo'],
-['satynal-logo-dark.svg', 'Satynal dark logo']
+let slidingLogo = [
+
 ]
+
+let slidingTextAboutUs = {
+    slidingElements: [
+        'charwa',
+        'developers',
+        'designers',
+        'cat lovers',
+        'travellers'
+    ],
+    config: {
+        preText: 'We are',
+        elementType: 'text',
+        sliderHeight: '6rem', // tailwindcss height value
+        wordLineHeight: '6rem'
+    }
+}
+let slidingLogos = {
+    slidingElements: [
+        'satynal-logo-dark.svg',
+        'eyesinden-logo-dark.svg',
+        'renklisahypa-logo-dark.svg',
+        'satynal-logo-dark.svg',
+        'eyesinden-logo-dark.svg'
+    ],
+    config: {
+        preText: '',
+        elementType: 'image',
+        sliderHeight: '2.75rem',
+        wordLineHeight: '1.6rem'
+    }
+}
 
 
 

@@ -214,8 +214,8 @@ push = async () => {
 
 surgeDeploy = async () => {
     const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
-    child.on('stdout_line', () => {
-        log('Deployed to surge');
+    child.on('stdout_line', (e) => {
+        log(e + 'Deployed to surge');
     });
 }
 

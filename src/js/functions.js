@@ -26,10 +26,9 @@ const hideElement = (selector) => {
 }
 
 // add style to an element
-const addStyle = (selector, property, value) => {
-    document.querySelector(selector).style = property + ':' + value;
+const addStyle = (selector, style) => {
+    document.querySelector(selector).style = style.join(';');
 }
-
 // add HTML into a certain class or id
 const addInnerHTML = (selector, value) => {
     selector ? document.querySelector(selector).innerHTML = value : '';
@@ -56,9 +55,10 @@ const logoMouseOut = () => {
 const modulesByPage = () => {
     addInnerHTML('#nav-list', menuMap);
     let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
-    Object.entries(modulesList[page]).forEach(item => {
+    Promise.all(Object.entries(modulesList[page]).map(async(item) => {
         const [key, value] = item;
-        addInnerHTML(key, value);
+        addInnerHTML(key, await value);
+    })).then(r => {
     })
 }
 

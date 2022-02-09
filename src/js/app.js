@@ -19,10 +19,11 @@ const modulesList = {
     '#slider-text': sliderTextMap
   },
   aboutus : {
+    '#sliding-items': slidingMap(slidingTextAboutUs),
     '#team-cards': teamCardsMap
   },
   work: {
-    '#sliding-logo': slidingTextMap,
+    '#sliding-logo': slidingMap(slidingLogos),
     '#work-projects': projectCardsMap
   }
 }

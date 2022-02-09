@@ -532,30 +532,6 @@ body {
   font-size: 3rem;
 }
 
-.ms-slider {
-  display: inline-block;
-  height: 1.7em;
-  overflow: hidden;
-  vertical-align: middle;
-}
-
-.ms-slider__words {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  animation-name: wordSlider;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-  animation-duration: 10s;
-}
-
-.ms-slider__word {
-  display: block;
-  line-height: 1.6em;
-  text-align: left;
-}
-
 @keyframes wordSlider {
   0%, 16% {
     -webkit-transform: translateY(-0.5%);
@@ -586,6 +562,38 @@ body {
     -webkit-transform: translateY(-83%);
     -ms-transform: translateY(-83%);
     transform: translateY(-83%);
+  }
+}
+@keyframes wordSlider1 {
+  0%, 16% {
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  20%, 36% {
+    -webkit-transform: translateY(-16.66%);
+    -ms-transform: translateY(-16.66%);
+    transform: translateY(-16.66%);
+  }
+  40%, 56% {
+    -webkit-transform: translateY(-33.32%);
+    -ms-transform: translateY(-33.32%);
+    transform: translateY(-33.32%);
+  }
+  60%, 76% {
+    -webkit-transform: translate(-49.98%);
+    -ms-transform: translate(-49.98%);
+    transform: translateY(-49.98%);
+  }
+  80%, 96% {
+    -webkit-transform: translateY(-66.64%);
+    -ms-transform: translateY(-66.64%);
+    transform: translateY(-66.64%);
+  }
+  100% {
+    -webkit-transform: translateY(-83.3%);
+    -ms-transform: translateY(-83.3%);
+    transform: translateY(-83.3%);
   }
 }
 .left-arrow {
