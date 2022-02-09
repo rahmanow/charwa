@@ -29,9 +29,9 @@ h4 { @apply text-2xl; }
 .project-card { @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
   img { @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;  }
   .img-overlay {
-    .project-type { @apply border border-solid border-gray-50 text-ch-background text-sm rounded-xl w-max px-4 pt-0.5 absolute top-4 left-4 transition-all duration-300 ;  }
-    .project-tech { @apply text-ch-background flex text-[0.65rem] w-max absolute -top-16 left-1 transition-all duration-300 pl-0;
-      li { @apply border border-solid border-gray-50 rounded-xl px-1 pt-1 pb-0.5 mx-px; }
+    .project-type { @apply border border-solid border-gray-50 text-ch-background text-xs rounded-xl w-max px-2 pt-1 pb-0.5 absolute top-4 left-4 transition-all duration-300 ;  }
+    .project-tech { @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
+      li { @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-px; }
     }
   }
   &:hover {
