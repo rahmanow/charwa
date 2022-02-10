@@ -54,77 +54,26 @@ let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
     </div>`
 )).join('');
 
-// const teamHomepage = () => {
-//     team.forEach(item => {
-//         const [name, avatar, position, social] = item;
-//         `<div class="flex flex-col justify-center items-center space-y-4">
-//         <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
-//           <img src="img/avatars/${avatar}.svg" alt="...">
-//         </div>
-//         <div>
-//          <h4>${name}</h4>
-//          <p class="mb-0">${position}</p>
-//         </div>
-//         <div>
-//         <div class="social-icons list-none flex justify-center items-center pl-0">
-//         ${social.forEach(i => {
-//             let [soc, user] = i;
-//             `<div class="team-icon ${soc}">
-//                     <a href="${socialMedia.link[soc] + user}">
-//                         ${socialMedia.icons[soc]}
-//                     </a>
-//                 </div>`
-//         })}
-//         </div>
-//         </div>
-//       </div>`
-//     });
-// }
-
-
-let teamMap = team.map(([name, avatar, position, social]) => (
-    `<div class="flex flex-col justify-center items-center space-y-4">
-        <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
-          <img src="img/avatars/${avatar}" alt="...">
-        </div>
-        <div>
-         <h4>${name}</h4>
-         <p class="mb-0">${position}</p>
-        </div>
-        <div>
-        <div class="social-icons list-none flex justify-center items-center pl-0">
-            <div class="team-icon ${social[0][0]}">
-                <a href="${homeTeam.smLinks[social[0][0]] + social[0][1]}">
-                    ${homeTeam.smIcons[social[0][0]]}
-                </a>
-            </div>
-        </div>
-        </div>
-      </div>`
-)).join('');
-
-const teamContact = (x) => {
-    Object.values(homeTeam.members).forEach(item => {
+let teamMap  = Object.values(homeTeam.members).map(item => {
         let socialLinks = Object.entries(item.accounts);
-        let icons;
-        socialLinks.forEach(i =>{
-            icons += `<div class="team-icon ${i[0]}">
-            <a href="${homeTeam.smLinks[i[0]] + i[1]}">
-                ${homeTeam.smIcons[i[0]]}
-            </a>
-        </div>`;
-        });
+        let icons = socialLinks.map(i => (
+            `<div class="team-icon ${i[0]}">
+                <a href="${homeTeam.smLinks[i[0]] + i[1]}">
+                   ${homeTeam.smIcons[i[0]]}
+                </a>
+             </div>`
+        )).join('');
         let [avatar, name, position] = [item.avatar, item.name, item.position];
         return `<div class="flex flex-col justify-center items-center space-y-4 pb-8">
             <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
-                <img src="img/avatars/${avatar}" alt="...">
+               <img src="img/avatars/${avatar}" alt="...">
             </div>
             <div>
-                <h4>${name}</h4>
-                <p class="mb-0">${position}</p>
+               <h4>${name}</h4>
+               <p class="mb-0">${position}</p>
             </div>
             <div class="social-icons list-none flex justify-center items-center pl-0">
-                ${icons}
+               ${icons}
             </div>
          </div>`
     }).join('');
@@ -139,7 +88,6 @@ let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
                           
           </div>`
 )).join('');
-
 
 let slidingMap = (obj) => {
     let val = Object.values(obj);
@@ -165,4 +113,3 @@ let slidingMap = (obj) => {
                 </ul>
             </div>`
 }
-

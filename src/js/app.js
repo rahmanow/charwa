@@ -32,6 +32,7 @@ const modulesList = {
     '#work-projects': projectCardsMap
   }
 }
+
 modulesByPage();
 
 $(document).ready(function () {
