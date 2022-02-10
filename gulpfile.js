@@ -105,6 +105,7 @@ devScripts = () => {
         `${options.paths.src.js}/data.js`,
         `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/modules.js`,
+        `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/app.js`,
         `!${options.paths.src.js}/**/external/*`
       ])
@@ -214,8 +215,8 @@ push = async () => {
 
 surgeDeploy = async () => {
     const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
-    child.on('stdout_line', () => {
-        log('Deployed to surge');
+    child.on('stdout_line', (e) => {
+        log(e + 'Deployed to surge');
     });
 }
 

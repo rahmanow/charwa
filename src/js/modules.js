@@ -54,32 +54,83 @@ let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
     </div>`
 )).join('');
 
-let teamMap  = Object.values(homeTeam.members).map(item => {
-        let socialLinks = Object.entries(item.accounts);
-        let icons = socialLinks.map(i => (
-            `<div class="team-icon ${i[0]}">
-                <a href="${homeTeam.smLinks[i[0]] + i[1]}">
-                   ${homeTeam.smIcons[i[0]]}
+// const teamHomepage = () => {
+//     team.forEach(item => {
+//         const [name, avatar, position, social] = item;
+//         `<div class="flex flex-col justify-center items-center space-y-4">
+//         <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
+//           <img src="img/avatars/${avatar}.svg" alt="...">
+//         </div>
+//         <div>
+//          <h4>${name}</h4>
+//          <p class="mb-0">${position}</p>
+//         </div>
+//         <div>
+//         <div class="social-icons list-none flex justify-center items-center pl-0">
+//         ${social.forEach(i => {
+//             let [soc, user] = i;
+//             `<div class="team-icon ${soc}">
+//                     <a href="${socialMedia.link[soc] + user}">
+//                         ${socialMedia.icons[soc]}
+//                     </a>
+//                 </div>`
+//         })}
+//         </div>
+//         </div>
+//       </div>`
+//     });
+// }
+
+
+let teamMap = team.map(([name, avatar, position, social]) => (
+    `<div class="flex flex-col justify-center items-center space-y-4">
+        <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
+          <img src="img/avatars/${avatar}" alt="...">
+        </div>
+        <div>
+         <h4>${name}</h4>
+         <p class="mb-0">${position}</p>
+        </div>
+        <div>
+        <div class="social-icons list-none flex justify-center items-center pl-0">
+            <div class="team-icon ${social[0][0]}">
+                <a href="${homeTeam.smLinks[social[0][0]] + social[0][1]}">
+                    ${homeTeam.smIcons[social[0][0]]}
                 </a>
-             </div>`
-        )).join('');
+            </div>
+        </div>
+        </div>
+      </div>`
+)).join('');
+
+const teamContact = (x) => {
+    Object.values(homeTeam.members).forEach(item => {
+        let socialLinks = Object.entries(item.accounts);
+        let icons;
+        socialLinks.forEach(i =>{
+            icons += `<div class="team-icon ${i[0]}">
+            <a href="${homeTeam.smLinks[i[0]] + i[1]}">
+                ${homeTeam.smIcons[i[0]]}
+            </a>
+        </div>`;
+        });
         let [avatar, name, position] = [item.avatar, item.name, item.position];
         return `<div class="flex flex-col justify-center items-center space-y-4 pb-8">
             <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
-               <img src="img/avatars/${avatar}" alt="...">
+                <img src="img/avatars/${avatar}" alt="...">
             </div>
             <div>
-               <h4>${name}</h4>
-               <p class="mb-0">${position}</p>
+                <h4>${name}</h4>
+                <p class="mb-0">${position}</p>
             </div>
             <div class="social-icons list-none flex justify-center items-center pl-0">
-               ${icons}
+                ${icons}
             </div>
          </div>`
     }).join('');
 
 let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
-    `<div class="md:flex md:items-center h-64 space-x-2 md:space-x-4 w-28 md:w-fit">
+    `<div class="md:flex md:items-center space-x-2 md:space-x-4 w-28 md:w-fit">
               <img class="mx-auto h-10" src="./img/icons/${icon}" alt="">
                 <div class="text-ch-background pt-2 text-center md:text-left">
                     <p class="text-sm md:text-base">${line1}</p> 
@@ -88,3 +139,30 @@ let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
                           
           </div>`
 )).join('');
+
+
+let slidingMap = (obj) => {
+    let val = Object.values(obj);
+    let config = Object.values(obj.config);
+    const [preText, customClass, type, sHeight, lHeight] = config;
+
+    const textList = val[0].map(element => {
+        if(type === 'text') {
+            return `<li class="block text-left ${customClass.liText}" style="height:${sHeight}; line-height: ${lHeight}">${element}</li>`;
+        } else if (type === 'image') {
+            return `<li class="block text-left ${customClass.liImg}" style="height:${sHeight}; line-height: ${lHeight}">
+                        <img src="img/client-logo/${element}" alt="">
+                    </li>`;
+        }
+    });
+    textList.push(textList[0]);
+    let generatedList = textList.join('');
+
+    let pre = preText ? '<div>' + preText + '</div>' : '';
+    return `${pre} <div class="mx-3 flex flex-col justify-between overflow-hidden align-middle ${customClass.div}" style="height:${sHeight}">
+                <ul class="inline-block m-0 p-0 list-none animate-slide ${customClass.ul}">
+                    ${generatedList}
+                </ul>
+            </div>`
+}
+

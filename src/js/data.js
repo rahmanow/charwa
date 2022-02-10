@@ -8,9 +8,9 @@ let projectCards = [
 ];
 
 let menu = [
+    ['home', 'menu-sub-yellow.svg', 'index.html'],
     ['work', 'menu-sub-orange.svg', 'work.html'],
-    ['about us', 'menu-sub-yellow.svg', 'aboutus.html'],
-    ['contact', 'menu-sub-orange.svg', 'contact.html']
+    ['about us', 'menu-sub-yellow.svg', 'aboutus.html']
 ];
 
 let sliderText = [
@@ -35,6 +35,57 @@ let teamCards = [
     ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
 
+
+let slidingLogo = [
+
+]
+
+let slidingTextAboutUs = {
+    slidingElements: [
+        'charwa',
+        'developers',
+        'designers',
+        'cat lovers',
+        'travellers'
+    ],
+    config: {
+        preText: 'We are',
+        customClass: {
+            div: '',
+            ul: '',
+            liText: '',
+            liImg: ''
+        },
+        elementType: 'text',
+        sliderHeight: '6rem', // tailwindcss height value
+        wordLineHeight: '6rem'
+    }
+}
+let slidingLogos = {
+    slidingElements: [
+        'satynal-logo-dark.svg',
+        'eyesinden-logo-dark.svg',
+        'renklisahypa-logo-dark.svg',
+        'satynal-logo-dark.svg',
+        'eyesinden-logo-dark.svg'
+    ],
+    config: {
+        preText: '',
+        customClass: {
+            div: 'w-full',
+            ul: '',
+            liText: '',
+            liImg: ''
+        },
+        elementType: 'image',
+        sliderHeight: '2.75rem',
+        wordLineHeight: '1.6rem'
+    }
+}
+
+
+
+
 const homeTeam = {
     members: {
         azat: {
@@ -53,6 +104,7 @@ const homeTeam = {
             avatar: 'sevda_avatar.svg',
             position: 'Front-End Web Developer',
             accounts: {
+
                 linkedin: 'sevdakanturk',
                 github: 'sevdakanturk',
                 twitter: 'sevdakanturk',
@@ -73,12 +125,13 @@ const homeTeam = {
         kakajan: {
             name: 'Kakajan Ovezov',
             avatar: 'kakajan_avatar.svg',
-            position: 'Videographer-Photographer',
+            position: 'Filmmaker-Photographer',
             accounts: {
-                linkedin: 'kakajanovezov',
-                vimeo: 'kakajanovezov',
-                twitter: 'kakajanovezov',
-                instagram: 'kakajanovezov'
+                linkedin: 'kakajanowezow',
+                vimeo: 'kakajanowezow',
+                twitter: 'kakajanowezow',
+                instagram: 'kakajanowezow'
+
             }
         }
     },
@@ -101,3 +154,37 @@ const homeTeam = {
             vimeo: '<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.7991L0.7 4.6991C0.7 4.6991 2 3.5991 2.5 4.1991C2.9 4.6991 4.7 11.0991 5.2 12.2991C5.7 13.2991 7.1 14.6991 8.6 13.6991C10.1 12.6991 15.1 8.4991 16 3.3991C16.9 -1.6009 10 -0.600897 9.3 3.7991C11 2.6991 12 4.1991 11 5.9991C10.1 7.6991 9.2 8.8991 8.8 8.8991C8.4 8.8991 8 7.6991 7.5 5.6991C7 3.4991 7 -0.300897 4.8 0.199103C2.7 0.599103 0 3.7991 0 3.7991Z" fill="#FBFAF1"/></svg>'
     }
 }
+
+// const socialLink = (array) => {
+//     array.forEach(item => {
+//         const [soc, user] = item;
+//         console.log(soc);
+//         console.log(user);
+//         console.log(item);
+//
+//         let newElement = document.createElement('div');
+//         console.log(newElement);
+//         newElement.className = 'team-icon';
+//         let link = document.createElement('a');
+//         console.log(link);
+//         link.href = social.link[soc] + user;
+//         link.appendChild(social.icons[soc]);
+//         console.log(link.href);
+//         //link.appendChild(social.icons[arr[0]]);
+//         //console.log(social.icons[arr[0]]);
+//         newElement.appendChild(link);
+//         addClass('.team-icon', soc);
+//     })
+// }
+// const socialLink = (array) => {
+//     array.forEach(item => {
+//         let arr = item.split('-');
+//         const [soc, user] = arr
+//             `<div class="team-icon ${soc}">
+//             <a href="${social.link[soc] + user}">
+//                 ${social.icons[soc]}
+//            </a>
+//       </div>`
+//     })
+// }
+// socialLink(['linkedin-rahmanow', 'github-rahmanow', 'twitter-azadik', 'instagram-azadik'])
