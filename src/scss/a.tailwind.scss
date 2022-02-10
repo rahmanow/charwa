@@ -100,7 +100,7 @@ h6 { @apply text-lg; }
         @apply opacity-100 w-full visible;
       }
       ~ .navigation-background {
-        @apply scale-[80];
+        @apply scale-[80] -top-5;
       }
       ~ .navigation-button {
         @apply bg-ch-dark;

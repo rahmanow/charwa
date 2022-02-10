@@ -153,7 +153,7 @@ h6 {
   @apply opacity-100 w-full visible;
 }
 .navigation-checkbox:checked ~ .navigation-background {
-  @apply scale-[80];
+  @apply scale-[80] -top-5;
 }
 .navigation-checkbox:checked ~ .navigation-button {
   @apply bg-ch-dark;
