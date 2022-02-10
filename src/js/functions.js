@@ -1,6 +1,7 @@
 function ready (fn) { (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);}
 
 const path = location.pathname;
+let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
 
 const log = (item) => {console.log(item)}
 
@@ -54,13 +55,24 @@ const logoMouseOut = () => {
 
 const modulesByPage = () => {
     addInnerHTML('#nav-list', menuMap);
-    let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
     Promise.all(Object.entries(modulesList[page]).map(async(item) => {
         const [key, value] = item;
         addInnerHTML(key, await value);
     })).then(r => {
     })
 }
+
+const navBar = () => {
+    //let color = document.querySelector('.light-navbar');
+    if(page === 'index') {
+        addClass('.header-class', 'bg-ch-dark');
+        addClass('.navigation-bar', 'dark-navbar');
+    } else {
+        addClass('.header-class', 'bg-ch-background');
+        addClass('.navigation-bar', 'light-navbar');
+    }
+}
+navBar();
 
 // Scroll Fade Animation
 const callback = function (entries) {

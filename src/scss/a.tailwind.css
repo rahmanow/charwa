@@ -48,6 +48,32 @@ h6 {
   @apply py-3 px-0;
 }
 
+.dark-navbar {
+  @apply bg-ch-dark;
+}
+.dark-navbar .logo {
+  @apply bg-[url("../img/logo/logo-white.svg")];
+}
+.dark-navbar .navigation .navigation-icon {
+  @apply before:bg-white after:bg-white;
+}
+.dark-navbar .navigation-background {
+  @apply bg-ch-dark;
+}
+
+.light-navbar {
+  @apply bg-ch-background;
+}
+.light-navbar .logo {
+  @apply bg-[url("../img/logo/logo-dark.svg")];
+}
+.light-navbar .navigation .navigation-icon {
+  @apply before:bg-ch-dark after:bg-ch-dark;
+}
+.light-navbar .navigation-background {
+  @apply bg-ch-dark;
+}
+
 .container {
   @apply px-4;
 }

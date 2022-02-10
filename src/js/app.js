@@ -4,15 +4,17 @@ ready(() => {
     if (position >= 100) {
       addClass('.navigation-bar', 'nav-scroll');
       addClass('.logo', 'logo-scroll');
-      addClass('.mouse-container', 'md:hidden');
+      addClass('.mouse-container', 'md:opacity-0');
 
     } else {
       removeClass('.navigation-bar', 'nav-scroll');
       removeClass('.logo', 'logo-scroll');
-      removeClass('.mouse-container', 'md:hidden');
+      removeClass('.mouse-container', 'md:opacity-0');
     }
   };
 });
+
+
 
 const modulesList = {
   index : {                               // page name without extention

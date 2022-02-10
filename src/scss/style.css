@@ -295,14 +295,6 @@
   src: local(""), url("./fonts/yeseva-one-v18-latin-regular.woff2") format("woff2"), url("./fonts/yeseva-one-v18-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-.scroll {
-  margin-top: 25px;
-  letter-spacing: 12px;
-  text-indent: 12px;
-  color: #ffffff;
-  animation: colorText 5s ease-out infinite, nudgeText 5s ease-out infinite;
-}
-
 .mouse {
   background: #F7BC13 linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
   position: relative;
