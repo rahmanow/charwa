@@ -22,11 +22,12 @@ h6 { @apply text-lg; }
 .slogan-animation { @apply absolute top-0; }
 .logo-animation { @apply absolute top-12;}
 .logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] bg-left md:bg-[url('../img/logo/logo-white.svg')]; }
-.nav-scroll { @apply py-3 px-0; }
+.nav-scroll { @apply py-4 px-0; }
 
 .dark-navbar { @apply bg-ch-dark;
   .logo { @apply bg-[url('../img/logo/logo-white.svg')]; }
   .navigation {
+    .navigation-button {@apply bg-ch-dark;}
     .navigation-icon { @apply before:bg-white after:bg-white; }
   }
   .navigation-background {@apply bg-ch-dark;}
@@ -34,6 +35,7 @@ h6 { @apply text-lg; }
 .light-navbar { @apply bg-ch-background;
   .logo { @apply bg-[url('../img/logo/logo-dark.svg')]; }
   .navigation {
+    .navigation-button {@apply bg-ch-background;}
     .navigation-icon { @apply before:bg-ch-dark after:bg-ch-dark; }
   }
   .navigation-background {@apply bg-ch-dark;}
@@ -83,17 +85,17 @@ h6 { @apply text-lg; }
   h2 { @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left; }
 }
 
-.navigation-nav {
-  @apply opacity-0 invisible w-0;
-  .navigation-item {
-    .navigation-link{
-      .menu-svg { @apply opacity-0 transition-opacity duration-500; }
-    }
-    &:hover {
-      .menu-svg { @apply opacity-100; }
-    }
-  }
-}
+// .navigation-nav {
+//   @apply opacity-0 invisible w-0;
+//   .navigation-item {
+//     .navigation-link{
+//       .menu-svg { @apply opacity-0 transition-opacity duration-500; }
+//     }
+//     &:hover {
+//       .menu-svg { @apply opacity-100; }
+//     }
+//   }
+// }
   .navigation-checkbox {
     &:checked {
       ~ .navigation-nav {

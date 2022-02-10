@@ -13,7 +13,7 @@ const projectCardsMap = projectCards.map(([type, image, tech]) => (
 const menuMap = menu.map(([title, subImage, href]) => (
     `<div class="navigation-item transition-all duration-500 ease-in-out hover:scale-100">
     <a class="navigation-link text-white relative flex justify-center items-center text-4xl font-bold no-underline visited:text-4xl visited:font-bold visited:no-underline" href="${href}">
-        <span class="menu-svg hidden pb-6 absolute md:inline w-80">
+        <span class="menu-svg hidden pb-6 absolute md:inline opacity-0 transition-opacity duration-500 w-80 hover:opacity-100">
             <img src="./img/icons/${subImage}" alt="">
         </span>
         <span>${title}</span>
