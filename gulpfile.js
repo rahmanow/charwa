@@ -105,6 +105,7 @@ devScripts = () => {
         `${options.paths.src.js}/data.js`,
         `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/modules.js`,
+        `${options.paths.src.js}/functions.js`,
         `${options.paths.src.js}/app.js`,
         `!${options.paths.src.js}/**/external/*`
       ])
