@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind screens;
 
-@layer components {
-  .scroll-bg-gradient {
-    background: #f7bc13 linear-gradient(transparent 0,transparent 50%,#fff 50%,#fff 100%);
-    background-size: 100% 200%;
-  }
-}
 @layer utilities {.text-no-shadow { text-shadow: none; }}
 
 ::selection { @apply bg-ch-lightgreen text-no-shadow; }
@@ -144,6 +138,15 @@ h6 { @apply text-lg; }
   }
 }
 
+
+// Scroll Button
+@layer components {
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0,transparent 50%,#fff 50%,#fff 100%);
+    background-size: 100% 200%;
+  }
+}
+
 .mouse {
   animation:
           colorSlide 5s linear infinite,
@@ -152,7 +155,6 @@ h6 { @apply text-lg; }
     animation: trackBallSlide 5s linear infinite;
   }
 }
-
 
 @keyframes colorSlide {
   0% { background-position: 0% 100%; }

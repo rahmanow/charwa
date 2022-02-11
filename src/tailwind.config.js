@@ -89,6 +89,9 @@ module.exports = {
 
       'mxsm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
+
+      'short': { 'raw': '(max-height: 415px)' },
+      // => @media (min-height: 800px) { ... }
     }
   },
   plugins: [],

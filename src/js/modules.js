@@ -94,7 +94,6 @@ let slidingMap = (obj) => {
     });
     textList.push(textList[0]);
     let generatedList = textList.join('');
-
     let pre = preText ? '<div>' + preText + '</div>' : '';
     return `${pre} <div class="mx-3 flex flex-col justify-between overflow-hidden align-middle ${customClass.div}" style="height:${sHeight}">
                 <ul class="inline-block m-0 p-0 list-none animate-slide ${customClass.ul}">
