@@ -3,12 +3,6 @@
 @tailwind variants;
 @tailwind components;
 @tailwind screens;
-@layer components {
-  .scroll-bg-gradient {
-    background: #f7bc13 linear-gradient(transparent 0, transparent 50%, #fff 50%, #fff 100%);
-    background-size: 100% 200%;
-  }
-}
 @layer utilities {
   .text-no-shadow {
     text-shadow: none;
@@ -91,11 +85,9 @@ h6 {
 .light-navbar .logo {
   @apply bg-[url("../img/logo/logo-dark.svg")];
 }
-
 .light-navbar .logo-scroll {
   @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-dark.svg")] bg-left md:bg-[url("../img/logo/logo-dark.svg")];
 }
-
 .light-navbar .navigation .navigation-button {
   @apply bg-ch-background;
 }
@@ -199,6 +191,12 @@ h6 {
   @apply border-[#1ab7ea];
 }
 
+@layer components {
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 100% 200%;
+  }
+}
 .mouse {
   animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
 }
