@@ -22,8 +22,8 @@ const menuMap = menu.map(([title, subImage, href]) => (
 )).join('');
 
 const clientsMap = clients.map(([name, logo]) => (
-    `<div class="item">
-        <img src="img/client-logo/${logo}" alt="${name}" class="img-fluid mx-auto">
+    `<div class="item mx-5">
+        <img src="img/client-logo/${logo}" alt="${name}" class="img-fluid mx-auto h-24">
      </div>`
 )).join('');
 

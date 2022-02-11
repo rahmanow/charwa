@@ -6,11 +6,18 @@
 
 @layer components {
   .img-overlay { @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)]; }
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0,transparent 50%,#fff 50%,#fff 100%);
+    background-size: 100% 200%;
+  }
 }
+@layer utilities {.text-no-shadow { text-shadow: none; }}
 
-body {
-  @apply lowercase;
-}
+::selection { @apply bg-ch-lightgreen text-no-shadow; }
+audio,canvas,iframe,img,svg,video { @apply align-middle;}
+hr { @apply block h-px border-0 border-t-2 border-gray-500 my-4 mx-0 p-0;}
+fieldset { @apply border-0 m-0 p-0 }
+textarea { @apply resize-y }
 
 //h1 { @apply text-5xl; }
 h2 { @apply text-4xl; }
@@ -19,10 +26,10 @@ h4 { @apply text-2xl; }
 h5 { @apply text-xl; }
 h6 { @apply text-lg; }
 
-.slogan-animation { @apply absolute top-0; }
-.logo-animation { @apply absolute top-12;}
-.logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] bg-left md:bg-[url('../img/logo/logo-white.svg')]; }
-.nav-scroll { @apply py-3 px-0; }
+.slogan-animation { @apply absolute top-0}
+.logo-animation { @apply absolute top-12}
+.logo-scroll { @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url('../img/logo/logo-icon-white.svg')] bg-left md:bg-[url('../img/logo/logo-white.svg')]}
+.nav-scroll { @apply py-3 px-0}
 
 .dark-navbar { @apply bg-ch-dark;
   .logo { @apply bg-[url('../img/logo/logo-white.svg')]; }
@@ -55,12 +62,6 @@ h6 { @apply text-lg; }
     img { @apply opacity-100 scale-105; }
     .project-type { @apply opacity-0 top-32; }
     .project-tech { @apply absolute top-4 opacity-100; }
-  }
-}
-
-.client-slider {
-  .item { @apply mx-5;
-    img { @apply h-24; }
   }
 }
 
@@ -119,11 +120,6 @@ h6 { @apply text-lg; }
       @apply pt-48 md:pt-40;
     }
   }
-
-
-.card-team{
-  @apply text-center;
-}
 
 .linkedin, .github, .twitter, .instagram {
   @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;
@@ -249,4 +245,154 @@ h6 { @apply text-lg; }
   @apply h-12;
 }
 
+$colorBg: #1F454F;
+$colorOutline: #ffffff;
+$colorOutlineFade: #F7BC13;
 
+$widthMouse: 42px;
+$heightMouse: 78px;
+$borderMouse: 6px;
+
+$posMouse: 8px;
+$posText: 2px;
+
+$sizeTrackball: 10px;
+$posTrackball: 20px;
+$shrinkTrackball: 0.4;
+
+$animDuration: 5s;
+.mouse {
+  animation:
+          colorSlide $animDuration linear infinite,
+          nudgeMouse $animDuration ease-out infinite;
+  &:before,
+  &:after {
+  }
+  &:before {
+    width: $widthMouse - $borderMouse;
+    height: $heightMouse - $borderMouse;
+  }
+  &:after {
+    animation: trackBallSlide $animDuration linear infinite;
+  }
+}
+
+
+@keyframes colorSlide {
+  0% { background-position: 0% 100%; }
+  20% { background-position: 0% 0%; }
+  21% { background-color: $colorOutlineFade; }
+  29.99% {
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  30% {
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  50% { background-position: 0% 0%; }
+  51% { background-color: $colorOutlineFade; }
+  59% {
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  60% {
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  80% { background-position: 0% 0%; }
+  81% { background-color: $colorOutlineFade; }
+  90%, 100% { background-color: $colorOutline; }
+}
+
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(0.9) translateY(calc($posTrackball / 4));
+  }
+  14% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(0.9) translateY(calc($posTrackball / 4));
+  }
+  44% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(0.9) translateY(calc($posTrackball / 4));
+  }
+  74% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+}
+
+@keyframes nudgeMouse {
+  0% { transform: translateY(0); }
+  20% { transform: translateY($posMouse); }
+  30% { transform: translateY(0); }
+  50% { transform: translateY($posMouse); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY($posMouse); }
+  90% { transform: translateY(0); }
+}
+
+@keyframes nudgeText {
+  0% { transform: translateY(0); }
+  20% { transform: translateY($posText); }
+  30% { transform: translateY(0); }
+  50% { transform: translateY($posText); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY($posText); }
+  90% { transform: translateY(0); }
+}
+
+@keyframes colorText {
+  21% { color: $colorOutlineFade; }
+  30% { color: $colorOutline; }
+  51% { color: $colorOutlineFade; }
+  60% { color: $colorOutline; }
+  81% { color: $colorOutlineFade; }
+  90% { color: $colorOutline; }
+}

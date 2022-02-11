@@ -7,9 +7,35 @@
   .img-overlay {
     @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
   }
+
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 100% 200%;
+  }
 }
-body {
-  @apply lowercase;
+@layer utilities {
+  .text-no-shadow {
+    text-shadow: none;
+  }
+}
+::selection {
+  @apply bg-ch-lightgreen text-no-shadow;
+}
+
+audio, canvas, iframe, img, svg, video {
+  @apply align-middle;
+}
+
+hr {
+  @apply block h-px border-0 border-t-2 border-gray-500 my-4 mx-0 p-0;
+}
+
+fieldset {
+  @apply border-0 m-0 p-0;
+}
+
+textarea {
+  @apply resize-y;
 }
 
 h2 {
@@ -103,13 +129,6 @@ h6 {
   @apply absolute top-4 opacity-100;
 }
 
-.client-slider .item {
-  @apply mx-5;
-}
-.client-slider .item img {
-  @apply h-24;
-}
-
 .services .cards .card-box {
   @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
 }
@@ -167,10 +186,6 @@ h6 {
 
 #aboutus .avatar {
   @apply pt-48 md:pt-40;
-}
-
-.card-team {
-  @apply text-center;
 }
 
 .linkedin, .github, .twitter, .instagram {
@@ -271,4 +286,186 @@ h6 {
 
 .feedback-button {
   @apply h-12;
+}
+
+.mouse {
+  animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+}
+.mouse:before {
+  width: 36px;
+  height: 72px;
+}
+.mouse:after {
+  animation: trackBallSlide 5s linear infinite;
+}
+
+@keyframes colorSlide {
+  0% {
+    background-position: 0% 100%;
+  }
+  20% {
+    background-position: 0% 0%;
+  }
+  21% {
+    background-color: #F7BC13;
+  }
+  29.99% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  30% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  51% {
+    background-color: #F7BC13;
+  }
+  59% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  60% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  80% {
+    background-position: 0% 0%;
+  }
+  81% {
+    background-color: #F7BC13;
+  }
+  90%, 100% {
+    background-color: #ffffff;
+  }
+}
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(0.9) translateY(5px);
+  }
+  14% {
+    opacity: 0;
+    transform: scale(0.4) translateY(40px);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-20px);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(0.9) translateY(5px);
+  }
+  44% {
+    opacity: 0;
+    transform: scale(0.4) translateY(40px);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-20px);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(0.9) translateY(5px);
+  }
+  74% {
+    opacity: 0;
+    transform: scale(0.4) translateY(40px);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-20px);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+}
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(8px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
+@keyframes nudgeText {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(2px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
+@keyframes colorText {
+  21% {
+    color: #F7BC13;
+  }
+  30% {
+    color: #ffffff;
+  }
+  51% {
+    color: #F7BC13;
+  }
+  60% {
+    color: #ffffff;
+  }
+  81% {
+    color: #F7BC13;
+  }
+  90% {
+    color: #ffffff;
+  }
 }
