@@ -91,9 +91,11 @@ h6 {
 .light-navbar .logo {
   @apply bg-[url("../img/logo/logo-dark.svg")];
 }
+
 .light-navbar .logo-scroll {
   @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-dark.svg")] bg-left md:bg-[url("../img/logo/logo-dark.svg")];
 }
+
 .light-navbar .navigation .navigation-button {
   @apply bg-ch-background;
 }
