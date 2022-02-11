@@ -71,7 +71,7 @@ h6 {
 }
 
 .nav-scroll {
-  @apply py-3 px-0;
+  @apply py-4 px-0;
 }
 
 .dark-navbar {
@@ -79,6 +79,9 @@ h6 {
 }
 .dark-navbar .logo {
   @apply bg-[url("../img/logo/logo-white.svg")];
+}
+.dark-navbar .navigation .navigation-button {
+  @apply bg-ch-dark;
 }
 .dark-navbar .navigation .navigation-icon {
   @apply before:bg-white after:bg-white;
@@ -92,6 +95,9 @@ h6 {
 }
 .light-navbar .logo {
   @apply bg-[url("../img/logo/logo-dark.svg")];
+}
+.light-navbar .navigation .navigation-button {
+  @apply bg-ch-background;
 }
 .light-navbar .navigation .navigation-icon {
   @apply before:bg-ch-dark after:bg-ch-dark;
@@ -156,16 +162,6 @@ h6 {
 }
 .modules h2 {
   @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
-}
-
-.navigation-nav {
-  @apply opacity-0 invisible w-0;
-}
-.navigation-nav .navigation-item .navigation-link .menu-svg {
-  @apply opacity-0 transition-opacity duration-500;
-}
-.navigation-nav .navigation-item:hover .menu-svg {
-  @apply opacity-100;
 }
 
 .navigation-checkbox:checked ~ .navigation-nav {
