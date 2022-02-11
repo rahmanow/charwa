@@ -1,11 +1,11 @@
 const projectCardsMap = projectCards.map(([type, image, tech]) => (
-    `<div class="project-card">
-            <img src='img/projects/${image}' alt="..." />
-            <div class="img-overlay">
-                <ul class="project-tech">
+    `<div class="project-card lowercase relative overflow-hidden bg-black rounded-lg text-white">
+            <img src='img/projects/${image}' alt="..." class="opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75" />
+            <div class="absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)]">
+                <ul class="project-tech text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0">
                     ${tech}
                 </ul>
-                <p class="project-type">${type}</p>
+                <p class="project-type border border-solid border-gray-50 text-ch-background text-xs rounded-xl w-max px-2 pt-1 pb-0.5 absolute top-4 left-4 transition-all duration-300">${type}</p>
             </div>
         </div>`
 )).join('');
@@ -31,7 +31,7 @@ let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
     `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
             <div class="relative md:pb-6">
               <div class='${id}-visible-part h-128 sm:h-168 bg-ch-background flex rounded-xl'>
-                <img src='img/avatars/${avatar}' class='${id}-avatar py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
+                <img src='img/avatars/${avatar}' class='${id}-avatar pt-48 md:pt-40 py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
                 <div class='${id}-card-inner'>
                   <img src="img/avatars/facts/arrow.svg" class="absolute top-16 left-4 w-16" alt="" />
                   <p class="absolute top-6 left-4 text-2xl">${name}</p>
@@ -57,7 +57,7 @@ let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
 let teamMap  = Object.values(homeTeam.members).map(item => {
         let socialLinks = Object.entries(item.accounts);
         let icons = socialLinks.map(i => (
-            `<div class="team-icon ${i[0]}">
+            `<div class="team-icon ${i[0]} hover:border-2 flex justify-center items-center mx-1 border rounded-full w-9 h-9">
                 <a href="${homeTeam.smLinks[i[0]] + i[1]}">
                    ${homeTeam.smIcons[i[0]]}
                 </a>
@@ -77,17 +77,6 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
             </div>
          </div>`
     }).join('');
-
-let sliderTextMap = sliderText.map(([icon, line1, line2]) => (
-    `<div class="md:flex md:items-center space-x-2 md:space-x-4 w-28 md:w-fit">
-              <img class="mx-auto h-10" src="./img/icons/${icon}" alt="">
-                <div class="text-ch-background pt-2 text-center md:text-left">
-                    <p class="text-sm md:text-base">${line1}</p> 
-                    <p class="text-sm md:text-base">${line2}</p>
-                </div>
-                          
-          </div>`
-)).join('');
 
 let slidingMap = (obj) => {
     let val = Object.values(obj);

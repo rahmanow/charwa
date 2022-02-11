@@ -20,8 +20,7 @@ const modulesList = {
   index : {                               // page name without extention
     '#projects': projectCardsMap,       // id of the parent element : function
     '#client-slider': clientsMap,
-    '#home-team': teamMap,
-    '#slider-text': sliderTextMap
+    '#home-team': teamMap
   },
   aboutus : {
     '#sliding-items': slidingMap(slidingTextAboutUs),
