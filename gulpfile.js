@@ -53,6 +53,16 @@ const options = require("./config");                //paths and other options fr
     const autoprefixer = require('autoprefixer');
     const tailwindcss = require('tailwindcss');
 
+
+const jsFiles = [
+    `${options.paths.src.js}/libs/**/*.js`,
+    `${options.paths.src.js}/data.js`,
+    `${options.paths.src.js}/functions.js`,
+    `${options.paths.src.js}/modules.js`,
+    `${options.paths.src.js}/app.js`,
+    `!${options.paths.src.js}/**/external/*`
+]
+
 //Load Previews on Browser on dev
 livePreview = (done) => {
   serve.init({
@@ -100,14 +110,7 @@ devStyles = () => {
 }
 
 devScripts = () => {
-  return src([
-        `${options.paths.src.js}/libs/**/*.js`,
-        `${options.paths.src.js}/data.js`,
-        `${options.paths.src.js}/functions.js`,
-        `${options.paths.src.js}/modules.js`,
-        `${options.paths.src.js}/app.js`,
-        `!${options.paths.src.js}/**/external/*`
-      ])
+  return src(jsFiles)
        .pipe(babel({
            ignore: [
                `${options.paths.src.js}/libs/**/*.js`
@@ -172,17 +175,19 @@ prodStyles = () => {
 }
 
 prodScripts = () => {
-  return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `${options.paths.src.js}/**/*.js`
-  ])
-      .pipe(concat({ path: 'scripts.js'}))
-      .pipe(uglify())
-      .pipe(dest(options.paths.build.js));
+    return src(jsFiles)
+        .pipe(babel({
+            ignore: [`${options.paths.src.js}/libs/**/*.js`]
+        }))
+        .pipe(concat({ path: 'main.js'}))
+        .pipe(uglify())
+        .pipe(dest(options.paths.build.js));
 }
 
 prodImages = () => {
-  return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
+  return src(options.paths.src.img + '/**/*')
+      .pipe(imagemin())
+      .pipe(dest(options.paths.build.img));
 }
 
 prodClean = () => {
@@ -215,7 +220,7 @@ push = async () => {
 surgeDeploy = async () => {
     const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
     child.on('stdout_line', (e) => {
-        log(e + 'Deployed to surge');
+        log(e);
     });
 }
 

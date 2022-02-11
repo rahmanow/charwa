@@ -4,12 +4,34 @@
 @tailwind components;
 @tailwind screens;
 @layer components {
-  .img-overlay {
-    @apply absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)];
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 100% 200%;
   }
 }
-body {
-  @apply lowercase;
+@layer utilities {
+  .text-no-shadow {
+    text-shadow: none;
+  }
+}
+::selection {
+  @apply bg-ch-lightgreen text-no-shadow;
+}
+
+audio, canvas, iframe, img, svg, video {
+  @apply align-middle;
+}
+
+hr {
+  @apply block h-px border-0 border-t-2 border-gray-500 my-4 mx-0 p-0;
+}
+
+fieldset {
+  @apply border-0 m-0 p-0;
+}
+
+textarea {
+  @apply resize-y;
 }
 
 h2 {
@@ -40,10 +62,6 @@ h6 {
   @apply absolute top-12;
 }
 
-.logo-scroll {
-  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-white.svg")] bg-left md:bg-[url("../img/logo/logo-white.svg")];
-}
-
 .nav-scroll {
   @apply py-4 px-0;
 }
@@ -53,6 +71,9 @@ h6 {
 }
 .dark-navbar .logo {
   @apply bg-[url("../img/logo/logo-white.svg")];
+}
+.dark-navbar .logo-scroll {
+  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-white.svg")] bg-left md:bg-[url("../img/logo/logo-white.svg")];
 }
 .dark-navbar .navigation .navigation-button {
   @apply bg-ch-dark;
@@ -70,6 +91,11 @@ h6 {
 .light-navbar .logo {
   @apply bg-[url("../img/logo/logo-dark.svg")];
 }
+
+.light-navbar .logo-scroll {
+  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-dark.svg")] bg-left md:bg-[url("../img/logo/logo-dark.svg")];
+}
+
 .light-navbar .navigation .navigation-button {
   @apply bg-ch-background;
 }
@@ -84,19 +110,7 @@ h6 {
   @apply px-4;
 }
 
-.project-card {
-  @apply lowercase relative overflow-hidden bg-black rounded-lg text-white;
-}
-.project-card img {
-  @apply opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75;
-}
-.project-card .img-overlay .project-type {
-  @apply border border-solid border-gray-50 text-ch-background text-xs rounded-xl w-max px-2 pt-1 pb-0.5 absolute top-4 left-4 transition-all duration-300;
-}
-.project-card .img-overlay .project-tech {
-  @apply text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0;
-}
-.project-card .img-overlay .project-tech li {
+.project-card .project-tech li {
   @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-px;
 }
 .project-card:hover img {
@@ -109,32 +123,7 @@ h6 {
   @apply absolute top-4 opacity-100;
 }
 
-.client-slider .item {
-  @apply mx-5;
-}
-.client-slider .item img {
-  @apply h-24;
-}
-
-.services .cards .card-box {
-  @apply pt-8 pb-16 md:pb-24 px-0 flex flex-col text-center text-white rounded-none;
-}
-.services .cards .card-box h3 {
-  @apply py-6 lowercase text-5xl md:text-2xl;
-}
-.services .cards .card-box .icon {
-  @apply flex flex-col items-center h-12;
-}
-.services .cards .card-box .brand-icons {
-  @apply flex flex-col items-center pt-16;
-}
-.services .cards .card-box .brand-icons h2 {
-  @apply text-4xl md:text-2xl text-center;
-}
-.services .cards .card-box .brand-icons .icons {
-  @apply grid grid-cols-5 gap-4 grid-flow-row w-72 md:w-56 lg:w-72 h-24 flex items-start;
-}
-.services .cards .card-box .brand-icons .icons svg {
+.services .icons svg {
   @apply w-12;
 }
 
@@ -161,110 +150,186 @@ h6 {
   @apply top-0 rotate-[-135deg] bg-white;
 }
 
-#aboutus .avatar {
-  @apply pt-48 md:pt-40;
-}
-
-.card-team {
-  @apply text-center;
-}
-
-.linkedin, .github, .twitter, .instagram {
-  @apply flex justify-center items-center space-x-3 rounded-full w-8 h-8;
-}
-.linkedin a svg, .github a svg, .twitter a svg, .instagram a svg {
-  @apply fill-current;
-}
-
-.instructions .sub-title {
-  @apply text-gray-900 pb-2 border-b-2 border-gray-400 mb-5 text-xl font-medium;
-}
-.instructions .sub-title + p {
-  @apply mb-3;
-}
-.instructions .code {
-  @apply block border rounded bg-gray-100 text-gray-700 px-4 py-5 leading-normal text-sm shadow;
-}
-.instructions .code.pre {
-  @apply whitespace-pre;
-}
-.instructions .code em {
-  @apply opacity-75;
-}
-
-.social {
-  @apply block pt-6 text-gray-700;
-}
-.social a {
-  @apply text-blue-500 font-medium p-4;
-}
-.social a:hover {
-  @apply text-blue-700;
-}
-
-.team-icon {
-  @apply flex justify-center items-center mx-1 border rounded-full  w-9 h-9;
-}
-
 .linkedin {
   @apply bg-[#2867b2];
 }
 .linkedin:hover {
-  @apply border-2 border-[#2867b2];
+  @apply border-[#2867b2];
 }
 
 .github {
   @apply bg-[#231e1b];
 }
 .github:hover {
-  @apply border-2 border-[#231e1b];
+  @apply border-[#231e1b];
 }
 
 .twitter {
   @apply bg-[#1da1f2];
 }
 .twitter:hover {
-  @apply border-2 border-[#1da1f2];
+  @apply border-[#1da1f2];
 }
 
 .instagram {
   @apply bg-[#f00073];
 }
 .instagram:hover {
-  @apply border-2 border-[#f00073];
+  @apply border-[#f00073];
 }
 
 .dribble {
   @apply bg-[#ea4c89];
 }
 .dribble:hover {
-  @apply border-2 border-[#ea4c89];
+  @apply border-[#ea4c89];
 }
 
 .behance {
   @apply bg-[#0057FF];
 }
 .behance:hover {
-  @apply border-2 border-[#0057FF];
+  @apply border-[#0057FF];
 }
 
 .vimeo {
   @apply bg-[#1ab7ea];
 }
 .vimeo:hover {
-  @apply border-2 border-[#1ab7ea];
+  @apply border-[#1ab7ea];
 }
 
-.social-icon {
-  @apply flex justify-center items-center mx-2 border rounded-full bg-ch-background  w-8 h-8;
+.mouse {
+  animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
 }
-.social-icon a svg {
-  @apply fill-ch-dark w-6 h-6;
-}
-.social-icon:hover {
-  @apply bg-[#f7bc13];
+.mouse:after {
+  animation: trackBallSlide 5s linear infinite;
 }
 
-.feedback-button {
-  @apply h-12;
+@keyframes colorSlide {
+  0% {
+    background-position: 0% 100%;
+  }
+  20% {
+    background-position: 0% 0%;
+  }
+  21% {
+    background-color: #F7BC13;
+  }
+  29.99% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  30% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  51% {
+    background-color: #F7BC13;
+  }
+  59% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  60% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  80% {
+    background-position: 0% 0%;
+  }
+  81% {
+    background-color: #F7BC13;
+  }
+  90%, 100% {
+    background-color: #ffffff;
+  }
+}
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  14% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  44% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  74% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+}
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0.5rem);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(0.5rem);
+  }
+  90% {
+    transform: translateY(0);
+  }
 }
