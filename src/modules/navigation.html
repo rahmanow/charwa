@@ -1,0 +1,47 @@
+<nav class="navigation-bar flex justify-center fixed top-0 right-0 left-0 z-20 px-0 py-8 transition-all duration-700">
+    <div class="container flex justify-between items-center">
+        <div class="logo-nav">
+            <a class="hover-animation block relative w-40 md:w-56 h-12 overflow-hidden" onmouseover="logoMouseOver()" onmouseout="logoMouseOut()" href="index.html">
+                <div class="logo p-0 absolute top-0.5 w-36 md:w-56 h-9 md:h-12 transition-all duration-500 ease-in-out bg-no-repeat bg-center bg-contain"></div>
+                <div class="slogan absolute text-ch-orange w-40 md:w-56 h-12 top-16 transition-all duration-300 ease-in-out leading-tight">
+                    <p class="text-base md:text-xl md:leading-6">We travel, inspired,</p>
+                    <p class="text-base md:text-xl md:leading-6">design and develop.</p>
+                </div>
+            </a>
+        </div>
+        <div class="navigation relative">
+            <input class="navigation-checkbox hidden" id="navi-toggle" type="checkbox">
+            <label class="navigation-button h-20 w-20 absolute -top-10 -right-4 rounded-full z-40 text-center cursor-pointer transition-all duration-500 pt-9 pr-7 pb-0 pl-0" for="navi-toggle">
+                <span class="navigation-icon relative my-auto mx-4
+            before:w-8
+            before:md:w-10
+            before:h-0.5
+            before:inline-block
+            before:content-['']
+            before:absolute
+            before:-left-0.5
+            before:-top-1.5
+            before:transition-transform
+            before:duration-700
+        
+            after:w-8
+            after:md:w-10
+            after:h-0.5
+            after:inline-block
+            after:content-['']
+            after:absolute
+            after:-left-0.5
+            after:top-1.5
+            after:transition-transform
+            after:duration-700
+            ">&nbsp;</span>
+            </label>
+            <div class="navigation-background absolute h-12 w-12 z-20 -top-5 -right-0.5 rounded-full transition-transform duration-700">&nbsp;</div>
+            <nav class="navigation-nav h-full z-30 opacity-0 invisible w-0 transition-all duration-500 fixed top-0 right-0">
+                <div id="nav-list" class="navigation-list uppercase flex flex-col lg:flex-row justify-evenly items-center p-0 m-0 h-full w-full list-none">
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</nav>

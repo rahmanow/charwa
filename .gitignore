@@ -1,0 +1,8 @@
+.cache
+dist
+doc
+node_modules
+.idea
+.DS_Store
+./src/css/style.css
+build

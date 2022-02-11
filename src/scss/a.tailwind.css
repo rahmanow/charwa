@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind variants;
+@tailwind components;
+@tailwind screens;
+@layer utilities {
+  .text-no-shadow {
+    text-shadow: none;
+  }
+}
+::selection {
+  @apply bg-ch-lightgreen text-no-shadow;
+}
+
+audio, canvas, iframe, img, svg, video {
+  @apply align-middle;
+}
+
+hr {
+  @apply block h-px border-0 border-t-2 border-gray-500 my-4 mx-0 p-0;
+}
+
+fieldset {
+  @apply border-0 m-0 p-0;
+}
+
+textarea {
+  @apply resize-y;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}
+
+.slogan-animation {
+  @apply absolute top-0;
+}
+
+.logo-animation {
+  @apply absolute top-12;
+}
+
+.nav-scroll {
+  @apply py-4 px-0;
+}
+
+.dark-navbar {
+  @apply bg-ch-dark;
+}
+.dark-navbar .logo {
+  @apply bg-[url("../img/logo/logo-white.svg")];
+}
+.dark-navbar .logo-scroll {
+  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-white.svg")] bg-left md:bg-[url("../img/logo/logo-white.svg")];
+}
+.dark-navbar .navigation .navigation-button {
+  @apply bg-ch-dark;
+}
+.dark-navbar .navigation .navigation-icon {
+  @apply before:bg-white after:bg-white;
+}
+.dark-navbar .navigation-background {
+  @apply bg-ch-dark;
+}
+
+.light-navbar {
+  @apply bg-ch-background;
+}
+.light-navbar .logo {
+  @apply bg-[url("../img/logo/logo-dark.svg")];
+}
+.light-navbar .logo-scroll {
+  @apply w-8 md:w-32 mt-2 md:mt-auto bg-[url("../img/logo/logo-icon-dark.svg")] bg-left md:bg-[url("../img/logo/logo-dark.svg")];
+}
+.light-navbar .navigation .navigation-button {
+  @apply bg-ch-background;
+}
+.light-navbar .navigation .navigation-icon {
+  @apply before:bg-ch-dark after:bg-ch-dark;
+}
+.light-navbar .navigation-background {
+  @apply bg-ch-dark;
+}
+
+.container {
+  @apply px-4;
+}
+
+.project-card .project-tech li {
+  @apply border border-solid border-gray-50 rounded-xl px-2 pt-1 pb-0.5 mx-px;
+}
+.project-card:hover img {
+  @apply opacity-100 scale-105;
+}
+.project-card:hover .project-type {
+  @apply opacity-0 top-32;
+}
+.project-card:hover .project-tech {
+  @apply absolute top-4 opacity-100;
+}
+
+.services .icons svg {
+  @apply w-12;
+}
+
+.modules {
+  @apply py-8 md:py-4 my-2 md:my-4 flex justify-center;
+}
+.modules h2 {
+  @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left;
+}
+
+.navigation-checkbox:checked ~ .navigation-nav {
+  @apply opacity-100 w-full visible;
+}
+.navigation-checkbox:checked ~ .navigation-background {
+  @apply scale-[80] -top-5;
+}
+.navigation-checkbox:checked ~ .navigation-button {
+  @apply bg-ch-dark;
+}
+.navigation-checkbox:checked + .navigation-button .navigation-icon::before {
+  @apply top-0 rotate-[135deg] bg-white;
+}
+.navigation-checkbox:checked + .navigation-button .navigation-icon::after {
+  @apply top-0 rotate-[-135deg] bg-white;
+}
+
+.linkedin {
+  @apply bg-[#2867b2];
+}
+.linkedin:hover {
+  @apply border-[#2867b2];
+}
+
+.github {
+  @apply bg-[#231e1b];
+}
+.github:hover {
+  @apply border-[#231e1b];
+}
+
+.twitter {
+  @apply bg-[#1da1f2];
+}
+.twitter:hover {
+  @apply border-[#1da1f2];
+}
+
+.instagram {
+  @apply bg-[#f00073];
+}
+.instagram:hover {
+  @apply border-[#f00073];
+}
+
+.dribble {
+  @apply bg-[#ea4c89];
+}
+.dribble:hover {
+  @apply border-[#ea4c89];
+}
+
+.behance {
+  @apply bg-[#0057FF];
+}
+.behance:hover {
+  @apply border-[#0057FF];
+}
+
+.vimeo {
+  @apply bg-[#1ab7ea];
+}
+.vimeo:hover {
+  @apply border-[#1ab7ea];
+}
+
+@layer components {
+  .scroll-bg-gradient {
+    background: #f7bc13 linear-gradient(transparent 0, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 100% 200%;
+  }
+}
+.mouse {
+  animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+}
+.mouse:after {
+  animation: trackBallSlide 5s linear infinite;
+}
+
+@keyframes colorSlide {
+  0% {
+    background-position: 0% 100%;
+  }
+  20% {
+    background-position: 0% 0%;
+  }
+  21% {
+    background-color: #F7BC13;
+  }
+  29.99% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  30% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  51% {
+    background-color: #F7BC13;
+  }
+  59% {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+  }
+  60% {
+    background-color: #F7BC13;
+    background-position: 0% 100%;
+  }
+  80% {
+    background-position: 0% 0%;
+  }
+  81% {
+    background-color: #F7BC13;
+  }
+  90%, 100% {
+    background-color: #ffffff;
+  }
+}
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  14% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  44% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(0.9) translateY(0.3125rem);
+  }
+  74% {
+    opacity: 0;
+    transform: scale(0.4) translateY(2.5rem);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale(0.4) translateY(-1.25rem);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-1.25rem);
+  }
+}
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0.5rem);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(0.5rem);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
