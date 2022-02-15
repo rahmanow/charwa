@@ -42,7 +42,8 @@ const del = require('del');                         //For Cleaning build/dist fo
 const log = require('fancy-log');
 const symbols = require('log-symbols');          //For Symbolic Console logs :) :P
 const superChild = require('superchild');
-const git = require('gulp-git');                    // Execute command line shell for git push
+const git = require('gulp-git');                // Execute command line shell for git push
+const browserify = require('gulp-browserify');  // For bundling JS files
 
 // Config
 const options = require("./config");                //paths and other options from config.js
@@ -97,7 +98,7 @@ devHTML = () => {
 }
 
 devStyles = () => {
-    const plugins = [tailwindcss(options.config.tailwind), autoprefixer];
+    const plugins = [tailwindcss(options.config.tailwind), autoprefixer()];
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
@@ -110,11 +111,7 @@ devStyles = () => {
 
 devScripts = () => {
   return src(jsFiles)
-       .pipe(babel({
-           ignore: [
-               `${options.paths.src.js}/libs/**/*.js`
-           ]
-       }))
+      .pipe(babel())
       .pipe(concat({ path: 'main.js'}))
       .pipe(uglify())
       .pipe(dest(options.paths.dist.js));
@@ -122,10 +119,10 @@ devScripts = () => {
 
 devImages = () => {
   return src(`${options.paths.src.img}/**/*`)
-      .pipe(imagemin([
-          imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-          imagemin.optipng({optimizationLevel: 5})
-      ]))
+      // .pipe(imagemin([
+      //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+      //     imagemin.optipng({optimizationLevel: 5})
+      // ]))
       .pipe(dest(options.paths.dist.img));
 }
 

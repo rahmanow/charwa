@@ -41,7 +41,7 @@ const modulesByPage = () => {
 }
 
 const modulesList = {
-  index : {                               // page name without extention
+  index : {                               // page name without extension
     '#projects': projectCardsMap,       // id of the parent element : function
     '#client-slider': clientsMap,
     '#home-team': teamMap

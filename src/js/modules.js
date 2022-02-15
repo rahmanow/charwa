@@ -68,7 +68,7 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
             <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
                <img src="img/avatars/${avatar}" alt="...">
             </div>
-            <div>
+            <div class="font-mitr lowercase">
                <h4>${name}</h4>
                <p class="mb-0">${position}</p>
             </div>
