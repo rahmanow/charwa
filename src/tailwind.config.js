@@ -25,7 +25,7 @@ module.exports = {
         }
       },
       animation: {
-          fadeIn: 'fadeIn 1s ease-in forwards',
+          fadeIn: 'fadeIn 0.7s ease-in forwards',
           slide: 'slide 10s ease-out infinite'
       },
       spacing: {
@@ -38,6 +38,7 @@ module.exports = {
         '25': '6.25rem',
         '26': '6.6rem',
         '27': '6.85rem',
+        '75': '18.75rem',
         '100': '25rem',
         '104': '26rem',
         '108': '27rem',
@@ -55,6 +56,7 @@ module.exports = {
         '25': '6.25rem',
         '26': '6.6rem',
         '27': '6.85rem',
+        '75': '18.75rem',
         '100': '25rem',
         '104': '26rem',
         '108': '27rem',
@@ -68,8 +70,8 @@ module.exports = {
     },
     fontFamily: {
       'yeseva': ['"Yeseva One"', 'cursive'],
-      'josefin': ['"Josefin Sans"', 'sans-serif'],
-      'mitr': ['"Mitr"', 'sans-serif']
+      'josefin': ['"Josefin Sans"', 'sans-serif']
+      //'mitr': ['"Mitr"', 'sans-serif']
     },
     screens: {
       'sm': '640px',
@@ -89,6 +91,9 @@ module.exports = {
 
       'mxsm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
+
+      'mxmd': {'max': '768px'},
+      // => @media (max-width: 768px) { ... }
 
       'short': { 'raw': '(max-height: 415px)' },
       // => @media (min-height: 800px) { ... }

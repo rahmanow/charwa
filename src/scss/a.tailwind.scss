@@ -69,6 +69,19 @@ h6 { @apply text-lg; }
   h2 { @apply lowercase py-2 md:py-4 my-2 md:my-4 text-center md:text-left; }
 }
 
+.avatar {
+  @apply pt-48 md:pt-40;
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+
   .navigation-checkbox {
     &:checked {
       ~ .navigation-nav {
