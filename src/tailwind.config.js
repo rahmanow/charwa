@@ -25,7 +25,7 @@ module.exports = {
         }
       },
       animation: {
-          fadeIn: 'fadeIn 1s ease-in forwards',
+          fadeIn: 'fadeIn 0.7s ease-in forwards',
           slide: 'slide 10s ease-out infinite'
       },
       spacing: {

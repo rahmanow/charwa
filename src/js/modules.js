@@ -22,16 +22,16 @@ const menuMap = menu.map(([title, subImage, href]) => (
 )).join('');
 
 const clientsMap = clients.map(([name, logo]) => (
-    `<div class="item mx-5">
-        <img src="img/client-logo/${logo}" alt="${name}" class="img-fluid mx-auto h-24">
-     </div>`
+    `<div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
+        <img src="img/client-logo/${logo}" alt="${name}" class="block object-contain h-16">
+      </div>`
 )).join('');
 
 let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
     `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
             <div class="relative md:pb-6">
               <div class='${id}-visible-part h-128 sm:h-168 bg-ch-background flex rounded-xl'>
-                <img src='img/avatars/${avatar}' class='${id}-avatar pt-48 md:pt-40 py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
+                <img src='img/avatars/${avatar}' class='${id}-avatar py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
                 <div class='${id}-card-inner'>
                   <img src="img/avatars/facts/arrow.svg" class="absolute top-16 left-4 w-16" alt="" />
                   <p class="absolute top-6 left-4 text-2xl">${name}</p>
@@ -78,6 +78,7 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
          </div>`
     }).join('');
 
+// Sliding text and image
 let slidingMap = (obj) => {
     let val = Object.values(obj);
     let config = Object.values(obj.config);

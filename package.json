@@ -20,7 +20,8 @@
     "normalize-scss": "^7.0.1",
     "postcss": "^8.2.9",
     "slick-carousel": "^1.8.1",
-    "superchild": "^0.1.10"
+    "superchild": "^0.1.10",
+    "tiny-slider": "^2.9.4"
   },
   "license": "",
   "author": "",

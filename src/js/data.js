@@ -13,13 +13,6 @@ let menu = [
     ['about us', 'menu-sub-yellow.svg', 'aboutus.html']
 ];
 
-let sliderText = [
-    ['slider-interactive.svg', 'Powerful interactive', 'prototypes'],
-    ['slider-dev-friendly.svg', 'Developer-', 'friendly code'],
-    ['slider-seamless.svg', 'seamless', 'handoff']
-];
-
-
 let clients = [
     ['Eyesinden', 'eyesinden_logo.svg'],
     ['Satynal', 'satynal_logo.svg'],
@@ -34,10 +27,6 @@ let teamCards = [
     ['sc', 'Sona', 'sona_avatar.svg', 'sona.png'],
     ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
-
-let slidingLogo = [
-
-]
 
 let slidingTextAboutUs = {
     slidingElements: [

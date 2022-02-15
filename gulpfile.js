@@ -59,8 +59,7 @@ const jsFiles = [
     `${options.paths.src.js}/data.js`,
     `${options.paths.src.js}/functions.js`,
     `${options.paths.src.js}/modules.js`,
-    `${options.paths.src.js}/app.js`,
-    `!${options.paths.src.js}/**/external/*`
+    `${options.paths.src.js}/app.js`
 ]
 
 //Load Previews on Browser on dev
@@ -123,22 +122,12 @@ devScripts = () => {
 
 devImages = () => {
   return src(`${options.paths.src.img}/**/*`)
-      // .pipe(imagemin([
-      //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-      //     imagemin.optipng({optimizationLevel: 5})
-      // ]))
+      .pipe(imagemin([
+          imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+          imagemin.optipng({optimizationLevel: 5})
+      ]))
       .pipe(dest(options.paths.dist.img));
 }
-
-devFonts = () => {
-  return src(`${options.paths.src.css}/fonts/*`)
-      // .pipe(imagemin([
-      //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-      //     imagemin.optipng({optimizationLevel: 5})
-      // ]))
-      .pipe(dest(options.paths.dist.css + '/fonts'));
-}
-
 
 const watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
@@ -156,8 +145,16 @@ devClean = () => {
 
 //Production Tasks (Optimized Build for Live/Production Sites)
 prodHTML = () => {
-  return src(`${options.paths.src.base}/**/*.html`)
-      .pipe(dest(options.paths.build.base));
+    return src([
+        `${options.paths.src.base}/**/*.html`,
+        `!${options.paths.src.base}/**/header.html`, // ignore
+        `!${options.paths.src.base}/**/footer.html` // ignore
+    ])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest(options.paths.build.base));
 }
 
 prodStyles = () => {
@@ -175,18 +172,14 @@ prodStyles = () => {
 }
 
 prodScripts = () => {
-    return src(jsFiles)
-        .pipe(babel({
-            ignore: [`${options.paths.src.js}/libs/**/*.js`]
-        }))
+    return src(`${options.paths.dist.js}/*.js`)
         .pipe(concat({ path: 'main.js'}))
-        .pipe(uglify())
         .pipe(dest(options.paths.build.js));
 }
 
 prodImages = () => {
-  return src(options.paths.src.img + '/**/*')
-      .pipe(imagemin())
+  return src(`${options.paths.dist.img}/**/*`)
+      //.pipe(imagemin())
       .pipe(dest(options.paths.build.img));
 }
 
@@ -218,7 +211,7 @@ push = async () => {
 }
 
 surgeDeploy = async () => {
-    const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
+    const child = superChild(`surge ${options.paths.build.base} ${options.deploy.surgeUrl}`);
     child.on('stdout_line', (e) => {
         log(e);
     });
@@ -226,7 +219,7 @@ surgeDeploy = async () => {
 
 openBrowser = async () => {
     const opt = {uri: `https://${options.deploy.surgeUrl}`};
-    return src('./dist')
+    return src('./build')
         .pipe(open(opt));
 }
 
@@ -239,7 +232,7 @@ exports.push = series(push);
 
 exports.default = series(
     devClean, // Clean Dist Folder
-    parallel(devStyles, devScripts, devImages, devHTML, devFonts), //Run All tasks in parallel
+    parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
     livePreview, // Live Preview Build
 );
 
