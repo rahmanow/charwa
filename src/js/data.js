@@ -1,3 +1,7 @@
+function ready (fn) { (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);}
+const path = location.pathname;
+let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
+
 let projectCards = [
     ['ecommerce', 'satynal.jpg','', '<li>UX/UI</li><li>Front-End</li><li>Prestashop</li>'],
     ['blog', 'blogyn_azady.jpg','', '<li>Front-end</li><li>Ghost CMS</li>'],
@@ -49,29 +53,6 @@ let slidingTextAboutUs = {
         wordLineHeight: '6rem'
     }
 }
-let slidingLogos = {
-    slidingElements: [
-        'satynal-logo-dark.svg',
-        'eyesinden-logo-dark.svg',
-        'renklisahypa-logo-dark.svg',
-        'satynal-logo-dark.svg',
-        'eyesinden-logo-dark.svg'
-    ],
-    config: {
-        preText: '',
-        customClass: {
-            div: 'w-full',
-            ul: '',
-            liText: '',
-            liImg: ''
-        },
-        elementType: 'image',
-        sliderHeight: '2.75rem',
-        wordLineHeight: '1.6rem'
-    }
-}
-
-
 
 const homeTeam = {
     members: {

@@ -14,6 +14,26 @@ ready(() => {
   };
 });
 
+let slidingMap = sliding(slidingTextAboutUs);
+
+addInnerHTML('#nav-list', menuMap)
+if (page === 'index') {
+  addClass('.header-class', 'bg-ch-dark')
+  addClass('.navigation-bar', 'dark-navbar')
+  addInnerHTML('#projects', projectCardsMap)
+  addInnerHTML('#home-team', teamMap)
+  addInnerHTML('#client-slider', clientsMap)
+} else if (page === 'aboutus') {
+  addClass('.header-class', 'bg-ch-background')
+  addClass('.navigation-bar', 'light-navbar')
+  addInnerHTML('#sliding-items', slidingMap)
+  addInnerHTML('#team-cards', teamCardsMap)
+} else if (page === 'work') {
+  addClass('.header-class', 'bg-ch-background');
+  addClass('.navigation-bar', 'light-navbar');
+  addInnerHTML('#work-projects', projectCardsMap)
+}
+
 const unlockCard = (id) => {
   hideElement(['.'+ id + '-card-inner', '.'+ id + '-locked']);
   removeClass(['.'+ id + '-random-fact'], 'opacity-0');
@@ -30,40 +50,3 @@ const logoMouseOut = () => {
   removeClass('.slogan', 'slogan-animation');
   removeClass('.logo', 'logo-animation');
 };
-
-const modulesByPage = () => {
-  addInnerHTML('#nav-list', menuMap);
-  Promise.all(Object.entries(modulesList[page]).map(async(item) => {
-    const [key, value] = item;
-    addInnerHTML(key, await value);
-  })).then(r => {
-  })
-}
-
-const modulesList = {
-  index : {                               // page name without extension
-    '#projects': projectCardsMap,       // id of the parent element : function
-    '#client-slider': clientsMap,
-    '#home-team': teamMap
-  },
-  aboutus : {
-    '#sliding-items': slidingMap(slidingTextAboutUs),
-    '#team-cards': teamCardsMap
-  },
-  work: {
-    '#work-projects': projectCardsMap
-  }
-}
-modulesByPage();
-
-const navBar = () => {
-  //let color = document.querySelector('.light-navbar');
-  if(page === 'index') {
-    addClass('.header-class', 'bg-ch-dark');
-    addClass('.navigation-bar', 'dark-navbar');
-  } else {
-    addClass('.header-class', 'bg-ch-background');
-    addClass('.navigation-bar', 'light-navbar');
-  }
-}
-navBar();

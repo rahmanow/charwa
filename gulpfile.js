@@ -57,7 +57,6 @@ const options = require("./config");                //paths and other options fr
 
 
 const jsFiles = [
-    `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/data.js`,
     `${options.paths.src.js}/functions.js`,
     `${options.paths.src.js}/modules.js`,
@@ -156,18 +155,23 @@ prodHTML = () => {
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(htmlMin({ collapseWhitespace: true }))
+        //.pipe(htmlMin({ collapseWhitespace: true }))
         .pipe(dest(options.paths.build.base));
 }
 
 prodStyles = () => {
-  return src(`${options.paths.src.css}/style.css`)
-      .pipe(purge({
-        content: ['src/**/*.{html,js}'],
-        defaultExtractor: content => {
-          const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-          const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-          return broadMatches.concat(innerMatches)
+    const plugins = [tailwindcss(options.config.tailwind), autoprefixer()];
+    return src(`${options.paths.src.css}/**/*.scss`)
+        .pipe(sass().on('error', sass.logError))
+        //.pipe(dest(options.paths.src.css))
+        .pipe(post(plugins))
+        .pipe(concat({ path: 'style.css'}))
+        .pipe(clean())
+        .pipe(purge({content: ['src/**/*.{html,js}'],
+            defaultExtractor: content => {
+            const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+                const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+                return broadMatches.concat(innerMatches)
         }
       }))
       .pipe(clean({compatibility: 'ie8'}))
@@ -178,8 +182,8 @@ prodScripts = () => {
     return src(jsFiles)
         .pipe(babel())
         .pipe(concat({ path: 'main.js'}))
-        .pipe(uglify())
-        .pipe(dest(options.paths.dist.js))
+        //.pipe(uglify())
+        .pipe(dest(options.paths.build.js))
 }
 
 prodImages = () => {
