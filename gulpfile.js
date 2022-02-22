@@ -175,9 +175,11 @@ prodStyles = () => {
 }
 
 prodScripts = () => {
-    return src(`${options.paths.dist.js}/main.js`)
+    return src(jsFiles)
+        .pipe(babel())
         .pipe(concat({ path: 'main.js'}))
-        .pipe(dest(options.paths.build.js));
+        .pipe(uglify())
+        .pipe(dest(options.paths.dist.js))
 }
 
 prodImages = () => {
