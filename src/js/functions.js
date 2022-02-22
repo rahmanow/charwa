@@ -1,10 +1,3 @@
-function ready (fn) { (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);}
-
-const path = location.pathname;
-let page = (path === '' || path === '/') ? 'index' : path.substring(1).split('.')[0];
-
-const log = (item) => {console.log(item)}
-
 // add new class element
 const addClass = (selector, newClass) => {
     Array.isArray(selector) ? selector.forEach(item => {
@@ -47,7 +40,6 @@ const callback = function (entries) {
         }
     });
 };
-
 const observer = new IntersectionObserver(callback);
 const targets = document.querySelectorAll(".modules");
 targets.forEach(function (target) {

@@ -1,5 +1,5 @@
-const projectCardsMap = projectCards.map(([type, image, link,tech]) => (
-    `<div class="project-card lowercase relative overflow-hidden bg-black rounded-lg text-white relative">
+const projectCardsMap = projectCards.map(([type, image, link,tech]) => {
+    return `<div class="project-card lowercase relative overflow-hidden bg-black rounded-lg text-white relative">
             <a href="${link}" class="z-[100]" rel="external" target="_blank">
             <img src='img/projects/${image}' alt="..." width="100%" height="auto" class="opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75" />
             <div class="absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)]">
@@ -10,10 +10,10 @@ const projectCardsMap = projectCards.map(([type, image, link,tech]) => (
             </div>
              </a>
         </div>`
-)).join('');
+}).join('');
 
-const menuMap = menu.map(([title, subImage, href]) => (
-    `<div class="navigation-item transition-all duration-500 ease-in-out hover:scale-100">
+const menuMap = menu.map(([title, subImage, href]) => {
+    return `<div class="navigation-item transition-all duration-500 ease-in-out hover:scale-100">
     <a class="navigation-link text-white relative flex justify-center items-center text-4xl font-bold no-underline visited:text-4xl visited:font-bold visited:no-underline" href="${href}">
         <span class="menu-svg hidden pb-6 absolute md:inline opacity-0 transition-opacity duration-500 w-80 hover:opacity-100">
             <img src="./img/icons/${subImage}" alt="">
@@ -21,16 +21,16 @@ const menuMap = menu.map(([title, subImage, href]) => (
         <span>${title}</span>
     </a>
 </div>`
-)).join('');
+}).join('');
 
-const clientsMap = clients.map(([name, logo]) => (
-    `<div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
+const clientsMap = clients.map(([name, logo]) => {
+    return `<div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
         <img src="img/client-logo/${logo}" alt="${name}" class="block object-contain h-16">
       </div>`
-)).join('');
+}).join('');
 
-let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
-    `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
+let teamCardsMap = teamCards.map(([id,name, avatar, facts]) => {
+    return `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
             <div class="relative md:pb-6">
               <div class='${id}-visible-part h-128 sm:h-168 bg-ch-background flex rounded-xl'>
                 <img src='img/avatars/${avatar}' class='${id}-avatar py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
@@ -54,7 +54,7 @@ let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
               </div>
             </div>
     </div>`
-)).join('');
+}).join('');
 
 let teamMap  = Object.values(homeTeam.members).map(item => {
         let socialLinks = Object.entries(item.accounts);
@@ -81,7 +81,7 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
     }).join('');
 
 // Sliding text and image
-let slidingMap = (obj) => {
+let sliding = (obj) => {
     let val = Object.values(obj);
     let config = Object.values(obj.config);
     const [preText, customClass, type, sHeight, lHeight] = config;
