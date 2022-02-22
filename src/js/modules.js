@@ -1,12 +1,14 @@
-const projectCardsMap = projectCards.map(([type, image, tech]) => (
-    `<div class="project-card lowercase relative overflow-hidden bg-black rounded-lg text-white">
-            <img src='img/projects/${image}' alt="..." class="opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75" />
+const projectCardsMap = projectCards.map(([type, image, link,tech]) => (
+    `<div class="project-card lowercase relative overflow-hidden bg-black rounded-lg text-white relative">
+            <a href="${link}" class="z-[100]" rel="external" target="_blank">
+            <img src='img/projects/${image}' alt="..." width="100%" height="auto" class="opacity-70 w-full h-auto scale-125 transition-all duration-500 ease-out delay-75" />
             <div class="absolute top-0 right-0 bottom-0 left-0 p-4 rounded-[calc(0.25rem+1px)]">
                 <ul class="project-tech text-ch-background flex text-xs w-max absolute -top-16 left-4 transition-all duration-300 pl-0">
                     ${tech}
                 </ul>
                 <p class="project-type border border-solid border-gray-50 text-ch-background text-xs rounded-xl w-max px-2 pt-1 pb-0.5 absolute top-4 left-4 transition-all duration-300">${type}</p>
             </div>
+             </a>
         </div>`
 )).join('');
 
@@ -22,19 +24,19 @@ const menuMap = menu.map(([title, subImage, href]) => (
 )).join('');
 
 const clientsMap = clients.map(([name, logo]) => (
-    `<div class="item mx-5">
-        <img src="img/client-logo/${logo}" alt="${name}" class="img-fluid mx-auto h-24">
-     </div>`
+    `<div class="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
+        <img src="img/client-logo/${logo}" alt="${name}" class="block object-contain h-16">
+      </div>`
 )).join('');
 
 let teamCardsMap = teamCards.map(([id,name, avatar, facts]) =>(
     `<div class='${id} my-5 p-4 sm:p-12 rounded-xl bg-ch-dark lg:w-[calc(50%-theme(space.8))]'>
             <div class="relative md:pb-6">
               <div class='${id}-visible-part h-128 sm:h-168 bg-ch-background flex rounded-xl'>
-                <img src='img/avatars/${avatar}' class='${id}-avatar pt-48 md:pt-40 py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
+                <img src='img/avatars/${avatar}' class='${id}-avatar py-12 md:py-4 h-108 md:h-128 self-end w-full' alt="#" />
                 <div class='${id}-card-inner'>
+                  <p class="lowercase absolute top-6 left-4 text-2xl">${name}</p>
                   <img src="img/avatars/facts/arrow.svg" class="absolute top-16 left-4 w-16" alt="" />
-                  <p class="absolute top-6 left-4 text-2xl">${name}</p>
                 </div>
               </div>
               <div class='${id}-random-fact absolute top-4 w-full transform transition-opacity duration-200 opacity-0'>
@@ -68,8 +70,8 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
             <div class="w-56 h-56 rounded-full bg-ch-lightgreen flex justify-center items-center">
                <img src="img/avatars/${avatar}" alt="...">
             </div>
-            <div>
-               <h4>${name}</h4>
+            <div class="font-mitr lowercase">
+               <div class="text-2xl">${name}</div>
                <p class="mb-0">${position}</p>
             </div>
             <div class="social-icons list-none flex justify-center items-center pl-0">
@@ -78,6 +80,7 @@ let teamMap  = Object.values(homeTeam.members).map(item => {
          </div>`
     }).join('');
 
+// Sliding text and image
 let slidingMap = (obj) => {
     let val = Object.values(obj);
     let config = Object.values(obj.config);
@@ -95,7 +98,7 @@ let slidingMap = (obj) => {
     textList.push(textList[0]);
     let generatedList = textList.join('');
     let pre = preText ? '<div>' + preText + '</div>' : '';
-    return `${pre} <div class="mx-3 flex flex-col justify-between overflow-hidden align-middle ${customClass.div}" style="height:${sHeight}">
+    return `${pre} <div class="mx-4 md:mx-6 lg:mx-7 flex flex-col justify-between overflow-hidden align-middle ${customClass.div}" style="height:${sHeight}">
                 <ul class="inline-block m-0 p-0 list-none animate-slide ${customClass.ul}">
                     ${generatedList}
                 </ul>

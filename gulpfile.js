@@ -10,7 +10,7 @@
   Usage:
   1. npm install //To install all dev dependencies of package
   2. npm run dev //To start development and server for live preview
-  3. npm run prod //To generate minifed files for live server
+  3. npm run prod //To generate minified files for live server
 */
 
 // Gulp
@@ -22,18 +22,19 @@ const purge = require('gulp-purgecss');             // Remove Unused CSS from St
 const sass = require('gulp-sass')(require('sass')); //For Compiling SASS files
 
 /*  JS  */
-const concat = require('gulp-concat');              //For Concatinating js,scss, css files
+const concat = require('gulp-concat');              //For Concatenating js,scss, css files
 const uglify = require('gulp-terser');              //To Minify JS files
 const babel = require('gulp-babel');
 
 /*  Image   */
 const imagemin = require('gulp-imagemin');          //To Optimize Images
     //Note : Webp still not supported in major browsers including firefox
-const webp = require('gulp-webp');                  //For converting images to WebP format
-const replace = require('gulp-replace');            //For Replacing img formats to webp in html
+//const webp = require('gulp-webp');                  //For converting images to WebP format
+//const replace = require('gulp-replace');            //For Replacing img formats to webp in html
 
 /*  HTML    */
 const fileInclude = require('gulp-file-include');   // Include header and footer files to work faster :)
+const htmlMin = require('gulp-htmlmin');
 
 /*  Server  */
 const serve = require('browser-sync').create();
@@ -42,7 +43,8 @@ const del = require('del');                         //For Cleaning build/dist fo
 const log = require('fancy-log');
 const symbols = require('log-symbols');          //For Symbolic Console logs :) :P
 const superChild = require('superchild');
-const git = require('gulp-git');                    // Execute command line shell for git push
+const git = require('gulp-git');                // Execute command line shell for git push
+//const browserify = require('gulp-browserify');  // For bundling JS files
 
 // Config
 const options = require("./config");                //paths and other options from config.js
@@ -59,8 +61,7 @@ const jsFiles = [
     `${options.paths.src.js}/data.js`,
     `${options.paths.src.js}/functions.js`,
     `${options.paths.src.js}/modules.js`,
-    `${options.paths.src.js}/app.js`,
-    `!${options.paths.src.js}/**/external/*`
+    `${options.paths.src.js}/app.js`
 ]
 
 //Load Previews on Browser on dev
@@ -93,12 +94,13 @@ devHTML = () => {
         prefix: '@@',
         basepath: '@file'
       }))
+      .pipe(htmlMin({ collapseWhitespace: true }))
       .pipe(dest(options.paths.dist.base))
       .pipe(serve.stream());
 }
 
 devStyles = () => {
-    const plugins = [tailwindcss(options.config.tailwind), autoprefixer];
+    const plugins = [tailwindcss(options.config.tailwind), autoprefixer()];
   return src(`${options.paths.src.css}/**/*.scss`)
       .pipe(sass().on('error', sass.logError))
       .pipe(dest(options.paths.src.css))
@@ -106,19 +108,17 @@ devStyles = () => {
       .pipe(concat({ path: 'style.css'}))
       .pipe(clean())
       .pipe(dest(options.paths.dist.css))
+      .pipe(dest(options.paths.src.css))
       .pipe(serve.stream());
 }
 
 devScripts = () => {
   return src(jsFiles)
-       .pipe(babel({
-           ignore: [
-               `${options.paths.src.js}/libs/**/*.js`
-           ]
-       }))
+      .pipe(babel())
       .pipe(concat({ path: 'main.js'}))
       .pipe(uglify())
-      .pipe(dest(options.paths.dist.js));
+      .pipe(dest(options.paths.dist.js))
+      .pipe(dest(options.paths.src.js));
 }
 
 devImages = () => {
@@ -129,16 +129,6 @@ devImages = () => {
       // ]))
       .pipe(dest(options.paths.dist.img));
 }
-
-devFonts = () => {
-  return src(`${options.paths.src.css}/fonts/*`)
-      // .pipe(imagemin([
-      //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-      //     imagemin.optipng({optimizationLevel: 5})
-      // ]))
-      .pipe(dest(options.paths.dist.css + '/fonts'));
-}
-
 
 const watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
@@ -156,12 +146,22 @@ devClean = () => {
 
 //Production Tasks (Optimized Build for Live/Production Sites)
 prodHTML = () => {
-  return src(`${options.paths.src.base}/**/*.html`)
-      .pipe(dest(options.paths.build.base));
+    return src([
+        `${options.paths.src.base}/**/*.html`,
+        `!${options.paths.src.base}/**/header.html`, // ignore
+        `!${options.paths.src.base}/**/footer.html`, // ignore
+        `!${options.paths.src.base}/modules/*.html` // ignore
+    ])
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(htmlMin({ collapseWhitespace: true }))
+        .pipe(dest(options.paths.build.base));
 }
 
 prodStyles = () => {
-  return src(`${options.paths.dist.css}/**/*`)
+  return src(`${options.paths.src.css}/style.css`)
       .pipe(purge({
         content: ['src/**/*.{html,js}'],
         defaultExtractor: content => {
@@ -175,19 +175,18 @@ prodStyles = () => {
 }
 
 prodScripts = () => {
-    return src(jsFiles)
-        .pipe(babel({
-            ignore: [`${options.paths.src.js}/libs/**/*.js`]
-        }))
+    return src(`${options.paths.dist.js}/main.js`)
         .pipe(concat({ path: 'main.js'}))
-        .pipe(uglify())
         .pipe(dest(options.paths.build.js));
 }
 
 prodImages = () => {
-  return src(options.paths.src.img + '/**/*')
-      .pipe(imagemin())
-      .pipe(dest(options.paths.build.img));
+    return src(`${options.paths.src.img}/**/*`)
+        .pipe(imagemin([
+            imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+            imagemin.optipng({optimizationLevel: 5})
+        ]))
+        .pipe(dest(options.paths.build.img));
 }
 
 prodClean = () => {
@@ -218,7 +217,7 @@ push = async () => {
 }
 
 surgeDeploy = async () => {
-    const child = superChild(`surge ${options.paths.dist.base} ${options.deploy.surgeUrl}`);
+    const child = superChild(`surge ${options.paths.build.base} ${options.deploy.surgeUrl}`);
     child.on('stdout_line', (e) => {
         log(e);
     });
@@ -226,7 +225,7 @@ surgeDeploy = async () => {
 
 openBrowser = async () => {
     const opt = {uri: `https://${options.deploy.surgeUrl}`};
-    return src('./dist')
+    return src('./build')
         .pipe(open(opt));
 }
 
@@ -239,7 +238,7 @@ exports.push = series(push);
 
 exports.default = series(
     devClean, // Clean Dist Folder
-    parallel(devStyles, devScripts, devImages, devHTML, devFonts), //Run All tasks in parallel
+    parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
     livePreview, // Live Preview Build
 );
 

@@ -14,10 +14,34 @@ ready(() => {
   };
 });
 
+const unlockCard = (id) => {
+  hideElement(['.'+ id + '-card-inner', '.'+ id + '-locked']);
+  removeClass(['.'+ id + '-random-fact'], 'opacity-0');
+  removeClass(['.'+ id + '-unlocked'], 'hidden');
+  addClass('.'+ id + '-avatar', 'avatar');
+}
 
+const logoMouseOver = () => {
+  addClass('.slogan', 'slogan-animation');
+  addClass('.logo', 'logo-animation');
+}
+
+const logoMouseOut = () => {
+  removeClass('.slogan', 'slogan-animation');
+  removeClass('.logo', 'logo-animation');
+};
+
+const modulesByPage = () => {
+  addInnerHTML('#nav-list', menuMap);
+  Promise.all(Object.entries(modulesList[page]).map(async(item) => {
+    const [key, value] = item;
+    addInnerHTML(key, await value);
+  })).then(r => {
+  })
+}
 
 const modulesList = {
-  index : {                               // page name without extention
+  index : {                               // page name without extension
     '#projects': projectCardsMap,       // id of the parent element : function
     '#client-slider': clientsMap,
     '#home-team': teamMap
@@ -27,35 +51,19 @@ const modulesList = {
     '#team-cards': teamCardsMap
   },
   work: {
-    '#sliding-logo': slidingMap(slidingLogos),
     '#work-projects': projectCardsMap
   }
 }
-
 modulesByPage();
 
-$(document).ready(function () {
-  $(".client-slider").slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 1000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
-});
+const navBar = () => {
+  //let color = document.querySelector('.light-navbar');
+  if(page === 'index') {
+    addClass('.header-class', 'bg-ch-dark');
+    addClass('.navigation-bar', 'dark-navbar');
+  } else {
+    addClass('.header-class', 'bg-ch-background');
+    addClass('.navigation-bar', 'light-navbar');
+  }
+}
+navBar();

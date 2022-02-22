@@ -9,14 +9,16 @@ const log = (item) => {console.log(item)}
 const addClass = (selector, newClass) => {
     Array.isArray(selector) ? selector.forEach(item => {
         document.querySelector(item).classList.add(newClass);
-    }) : document.querySelector(selector).classList.add(newClass)
+    }) : (document.querySelector(selector)) ?
+        document.querySelector(selector).classList.add(newClass) : '';
 }
 
 // remove class element
 const removeClass = (selector, remove) => {
     Array.isArray(selector) ? selector.forEach(item => {
         document.querySelector(item).classList.remove(remove)
-    }) : document.querySelector(selector).classList.remove(remove)
+    }) : (document.querySelector(selector)) ?
+        document.querySelector(selector).classList.remove(remove) : '';
 }
 
 // hide an element
@@ -34,45 +36,6 @@ const addStyle = (selector, style) => {
 const addInnerHTML = (selector, value) => {
     selector ? document.querySelector(selector).innerHTML = value : '';
 }
-
-///// Custom Functions
-const unlockCard = (id) => {
-    hideElement(['.'+ id + '-card-inner', '.'+ id + '-locked']);
-    removeClass(['.'+ id + '-random-fact'], 'opacity-0');
-    removeClass(['.'+ id + '-unlocked'], 'hidden');
-    addClass('.'+ id + '-avatar', 'avatar');
-}
-
-const logoMouseOver = () => {
-    addClass('.slogan', 'slogan-animation');
-    addClass('.logo', 'logo-animation');
-}
-
-const logoMouseOut = () => {
-    removeClass('.slogan', 'slogan-animation');
-    removeClass('.logo', 'logo-animation');
-};
-
-const modulesByPage = () => {
-    addInnerHTML('#nav-list', menuMap);
-    Promise.all(Object.entries(modulesList[page]).map(async(item) => {
-        const [key, value] = item;
-        addInnerHTML(key, await value);
-    })).then(r => {
-    })
-}
-
-const navBar = () => {
-    //let color = document.querySelector('.light-navbar');
-    if(page === 'index') {
-        addClass('.header-class', 'bg-ch-dark');
-        addClass('.navigation-bar', 'dark-navbar');
-    } else {
-        addClass('.header-class', 'bg-ch-background');
-        addClass('.navigation-bar', 'light-navbar');
-    }
-}
-navBar();
 
 // Scroll Fade Animation
 const callback = function (entries) {

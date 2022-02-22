@@ -1,10 +1,10 @@
 let projectCards = [
-    ['ecommerce', 'satynal.png', '<li>UX/UI</li><li>Front-End</li><li>Prestashop</li>'],
-    ['blog', 'blogyn_azady.png', '<li>Front-end</li><li>Ghost CMS</li>'],
-    ['ecommerce', 'bip_fly.png', '<li>UX/UI</li>'],
-    ['business', 'poda.png', '<li>UX/UI</li>'],
-    ['blog', 'renkli_sahypa.png', '<li>Front-end</li><li>Ghost CMS</li>'],
-    ['motion graphics', 'hayat_creative.png', '<li>motion graphic</li><li>after effects</li>']
+    ['ecommerce', 'satynal.jpg','', '<li>UX/UI</li><li>Front-End</li><li>Prestashop</li>'],
+    ['blog', 'blogyn_azady.jpg','', '<li>Front-end</li><li>Ghost CMS</li>'],
+    ['ecommerce', 'bip_fly.jpg', '', '<li>UX/UI</li>'],
+    ['business', 'poda.jpg', '', '<li>UX/UI</li>'],
+    ['blog', 'renkli_sahypa.jpg', '', '<li>Front-end</li><li>Ghost CMS</li>'],
+    ['motion graphics', 'hayat_creative.jpg', 'https://www.youtube.com/watch?v=11T2ZYvJdPk', '<li>motion graphic</li><li>after effects</li>']
 ];
 
 let menu = [
@@ -12,13 +12,6 @@ let menu = [
     ['work', 'menu-sub-orange.svg', 'work.html'],
     ['about us', 'menu-sub-yellow.svg', 'aboutus.html']
 ];
-
-let sliderText = [
-    ['slider-interactive.svg', 'Powerful interactive', 'prototypes'],
-    ['slider-dev-friendly.svg', 'Developer-', 'friendly code'],
-    ['slider-seamless.svg', 'seamless', 'handoff']
-];
-
 
 let clients = [
     ['Eyesinden', 'eyesinden_logo.svg'],
@@ -34,10 +27,6 @@ let teamCards = [
     ['sc', 'Sona', 'sona_avatar.svg', 'sona.png'],
     ['ko', 'Kakajan', 'kakajan_avatar.svg', 'kakajan.png'],
 ];
-
-let slidingLogo = [
-
-]
 
 let slidingTextAboutUs = {
     slidingElements: [
