@@ -129,6 +129,11 @@ devImages = () => {
       .pipe(dest(options.paths.dist.img));
 }
 
+devOther = () => {
+  return src(`${options.paths.src.base}/{.htaccess,robots.txt,browserconfig.xml}`)
+      .pipe(dest(options.paths.dist.base));
+}
+
 const watchFiles = () => {
   watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
   watch(`${options.paths.src.css}/**/*.scss`,series(devStyles));
@@ -155,7 +160,7 @@ prodHTML = () => {
             prefix: '@@',
             basepath: '@file'
         }))
-        //.pipe(htmlMin({ collapseWhitespace: true }))
+        .pipe(htmlMin({ collapseWhitespace: true }))
         .pipe(dest(options.paths.build.base));
 }
 
@@ -182,17 +187,22 @@ prodScripts = () => {
     return src(jsFiles)
         .pipe(babel())
         .pipe(concat({ path: 'main.js'}))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(dest(options.paths.build.js))
 }
 
 prodImages = () => {
     return src(`${options.paths.src.img}/**/*`)
-        .pipe(imagemin([
-            imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
-            imagemin.optipng({optimizationLevel: 5})
-        ]))
+        // .pipe(imagemin([
+        //     imagemin.mozjpeg({quality: 75, progressiveLazyLoad: true}),
+        //     imagemin.optipng({optimizationLevel: 5})
+        // ]))
         .pipe(dest(options.paths.build.img));
+}
+
+prodOther = () => {
+    return src(`${options.paths.src.base}/{.htaccess,robots.txt,browserconfig.xml}`)
+        .pipe(dest(options.paths.dist.base));
 }
 
 prodClean = () => {
@@ -244,12 +254,12 @@ exports.push = series(push);
 
 exports.default = series(
     devClean, // Clean Dist Folder
-    parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
+    parallel(devStyles, devScripts, devImages, devHTML, devOther), //Run All tasks in parallel
     livePreview, // Live Preview Build
 );
 
 exports.prod = series(
     prodClean, // Clean Build Folder
-    parallel(prodStyles, prodScripts, prodImages, prodHTML), //Run All tasks in parallel
+    parallel(prodStyles, prodScripts, prodImages, prodHTML, prodOther), //Run All tasks in parallel
     buildFinish
 );

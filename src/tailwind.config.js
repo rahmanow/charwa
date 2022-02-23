@@ -70,8 +70,8 @@ module.exports = {
     },
     fontFamily: {
       'yeseva': ['"Yeseva One"', 'cursive'],
-      'josefin': ['"Josefin Sans"', 'sans-serif']
-      //'mitr': ['"Mitr"', 'sans-serif']
+      'josefin': ['"Josefin Sans"', 'sans-serif'],
+      'mitr': ['"Mitr"', 'sans-serif']
     },
     screens: {
       'sm': '640px',
